@@ -6,4 +6,8 @@ public class CharacterCard implements Card {
     public CharacterCard(String characterName) {
         this.characterName  = characterName;
     }
+
+    public String toString() {
+        return "Character: " + characterName;
+    }
 }

@@ -16,7 +16,6 @@ public class Location {
             switch (dir) {
                 case NORTH:
                 case SOUTH:
-
                 case EAST:
                 case WEST:
             }

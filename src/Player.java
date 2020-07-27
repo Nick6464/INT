@@ -50,4 +50,25 @@ public class Player {
     public void dealHand(Card card) {
         hand.add(card);
     }
+
+    /**
+     * Creates a new player, and assigns a position based on chosen character
+     * @param name  the name of the chosen character
+     */
+    public Player(String name) {
+        switch (name) {
+            case "Miss Scarlett":
+                //location = new Location(MS location)
+            case "Rev Green":
+                //RG location
+            case "Colonel Mustard":
+                //CM location
+            case "Professor Plum":
+                //PP location
+            case "Mrs. Peacock":
+                //MP location
+            case "Mrs. White":
+                //MW location
+        }
+    }
 }

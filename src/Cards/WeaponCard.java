@@ -6,4 +6,8 @@ public class WeaponCard implements Card {
     public WeaponCard(String name) {
         weaponName = name;
     }
+
+    public String toString() {
+        return "Weapon: " +weaponName;
+    }
 }

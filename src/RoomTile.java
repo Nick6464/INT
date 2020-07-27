@@ -3,14 +3,16 @@ import java.util.ArrayList;
  * Class for the Tiles that are in rooms.
  */
 public class RoomTile implements Tile {
-    private Room room;
+    private final Room room;
+    private final ArrayList<Direction> walls;
 
     /**
      * Constructor for RoomTile
      * - room: The Room the tile belongs in
      */
-    public RoomTile(Room room) {
+    public RoomTile(Room room, ArrayList<Direction> walls) {
         this.room = room;
+        this.walls = walls;
     }
 
     /**

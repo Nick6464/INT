@@ -6,4 +6,8 @@ public class RoomCard implements Card {
     public RoomCard(String roomName) {
     this.roomName = roomName;
     }
+
+    public String toString() {
+        return "Room: " + roomName;
+    }
 }

@@ -4,10 +4,14 @@ import java.util.ArrayList;
  */
 public class CorridorTile implements Tile {
 
+    private final ArrayList<Direction> walls;
+
     /**
      * Constructor for CorridorTile
+     * @param walls
      */
-    public CorridorTile() {
+    public CorridorTile(ArrayList<Direction> walls) {
+        this.walls = walls;
     }
 
     /**

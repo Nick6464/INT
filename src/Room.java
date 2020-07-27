@@ -1,5 +1,11 @@
+import java.util.ArrayList;
+
 public class Room {
     boolean isCrimeScene;
     private String roomName;
-    private Direction wall;
+
+    public Room(String name, boolean crimeScene) {
+        roomName = name;
+        isCrimeScene = crimeScene;
+    }
 }
