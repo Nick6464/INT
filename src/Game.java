@@ -24,6 +24,10 @@ public class Game {
         cards.addAll(dealCharacters());
         cards.addAll(dealRooms());
         Collections.shuffle(cards);
+        int handSize = cards.size() / players.length;
+        for (int i=0; i < players.length; i++) {
+            players[i].
+        }
         //TODO - Deal cards to players
     }
 

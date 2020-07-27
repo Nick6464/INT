@@ -23,4 +23,8 @@ public class Player {
         moves = die1 + die2;
         System.out.printf("%s rolled %.0f and %.0f\n", playerName, die1, die2);
     }
+
+    public void dealHand(){
+
+    }
 }
