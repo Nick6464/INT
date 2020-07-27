@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c918d163-f90c-4c66-b943-3b47f6ec0d47" name="Default Changelist" comment="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()" />
+    <list default="true" id="c918d163-f90c-4c66-b943-3b47f6ec0d47" name="Default Changelist" comment="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()">
+      <change beforePath="$PROJECT_DIR$/src/CorridorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CorridorTile.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,6 +118,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Setup the card decks" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1595825611316">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1595825611316" />
     <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595816418022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -144,9 +150,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="73" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595813417246" />
-    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595822064037">
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595825506075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1595825506075" />
     <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595822064037" />
     <state x="115" y="418" key="git4idea.ui.GitResetDialog" timestamp="1595813613624">
       <screen x="0" y="0" width="1920" height="1040" />
