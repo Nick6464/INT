@@ -19,4 +19,5 @@
 
 # IntelliJ
 out/
+.idea/
 *.xml
