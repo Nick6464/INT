@@ -52,7 +52,14 @@ public class Game {
      * @return character card deck
      */
     private ArrayList<Card> dealCharacters() {
-        ArrayList<Card> characters = new ArrayList<>();
+        ArrayList<Card> characters = new ArrayList<>(Arrays.asList(
+                new CharacterCard("Miss Scarlett"),
+                new CharacterCard("Rev Green"),
+                new CharacterCard("Colonel Mustard"),
+                new CharacterCard("Professor Plum"),
+                new CharacterCard("Mrs. Peacock"),
+                new CharacterCard("Mrs. White")
+        ));
         Collections.shuffle(characters);
         culprit = (CharacterCard) characters.remove(0);
         return characters;
@@ -64,7 +71,17 @@ public class Game {
      * @return room card deck
      */
     private ArrayList<Card> dealRooms() {
-        ArrayList<Card> rooms = new ArrayList<>();
+        ArrayList<Card> rooms = new ArrayList<>(Arrays.asList(
+                new RoomCard("Kitchen"),
+                new RoomCard("Ballroom"),
+                new RoomCard("Conservatory"),
+                new RoomCard("Dining Room"),
+                new RoomCard("Billiard Room"),
+                new RoomCard("Library"),
+                new RoomCard("Lounge"),
+                new RoomCard("Hall"),
+                new RoomCard("Study")
+        ));
         Collections.shuffle(rooms);
         crimeScene = (RoomCard) rooms.remove(0);
         return rooms;
