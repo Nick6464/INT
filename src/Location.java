@@ -1,17 +1,26 @@
 public class Location {
-    private char x;
-    private int y;
+    private int x;
+    private char y;
 
-    public Location(char x, int y){
+    public Location(int x, char y){
         this.x = x;
         this.y = y;
     }
 
-    public char getX() { return x;}
+    public int getX() { return x;}
 
-    public int getY() {return y;}
+    public char getY() {return y;} //Char to int?
 
     public boolean move(Direction dir, int dist){
-        return true;
+        for (int i = 0; i < dist; i++) {
+            switch (dir) {
+                case NORTH:
+                case SOUTH:
+
+                case EAST:
+                case WEST:
+            }
+        }
+        return false;
     }
 }

@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="" />
+    <list default="true" id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CorridorTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RoomTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wall.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -18,8 +35,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Trimester 1/COMP 261/Assignment 3/Mapper2" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="SvnConfiguration">
@@ -33,13 +52,38 @@
       <option name="presentableId" value="Default" />
       <updated>1595812978122</updated>
       <workItem from="1595812983819" duration="1025000" />
+      <workItem from="1595814037137" duration="2417000" />
     </task>
+    <task id="LOCAL-00001" summary="Added JavaDoc">
+      <created>1595814079782</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595814079782</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595816418022">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1595816418022" />
+    <state x="446" y="89" key="CommitChangelistDialog2" timestamp="1595814079274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="446" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595814079274" />
+    <state x="261" y="278" key="FileChooserDialogImpl" timestamp="1595815782908">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="261" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595815782908" />
     <state x="784" y="440" key="Github.CreateGistDialog" timestamp="1595813229519">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
