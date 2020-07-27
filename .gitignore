@@ -1,2 +1,2 @@
-*.xml
-*.patch
+.idea/*
+out/*
