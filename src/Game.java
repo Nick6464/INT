@@ -26,9 +26,13 @@ public class Game {
         Collections.shuffle(cards);
         int handSize = cards.size() / players.length;
         for (int i=0; i < players.length; i++) {
-            players[i].
+            players[i].dealHand(cards.subList(0, handSize));
+            cards.subList(0, handSize).clear();
         }
-        //TODO - Deal cards to players
+        int p = 0;
+        while (!cards.isEmpty()) {
+            players[p++].dealHand(cards.get(0));
+        }
     }
 
     /**
