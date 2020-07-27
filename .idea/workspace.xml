@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CorridorTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RoomTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wall.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +45,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595812978122</updated>
       <workItem from="1595812983819" duration="1025000" />
-      <workItem from="1595814037137" duration="2417000" />
+      <workItem from="1595814037137" duration="5018000" />
     </task>
     <task id="LOCAL-00001" summary="Added JavaDoc">
       <created>1595814079782</created>
@@ -61,7 +54,28 @@
       <option name="project" value="LOCAL" />
       <updated>1595814079782</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Various tweaks, added Tiles">
+      <created>1595816524375</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595816524375</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Tiles">
+      <created>1595816582882</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1595816582882</updated>
+    </task>
+    <task id="LOCAL-00004" summary="cleanup">
+      <created>1595816654661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1595816654661</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,17 +83,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added JavaDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc" />
+    <MESSAGE value="Various tweaks, added Tiles" />
+    <MESSAGE value="Added Tiles" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595816418022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1595816418022" />
-    <state x="446" y="89" key="CommitChangelistDialog2" timestamp="1595814079274">
+    <state x="446" y="89" key="CommitChangelistDialog2" timestamp="1595816654156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="446" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595814079274" />
+    <state x="446" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595816654156" />
     <state x="261" y="278" key="FileChooserDialogImpl" timestamp="1595815782908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
