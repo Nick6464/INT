@@ -1,8 +1,11 @@
 import Cards.Card;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
     String playerName;
-    private Card[] hand;
+    private ArrayList<Card> hand;
     private Location location;
     private int moves;
 
@@ -24,7 +27,11 @@ public class Player {
         System.out.printf("%s rolled %.0f and %.0f\n", playerName, die1, die2);
     }
 
-    public void dealHand(){
+    public void dealHand(List<Card> cards) {
+        hand.addAll(cards);
+    }
 
+    public void dealHand(Card card) {
+        hand.add(card);
     }
 }
