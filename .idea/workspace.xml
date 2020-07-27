@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="cleanup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cards/CharacterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/CharacterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cards/RoomCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/RoomCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-    </list>
+    <list default="true" id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595812978122</updated>
       <workItem from="1595812983819" duration="1025000" />
-      <workItem from="1595814037137" duration="7461000" />
+      <workItem from="1595814037137" duration="7828000" />
     </task>
     <task id="LOCAL-00001" summary="Added JavaDoc">
       <created>1595814079782</created>
@@ -78,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595816654661</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Setup the card decks">
+      <created>1595821691952</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1595821691952</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,17 +91,18 @@
     <MESSAGE value="Various tweaks, added Tiles" />
     <MESSAGE value="Added Tiles" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="Setup the card decks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup the card decks" />
   </component>
   <component name="WindowStateProjectService">
     <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595816418022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1595816418022" />
-    <state x="446" y="89" key="CommitChangelistDialog2" timestamp="1595819438212">
+    <state x="446" y="89" key="CommitChangelistDialog2" timestamp="1595821691435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="446" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595819438212" />
+    <state x="446" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595821691435" />
     <state x="261" y="278" key="FileChooserDialogImpl" timestamp="1595815782908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -120,10 +123,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="73" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595813417246" />
-    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595820608103">
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595821981109">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595820608103" />
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595821981109" />
     <state x="115" y="418" key="git4idea.ui.GitResetDialog" timestamp="1595813613624">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
