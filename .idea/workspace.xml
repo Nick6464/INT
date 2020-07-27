@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1fFTjmJzIbhUXMwZucP35286BJ4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="" />
+      <created>1595812978122</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595812978122</updated>
+      <workItem from="1595812983819" duration="398000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="784" y="440" key="Github.CreateGistDialog" timestamp="1595813229519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="784" y="440" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595813229519" />
+    <state x="27" y="159" key="SettingsEditor" timestamp="1595813387174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="27" y="159" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595813387174" />
+    <state x="619" y="242" key="run.anything.popup" timestamp="1595813078494">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="619" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595813078494" />
+  </component>
+</project>
