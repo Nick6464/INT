@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 /**
  * Class for the Tiles that are in rooms.
  */

@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c918d163-f90c-4c66-b943-3b47f6ec0d47" name="Default Changelist" comment="Commented the board layout">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoomTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoomTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tile.java" afterDir="false" />
-    </list>
+    <list default="true" id="c918d163-f90c-4c66-b943-3b47f6ec0d47" name="Default Changelist" comment="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595821691952</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()">
+      <created>1595824987838</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1595824987838</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,13 +120,14 @@
     <MESSAGE value="Added Tiles" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="Setup the card decks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup the card decks" />
+    <MESSAGE value="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1595824438401">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1595824617213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1595824438401" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1595824617213" />
     <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595816418022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
