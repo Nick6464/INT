@@ -19,20 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c918d163-f90c-4c66-b943-3b47f6ec0d47" name="Default Changelist" comment="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_07_2020_3_49_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_07_2020_3_49_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_07_2020_3_52_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_07_2020_3_52_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cards/CharacterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/CharacterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cards/RoomCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/RoomCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cards/WeaponCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/WeaponCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CorridorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CorridorTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoomTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoomTile.java" afterDir="false" />
-    </list>
+    <list default="true" id="c918d163-f90c-4c66-b943-3b47f6ec0d47" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +37,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1fFTjmJzIbhUXMwZucP35286BJ4" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -68,13 +58,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f3be2516-b493-4ab0-a15d-e1cde092abdb" name="Default Changelist" comment="" />
+      <changelist id="c918d163-f90c-4c66-b943-3b47f6ec0d47" name="Default Changelist" comment="" />
       <created>1595812978122</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595812978122</updated>
       <workItem from="1595812983819" duration="1025000" />
       <workItem from="1595814037137" duration="8249000" />
+      <workItem from="1595853658661" duration="711000" />
     </task>
     <task id="LOCAL-00001" summary="Added JavaDoc">
       <created>1595814079782</created>
@@ -111,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595821691952</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()">
+      <created>1595846131614</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1595846131614</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +124,8 @@
     <MESSAGE value="Added Tiles" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="Setup the card decks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup the card decks" />
+    <MESSAGE value="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tile.java:&#10;+ walls (an ArrayList of directions indicating where walls are)&#10;+ getWalls()&#10;&#10;RoomTile.java:&#10;+ constructor for class&#10;+ getRoom()" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1595825611316">
@@ -137,10 +136,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="228" y="414" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1595816418022" />
-    <state x="446" y="89" key="CommitChangelistDialog2" timestamp="1595821691435">
+    <state x="446" y="53" key="CommitChangelistDialog2" timestamp="1595846129960">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="446" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595821691435" />
+    <state x="446" y="53" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595846129960" />
     <state x="261" y="278" key="FileChooserDialogImpl" timestamp="1595815782908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -157,15 +156,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="129" y="228" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595813612761" />
-    <state x="73" y="256" key="Vcs.Push.Dialog.v2" timestamp="1595813417246">
+    <state x="73" y="256" key="Vcs.Push.Dialog.v2" timestamp="1595846134581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="73" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595813417246" />
-    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595825506075">
+    <state x="73" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595846134581" />
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595854215592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1595825506075" />
-    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595822064037" />
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595854215592" />
     <state x="115" y="418" key="git4idea.ui.GitResetDialog" timestamp="1595813613624">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
