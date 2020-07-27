@@ -14,14 +14,24 @@ public class Game {
     private Cards.WeaponCard murderWeapon;
     private Cards.RoomCard crimeScene;
 
+    /**
+     * Creates the relative decks, then combines and shuffles them.
+     * Then deals the appropriate number depending on number of players
+     */
     public void dealCards() {
         ArrayList<Card> cards = new ArrayList<>();
         cards.addAll(dealWeapons());
         cards.addAll(dealCharacters());
         cards.addAll(dealRooms());
         Collections.shuffle(cards);
+        //TODO - Deal cards to players
     }
 
+    /**
+     * Creates a set of weapon cards, shuffles them,
+     * and then selects one as the murder weapon for the current game
+     * @return weapon card deck
+     */
     private ArrayList<Card> dealWeapons() {
         ArrayList<Card> weapons = new ArrayList<>(Arrays.asList(
                 new WeaponCard("Candlestick"),
@@ -36,6 +46,11 @@ public class Game {
         return weapons;
     }
 
+    /**
+     * Creates a set of character cards, shuffles them,
+     * and then selects one as the murderer for the current game
+     * @return character card deck
+     */
     private ArrayList<Card> dealCharacters() {
         ArrayList<Card> characters = new ArrayList<>();
         Collections.shuffle(characters);
@@ -43,6 +58,11 @@ public class Game {
         return characters;
     }
 
+    /**
+     * Creates a set of room cards, shuffles them,
+     * and then selects one as the crime scene for the current game
+     * @return room card deck
+     */
     private ArrayList<Card> dealRooms() {
         ArrayList<Card> rooms = new ArrayList<>();
         Collections.shuffle(rooms);

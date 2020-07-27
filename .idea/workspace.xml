@@ -32,7 +32,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595812978122</updated>
-      <workItem from="1595812983819" duration="398000" />
+      <workItem from="1595812983819" duration="1025000" />
     </task>
     <servers />
   </component>
@@ -48,9 +48,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="27" y="159" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595813387174" />
+    <state x="129" y="228" key="VCS.ChangeListViewerDialog" timestamp="1595813612761">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="129" y="228" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595813612761" />
+    <state x="73" y="256" key="Vcs.Push.Dialog.v2" timestamp="1595813417246">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="73" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595813417246" />
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595813586639">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="288" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595813586639" />
+    <state x="115" y="418" key="git4idea.ui.GitResetDialog" timestamp="1595813613624">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="115" y="418" key="git4idea.ui.GitResetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595813613624" />
     <state x="619" y="242" key="run.anything.popup" timestamp="1595813078494">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="619" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595813078494" />
+    <state x="619" y="175" width="672" height="676" key="search.everywhere.popup" timestamp="1595813886038">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="619" y="175" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595813886038" />
   </component>
 </project>
