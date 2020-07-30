@@ -10,6 +10,30 @@ public class Player {
     private int moves;
 
     /**
+     * Allows player to perform move and guess actions before ending their turn
+     */
+    public void takeTurn() {
+        rollDice();
+        while (moves > 0) {
+            System.out.println(moves + " moves remaining");
+            //TODO - Ask user for direction and distance to move
+
+            //User Input// -- Temp hardcode to prevent error
+            Direction dir = Direction.NORTH;
+            int dist = 0;
+
+            if (dist > 0)
+                move(dir,dist);
+            else
+                break; //Player has chosen to stop early
+        }
+
+        if (location.inRoom()) {
+            //TODO - allow player to make a guess
+        }
+    }
+
+    /**
      * Moves player in desired direction on the board if no wall is in the way
      * @param direction direction to travel in
      * @param distance  how far to move
