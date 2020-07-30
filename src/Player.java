@@ -1,5 +1,6 @@
 import Cards.Card;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,15 +39,19 @@ public class Player {
      * @param direction direction to travel in
      * @param distance  how far to move
      */
-    public void move(Direction direction, int distance) {
+    public int move(Direction direction, int distance) {
         if (distance > moves) {
             System.out.println("Can only move " + moves + " spaces this turn");
-            return;
+            return distance;
         }
-        if (!location.move(direction, distance)) {
-            System.out.println("You cannot move in that direction");
-            return;
+        while (distance > 0) {
+            if (!location.move(direction)) {
+                System.out.println("You cannot move further in that direction");
+                return distance;
+            }
+            distance--;
         }
+        return 0;
     }
 
     /**

@@ -11,15 +11,30 @@ public class Location {
 
     public char getY() {return y;} //Char to int?
 
-    public boolean move(Direction dir, int dist){
-        for (int i = 0; i < dist; i++) {
-            switch (dir) {
-                case NORTH:
-                case SOUTH:
-                case EAST:
-                case WEST:
-            }
+    public void setX(int x) { this.x = x; }
+
+    public void setY(char y) { this.y = y; }
+
+    public boolean move(Direction dir){
+        //if (wall in dir) { return false;}
+        switch (dir) {
+            case NORTH:
+                y -= y;
+            case SOUTH:
+                y += y;
+            case EAST:
+                x += x;
+            case WEST:
+                x -= x;
         }
-        return false;
+        return true;
+    }
+
+    /**
+     * returns true if the location is within a room
+     * @return
+     */
+    public boolean inRoom() {
+        return true; // temp line
     }
 }
