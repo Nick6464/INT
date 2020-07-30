@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-
 public class Room {
-    boolean isCrimeScene;
-    private String roomName;
+    boolean isCrimeScene = false;
+    private final String roomName;
 
-    public Room(String name, boolean crimeScene) {
+    public Room(String name) {
         roomName = name;
-        isCrimeScene = crimeScene;
     }
+
+    public void isCrimeScene() { isCrimeScene = true; }
 }

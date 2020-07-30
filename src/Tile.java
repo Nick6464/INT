@@ -11,7 +11,15 @@ public interface Tile {
      * Getter for the walls each tile has
      * @return an ArrayList of Directions, the directions represent where walls are.
      */
-    ArrayList<Direction> getWalls();
+    default ArrayList<Direction> getWalls() {
+        return walls;
+    }
 
-
+    /**
+     * Adds a wall to the tile
+     * @param dir   The direction in which travel is blocked by a wall
+     */
+    default void setWalls(Direction dir) {
+        walls.add(dir);
+    };
 }

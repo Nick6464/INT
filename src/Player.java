@@ -1,6 +1,5 @@
 import Cards.Card;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +68,7 @@ public class Player {
      * @param cards cards held this game
      */
     public void dealHand(List<Card> cards) {
-        hand.addAll(cards);
+        hand = new ArrayList<>(cards);
     }
 
     /**

@@ -1,7 +1,7 @@
 package Cards;
 
 public class RoomCard implements Card {
-    private String roomName;
+    private final String roomName;
 
     public RoomCard(String roomName) {
     this.roomName = roomName;

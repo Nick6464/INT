@@ -4,15 +4,13 @@ import java.util.ArrayList;
  */
 public class RoomTile implements Tile {
     private final Room room;
-    private final ArrayList<Direction> walls;
 
     /**
      * Constructor for RoomTile
      * - room: The Room the tile belongs in
      */
-    public RoomTile(Room room, ArrayList<Direction> walls) {
+    public RoomTile(Room room) {
         this.room = room;
-        this.walls = walls;
     }
 
     /**
@@ -23,13 +21,4 @@ public class RoomTile implements Tile {
         return this.room;
     }
 
-
-    /**
-     * Getter for the walls each tile has.
-     * @return an ArrayList of Directions, the directions represent where walls are.
-     */
-    @Override
-    public ArrayList<Direction> getWalls() {
-        return this.walls;
-    }
 }

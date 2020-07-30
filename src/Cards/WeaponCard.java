@@ -1,7 +1,7 @@
 package Cards;
 
 public class WeaponCard implements Card {
-    private String weaponName;
+    private final String weaponName;
 
     public WeaponCard(String name) {
         weaponName = name;
