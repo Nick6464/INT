@@ -2,7 +2,7 @@ public class Location {
     private int x;
     private char y;
 
-    public Location(int x, char y){
+    public Location(char y, int x){
         this.x = x;
         this.y = y;
     }

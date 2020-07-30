@@ -73,7 +73,7 @@ public class Player {
     }
 
     /**
-     * Adds leftover cards from deck in case of inequal deal
+     * Adds leftover cards from deck in case of unequal deal
      * @param card  an extra card for the hand
      */
     public void dealHand(Card card) {
@@ -87,17 +87,17 @@ public class Player {
     public Player(String name) {
         switch (name) {
             case "Miss Scarlett":
-                //location = new Location(MS location)
+                location = new Location('Y', 8);
             case "Rev Green":
-                //RG location
+                location = new Location('A', 15);
             case "Colonel Mustard":
-                //CM location
+                location = new Location('R', 1);
             case "Professor Plum":
-                //PP location
+                location = new Location('T', 24);
             case "Mrs. Peacock":
-                //MP location
+                location = new Location('G', 24);
             case "Mrs. White":
-                //MW location
+                location = new Location('A', 10);
         }
     }
 }
