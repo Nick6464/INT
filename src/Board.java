@@ -62,12 +62,12 @@ public class Board {
         String room = "Kitchen";
         rooms.put(room, new Room(room));
 
-        int[] B = {1,2,3,4,5,6};
+        int[] B = {1,2,3,4,5,6}; //every tile here will have a north wall
         int[] C = {1,2,3,4,5,6};
         int[] D = {1,2,3,4,5,6};
         int[] E = {1,2,3,4,5,6};
         int[] F = {1,2,3,4,5,6};
-        int[] G = {2,3,4,5,6};
+        int[] G = {2,3,4,5,6};   //every tile here will have a south wall
 
         for (int i: B)
             board[((int)'B'-65)][i] = new RoomTile(rooms.get(room));
@@ -176,5 +176,11 @@ public class Board {
         //South Walls//
         //East Walls//
         //West Walls//
+
+        //for each room the first array of every room will have a north wall
+        //1. iterate through the array of tiles
+        //2. set the wall direction to North
+        //3. set the wall direction for the tiles above as south.
+
     }
 }
