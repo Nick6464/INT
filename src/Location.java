@@ -20,7 +20,7 @@ public class Location {
     /**
      * @return Y location value as an integer
      */
-    public int getYIndex() { return (int)y-65;}
+    public int getYIndex() { return (int)y-64;}
 
     /**
      * Sets the X location value
@@ -38,7 +38,7 @@ public class Location {
      * Sets the Y location when given a Y index instead of character value
      * @param y
      */
-    public void setY(int y) { this.y = (char)(y+65); }
+    public void setY(int y) { this.y = (char)(y+64); }
 
     /**
      * Moves location 1 step in given direction

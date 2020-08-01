@@ -78,17 +78,17 @@ public class Board {
         int[] G = {2,3,4,5,6};   //every tile here will have a south wall
 
         for (int i: B)
-            board[((int)'B'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'B'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: C)
-            board[((int)'C'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'C'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: D)
-            board[((int)'D'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'D'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: E)
-            board[((int)'E'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'E'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: F)
-            board[((int)'F'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'F'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: G)
-            board[((int)'G'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'G'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -107,19 +107,19 @@ public class Board {
         int[] H = {9,10,11,12,13,14,15,16};
 
         for (int i: B)
-            board[((int)'B'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'B'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: C)
-            board[((int)'C'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'C'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: D)
-            board[((int)'D'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'D'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: E)
-            board[((int)'E'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'E'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: F)
-            board[((int)'F'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'F'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: G)
-            board[((int)'G'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'G'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: H)
-            board[((int)'H'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'H'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -136,15 +136,15 @@ public class Board {
         int[] F = {20,21,22,23};
 
         for (int i: B)
-            board[((int)'B'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'B'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: C)
-            board[((int)'C'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'C'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: D)
-            board[((int)'D'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'D'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: E)
-            board[((int)'E'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'E'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: F)
-            board[((int)'F'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'F'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -163,19 +163,19 @@ public class Board {
         int[] P = {1,2,3,4,5,6,7,8};
 
         for (int i: J)
-            board[((int)'J'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'J'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: K)
-            board[((int)'K'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'K'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: L)
-            board[((int)'L'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'L'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: M)
-            board[((int)'M'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'M'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: N)
-            board[((int)'N'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'N'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: O)
-            board[((int)'O'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'O'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: P)
-            board[((int)'P'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'P'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -192,15 +192,15 @@ public class Board {
         int[] M = {19,20,21,22,23,24};
 
         for (int i: I)
-            board[((int)'I'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'I'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: J)
-            board[((int)'J'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'J'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: K)
-            board[((int)'K'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'K'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: L)
-            board[((int)'L'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'L'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: M)
-            board[((int)'M'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'M'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -217,15 +217,15 @@ public class Board {
         int[] S = {19,20,21,22,23};
 
         for (int i: O)
-            board[((int)'O'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'O'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: P)
-            board[((int)'P'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'P'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: Q)
-            board[((int)'Q'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'Q'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: R)
-            board[((int)'R'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'R'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: S)
-            board[((int)'S'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'S'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -243,17 +243,17 @@ public class Board {
         int[] Y = {1,2,3,4,5,6};
 
         for (int i: T)
-            board[((int)'T'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'T'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: U)
-            board[((int)'U'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'U'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: V)
-            board[((int)'V'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'V'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: W)
-            board[((int)'W'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'W'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: X)
-            board[((int)'X'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'X'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: Y)
-            board[((int)'Y'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'Y'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -272,19 +272,19 @@ public class Board {
         int[] Y = {11,12,13,14};
 
         for (int i: S)
-            board[((int)'S'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'S'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: T)
-            board[((int)'T'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'T'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: U)
-            board[((int)'U'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'U'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: V)
-            board[((int)'V'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'V'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: W)
-            board[((int)'W'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'W'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: X)
-            board[((int)'X'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'X'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: Y)
-            board[((int)'Y'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'Y'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -300,13 +300,13 @@ public class Board {
         int[] Y = {19,20,21,22,23,24};
 
         for (int i: V)
-            board[((int)'V'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'V'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: W)
-            board[((int)'W'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'W'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: X)
-            board[((int)'X'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'X'-64)][i] = new RoomTile(rooms.get(room));
         for (int i: Y)
-            board[((int)'Y'-65)][i] = new RoomTile(rooms.get(room));
+            board[((int)'Y'-64)][i] = new RoomTile(rooms.get(room));
     }
 
     /**
@@ -314,7 +314,7 @@ public class Board {
      */
     private void loadCellar() {
         Room cellar = new Room("Cellar");
-        for(int y = (int)'K'-65; y <= (int)'Q'-65; y++)
+        for(int y = (int)'K'-64; y <= (int)'Q'-64; y++)
             for(int x = 11; x <= 15; x++)
                 board[y][x] = new RoomTile(cellar);
     }
@@ -329,14 +329,14 @@ public class Board {
                 if(board[y][x] == null)
                     board[y][x] = new CorridorTile();
         //Outlier corridor tiles (mostly used for starting points)
-        board[(int)'A'-65][10]  = new CorridorTile();
-        board[(int)'A'-65][15]  = new CorridorTile();
-        board[(int)'G'-65][24]  = new CorridorTile();
-        board[(int)'H'-65][1]   = new CorridorTile();
-        board[(int)'R'-65][1]   = new CorridorTile();
-        board[(int)'T'-65][24]  = new CorridorTile();
-        board[(int)'y'-65][8]   = new CorridorTile();
-        board[(int)'Y'-65][17]  = new CorridorTile();
+        board[(int)'A'-64][10]  = new CorridorTile();
+        board[(int)'A'-64][15]  = new CorridorTile();
+        board[(int)'G'-64][24]  = new CorridorTile();
+        board[(int)'H'-64][1]   = new CorridorTile();
+        board[(int)'R'-64][1]   = new CorridorTile();
+        board[(int)'T'-64][24]  = new CorridorTile();
+        board[(int)'y'-64][8]   = new CorridorTile();
+        board[(int)'Y'-64][17]  = new CorridorTile();
     }
 
     private void loadWalls() {
