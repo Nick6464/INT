@@ -3,6 +3,7 @@ import java.util.HashMap;
 /**
  * Class for the "Board" the game is played on.
  * 24x25 (24 tiles across, 25 tiles down)
+ * (int)'A'-64 converts char A to 1
  *
  *      Board layout
  *
