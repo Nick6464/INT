@@ -1,10 +1,12 @@
 public class Room {
-    boolean isCrimeScene = false;
+    private boolean isCrimeScene = false;
     private final String roomName;
 
     public Room(String name) {
         roomName = name;
     }
 
-    public void isCrimeScene() { isCrimeScene = true; }
+    public void setCrimeScene() { isCrimeScene = true; }
+
+    public boolean isCrimeScene() { return  isCrimeScene; }
 }

@@ -94,4 +94,10 @@ public class Game {
         crimeScene = (RoomCard) rooms.remove(0);
         return rooms;
     }
+
+    public void main(String[] args) {
+        board = new Board();
+        dealCards();
+        board.getRooms().get(crimeScene.toString()).setCrimeScene();
+    }
 }

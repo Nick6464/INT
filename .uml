@@ -3,160 +3,176 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="46.5" y="490.0">CorridorTile</node>
-    <node x="1048.8982302118172" y="832.0">Cards.CharacterCard</node>
-    <node x="493.8982302118173" y="755.0">Player</node>
-    <node x="21.25501672240796" y="234.0">Tile</node>
-    <node x="232.10501672240798" y="468.0">RoomTile</node>
-    <node x="246.07323021181725" y="0.0">Direction</node>
-    <node x="801.0216833890747" y="1150.0">Game</node>
-    <node x="150.85501672240798" y="700.0">Board</node>
-    <node x="704.8982302118172" y="832.0">Cards.WeaponCard</node>
-    <node x="837.1" y="490.0">Cards.Card</node>
-    <node x="882.8982302118172" y="832.0">Cards.RoomCard</node>
-    <node x="271.35" y="234.0">Room</node>
-    <node x="460.3500000000001" y="402.0">Location</node>
+    <node x="730.6046771130104" y="434.0">CorridorTile</node>
+    <node x="0.0" y="1107.0">Cards.CharacterCard</node>
+    <node x="529.0" y="1030.0">Player</node>
+    <node x="724.0213437796772" y="234.0">Tile</node>
+    <node x="946.7520061728394" y="412.0">RoomTile</node>
+    <node x="609.5155982905983" y="0.0">Direction</node>
+    <node x="269.77134377967707" y="1370.0">Game</node>
+    <node x="872.1405982905983" y="588.0">Board</node>
+    <node x="184.9999999999999" y="1107.0">Cards.WeaponCard</node>
+    <node x="418.0895061728393" y="753.0">Cards.Card</node>
+    <node x="362.99999999999994" y="1107.0">Cards.RoomCard</node>
+    <node x="1003.6155982905982" y="234.0">Room</node>
+    <node x="635.0" y="643.0">Location</node>
   </nodes>
   <notes />
   <edges>
     <edge source="Cards.CharacterCard" target="Cards.Card">
       <point x="0.0" y="-48.0" />
-      <point x="1131.3982302118172" y="660.0" />
-      <point x="910.4333333333334" y="660.0" />
-      <point x="33.333333333333314" y="26.0" />
-    </edge>
-    <edge source="Player" target="Direction">
-      <point x="-76.39999999999998" y="-125.0" />
-      <point x="512.9982302118173" y="680.0" />
-      <point x="449.85" y="680.0" />
-      <point x="449.85" y="214.0" />
-      <point x="357.94823021181725" y="214.0" />
-      <point x="22.375" y="92.0" />
+      <point x="82.5" y="990.0" />
+      <point x="424.756172839506" y="990.0" />
+      <point x="-33.333333333333314" y="26.0" />
     </edge>
     <edge source="Cards.WeaponCard" target="Cards.Card">
-      <point x="-5.6843418860808015E-14" y="-48.0" />
-      <point x="783.8982302118172" y="680.0" />
-      <point x="870.4333333333334" y="680.0" />
-      <point x="-6.666666666666686" y="26.0" />
+      <point x="5.6843418860808015E-14" y="-48.0" />
+      <point x="263.99999999999994" y="1000.0" />
+      <point x="438.0895061728393" y="1000.0" />
+      <point x="-20.0" y="26.0" />
+    </edge>
+    <edge source="Player" target="Direction">
+      <point x="0.0" y="-125.0" />
+      <point x="624.5" y="1010.0" />
+      <point x="605.5895061728394" y="1010.0" />
+      <point x="605.5895061728394" y="214.0" />
+      <point x="631.8905982905983" y="214.0" />
+      <point x="-67.125" y="92.0" />
     </edge>
     <edge source="Location" target="Direction">
-      <point x="0.0" y="-114.0" />
-      <point x="551.3500000000001" y="204.0" />
-      <point x="402.69823021181725" y="204.0" />
-      <point x="67.125" y="92.0" />
+      <point x="-60.66666666666663" y="-136.0" />
+      <point x="665.3333333333334" y="568.0" />
+      <point x="650.4166666666667" y="568.0" />
+      <point x="650.4166666666667" y="214.0" />
+      <point x="676.6405982905983" y="214.0" />
+      <point x="-22.375" y="92.0" />
     </edge>
     <edge source="Player" target="Location">
-      <point x="-38.200000000000045" y="-125.0" />
-      <point x="551.1982302118172" y="670.0" />
-      <point x="505.8500000000001" y="670.0" />
-      <point x="-45.5" y="114.0" />
+      <point x="76.39999999999998" y="-125.0" />
+      <point x="700.9" y="1010.0" />
+      <point x="771.5" y="1010.0" />
+      <point x="45.5" y="136.0" />
     </edge>
     <edge source="Game" target="Cards.RoomCard">
-      <point x="34.30769230769232" y="-125.0" />
-      <point x="946.8293756967671" y="1090.0" />
-      <point x="1003.7315635451506" y="1090.0" />
-      <point x="48.33333333333334" y="48.0" />
+      <point x="17.15384615384619" y="-125.0" />
+      <point x="398.42518993352326" y="1300.0" />
+      <point x="435.49999999999994" y="1300.0" />
+      <point x="0.0" y="48.0" />
     </edge>
     <edge source="Board" target="Room">
-      <point x="69.375" y="-180.0" />
-      <point x="331.230016722408" y="670.0" />
-      <point x="403.75" y="670.0" />
-      <point x="403.75" y="382.0" />
-      <point x="388.95000000000005" y="382.0" />
-      <point x="33.60000000000002" y="59.0" />
+      <point x="41.624999999999886" y="-191.0" />
+      <point x="1024.765598290598" y="548.0" />
+      <point x="1099.6421771130103" y="548.0" />
+      <point x="1099.6421771130103" y="392.0" />
+      <point x="1087.6155982905982" y="392.0" />
+      <point x="0.0" y="59.0" />
     </edge>
     <edge source="Cards.RoomCard" target="Cards.Card">
       <point x="0.0" y="-48.0" />
-      <point x="955.3982302118172" y="680.0" />
-      <point x="883.7666666666667" y="680.0" />
-      <point x="6.666666666666686" y="26.0" />
+      <point x="435.49999999999994" y="1010.0" />
+      <point x="451.42283950617264" y="1010.0" />
+      <point x="-6.666666666666686" y="26.0" />
+    </edge>
+    <edge source="Location" target="Tile">
+      <point x="0.0" y="-136.0" />
+      <point x="726.0" y="568.0" />
+      <point x="682.256172839506" y="568.0" />
+      <point x="682.256172839506" y="392.0" />
+      <point x="741.9380104463437" y="392.0" />
+      <point x="-89.58333333333337" y="59.0" />
+    </edge>
+    <edge source="Location" target="RoomTile">
+      <point x="60.66666666666663" y="-136.0" />
+      <point x="786.6666666666666" y="568.0" />
+      <point x="981.7520061728394" y="568.0" />
+      <point x="-35.0" y="48.0" />
     </edge>
     <edge source="RoomTile" target="Room">
-      <point x="46.66666666666663" y="-48.0" />
-      <point x="348.7716833890746" y="382.0" />
-      <point x="321.75" y="382.0" />
-      <point x="-33.60000000000002" y="59.0" />
+      <point x="46.66666666666674" y="-48.0" />
+      <point x="1063.4186728395061" y="392.0" />
+      <point x="1054.0155982905983" y="392.0" />
+      <point x="-33.59999999999991" y="59.0" />
     </edge>
     <edge source="Board" target="RoomTile">
-      <point x="13.875" y="-180.0" />
-      <point x="275.730016722408" y="650.0" />
-      <point x="302.105016722408" y="650.0" />
-      <point x="0.0" y="48.0" />
+      <point x="13.874999999999886" y="-191.0" />
+      <point x="997.0155982905982" y="538.0" />
+      <point x="1051.7520061728394" y="538.0" />
+      <point x="35.0" y="48.0" />
     </edge>
     <edge source="CorridorTile" target="Tile">
       <point x="0.0" y="-26.0" />
-      <point x="118.5" y="382.0" />
-      <point x="128.75501672240796" y="382.0" />
-      <point x="0.0" y="59.0" />
+      <point x="802.6046771130104" y="392.0" />
+      <point x="777.7713437796772" y="392.0" />
+      <point x="-53.75" y="59.0" />
     </edge>
     <edge source="Board" target="CorridorTile">
-      <point x="-41.625" y="-180.0" />
-      <point x="220.23001672240798" y="660.0" />
-      <point x="118.5" y="660.0" />
+      <point x="-97.12500000000011" y="-191.0" />
+      <point x="886.0155982905982" y="558.0" />
+      <point x="802.6046771130104" y="558.0" />
       <point x="0.0" y="26.0" />
-    </edge>
-    <edge source="Tile" target="Direction">
-      <point x="53.75" y="-59.0" />
-      <point x="182.50501672240796" y="214.0" />
-      <point x="313.19823021181725" y="214.0" />
-      <point x="-22.375" y="92.0" />
     </edge>
     <edge source="Game" target="Cards.WeaponCard">
       <point x="-17.153846153846132" y="-125.0" />
-      <point x="895.3678372352285" y="1080.0" />
-      <point x="836.564896878484" y="1080.0" />
+      <point x="364.11749762583094" y="1300.0" />
+      <point x="316.6666666666666" y="1300.0" />
       <point x="52.666666666666686" y="48.0" />
     </edge>
+    <edge source="Tile" target="Direction">
+      <point x="53.75" y="-59.0" />
+      <point x="885.2713437796772" y="204.0" />
+      <point x="766.1405982905983" y="204.0" />
+      <point x="67.125" y="92.0" />
+    </edge>
     <edge source="Player" target="Cards.Card">
-      <point x="76.39999999999998" y="-125.0" />
-      <point x="665.7982302118173" y="670.0" />
-      <point x="857.1" y="670.0" />
-      <point x="-20.0" y="26.0" />
+      <point x="-38.200000000000045" y="-125.0" />
+      <point x="586.3" y="990.0" />
+      <point x="491.4228395061727" y="990.0" />
+      <point x="33.33333333333337" y="26.0" />
     </edge>
     <edge source="Game" target="Player">
-      <point x="-68.61538461538461" y="-125.0" />
-      <point x="843.9062987736901" y="1110.0" />
-      <point x="637.1482302118172" y="1110.0" />
-      <point x="47.75" y="125.0" />
+      <point x="68.61538461538464" y="-125.0" />
+      <point x="449.8867283950617" y="1330.0" />
+      <point x="576.75" y="1330.0" />
+      <point x="-47.75" y="125.0" />
     </edge>
     <edge source="Game" target="Board">
-      <point x="-102.92307692307693" y="-125.0" />
-      <point x="809.5986064659978" y="1130.0" />
-      <point x="261.855016722408" y="1130.0" />
-      <point x="0.0" y="180.0" />
+      <point x="102.9230769230769" y="-125.0" />
+      <point x="484.194420702754" y="1350.0" />
+      <point x="983.1405982905983" y="1350.0" />
+      <point x="0.0" y="191.0" />
     </edge>
     <edge source="Board" target="Tile">
-      <point x="-97.125" y="-180.0" />
-      <point x="164.73001672240798" y="680.0" />
-      <point x="25.0" y="680.0" />
-      <point x="25.0" y="372.0" />
-      <point x="42.75501672240796" y="372.0" />
-      <point x="-86.0" y="59.0" />
+      <point x="-69.37500000000011" y="-191.0" />
+      <point x="913.7655982905982" y="548.0" />
+      <point x="885.1046771130104" y="548.0" />
+      <point x="885.1046771130104" y="392.0" />
+      <point x="813.6046771130104" y="392.0" />
+      <point x="-17.91666666666663" y="59.0" />
     </edge>
     <edge source="Game" target="Cards.CharacterCard">
-      <point x="68.61538461538464" y="-125.0" />
-      <point x="981.1370680044594" y="1110.0" />
-      <point x="1076.3982302118172" y="1110.0" />
+      <point x="-102.92307692307693" y="-125.0" />
+      <point x="278.34826685660016" y="1350.0" />
+      <point x="27.5" y="1350.0" />
       <point x="-55.0" y="48.0" />
     </edge>
     <edge source="Game" target="Cards.Card">
       <point x="51.46153846153845" y="-125.0" />
-      <point x="963.9832218506132" y="1100.0" />
-      <point x="1038.3982302118172" y="1100.0" />
-      <point x="1038.3982302118172" y="670.0" />
-      <point x="897.1" y="670.0" />
-      <point x="20.0" y="26.0" />
+      <point x="432.7328822412155" y="1320.0" />
+      <point x="518.5" y="1320.0" />
+      <point x="518.5" y="1010.0" />
+      <point x="464.756172839506" y="1010.0" />
+      <point x="6.666666666666686" y="26.0" />
     </edge>
     <edge source="RoomTile" target="Tile">
       <point x="-46.66666666666663" y="-48.0" />
-      <point x="255.43835005574135" y="382.0" />
-      <point x="214.75501672240796" y="382.0" />
-      <point x="86.0" y="59.0" />
+      <point x="970.0853395061727" y="392.0" />
+      <point x="921.1046771130104" y="392.0" />
+      <point x="89.58333333333337" y="59.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.6246478873239436" x="607.5" y="700.0000000000001" />
+  <settings layout="Hierarchic Group" zoom="0.5408536585365854" x="586.0" y="810.0" />
   <SelectedNodes>
-    <node>Game</node>
+    <node>Board</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>

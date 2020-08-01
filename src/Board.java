@@ -61,6 +61,8 @@ public class Board {
 
     public Tile[][] getBoard() { return board; }
 
+    public HashMap<String,Room> getRooms() {return rooms; }
+
     /**
      * Loads the Kitchen tiles, and adds Kitchen to the rooms list
      */
