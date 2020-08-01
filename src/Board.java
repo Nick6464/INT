@@ -336,7 +336,7 @@ public class Board {
         board[(int)'H'-64][1]   = new CorridorTile();
         board[(int)'R'-64][1]   = new CorridorTile();
         board[(int)'T'-64][24]  = new CorridorTile();
-        board[(int)'y'-64][8]   = new CorridorTile();
+        board[(int)'Y'-64][8]   = new CorridorTile();
         board[(int)'Y'-64][17]  = new CorridorTile();
     }
 

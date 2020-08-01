@@ -9,10 +9,17 @@ import java.util.Collections;
 
 public class Game {
     private static Board board;
-    private static Player[] players;
+    private static ArrayList<Player> players;
     private Cards.CharacterCard culprit;
     private Cards.WeaponCard murderWeapon;
     private Cards.RoomCard crimeScene;
+
+    /**
+     * Adds desired number of players to current game
+     */
+    private void addPlayers() {
+
+    }
 
     /**
      * Creates the relative decks, then combines and shuffles them.
@@ -24,14 +31,14 @@ public class Game {
         cards.addAll(dealCharacters());
         cards.addAll(dealRooms());
         Collections.shuffle(cards);
-        int handSize = cards.size() / players.length;
-        for (int i=0; i < players.length; i++) {
-            players[i].dealHand(cards.subList(0, handSize));
+        int handSize = cards.size() / players.size();
+        for (int i=0; i < players.size(); i++) {
+            players.get(i).dealHand(cards.subList(0, handSize));
             cards.subList(0, handSize).clear();
         }
         int p = 0;
         while (!cards.isEmpty()) {
-            players[p++].dealHand(cards.get(0));
+            players.get(p++).dealHand(cards.get(0));
         }
     }
 
@@ -95,9 +102,15 @@ public class Game {
         return rooms;
     }
 
-    public void main(String[] args) {
+    public Game() {
         board = new Board();
+        players = new ArrayList<>();
+        addPlayers();
         dealCards();
         board.getRooms().get(crimeScene.toString()).setCrimeScene();
+    }
+
+    public static void main(String[] args) {
+        new Game();
     }
 }

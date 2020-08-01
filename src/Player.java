@@ -12,7 +12,7 @@ public class Player {
     /**
      * Allows player to perform move and guess actions before ending their turn
      */
-    public void takeTurn() {
+    public void takeTurn(Board board) {
         rollDice();
         while (moves > 0) {
             System.out.println(moves + " moves remaining");
@@ -28,7 +28,7 @@ public class Player {
                 break; //Player has chosen to stop early
         }
 
-        if (location.inRoom()) {
+        if (location.inRoom(board.getBoard())) {
             //TODO - allow player to make a guess
         }
     }
