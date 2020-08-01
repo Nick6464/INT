@@ -59,6 +59,8 @@ public class Board {
         loadWalls();
     }
 
+    public Tile[][] getBoard() { return board; }
+
     /**
      * Loads the Kitchen tiles, and adds Kitchen to the rooms list
      */
