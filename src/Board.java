@@ -5,7 +5,6 @@ import java.util.List;
 /**
  * Class for the "Board" the game is played on.
  * 24x25 (24 tiles across, 25 tiles down)
- * (int)'A'-64 converts char A to 1
  *
  *      Board layout
  *
@@ -58,10 +57,9 @@ public class Board {
         loadLounge();
         loadHall();
         loadStudy();
-        //Add corridors and walls
+        //Add cellar and corridors
         loadCellar();
         loadCorridor();
-
     }
 
     public Tile[][] getBoard() { return board; }
@@ -88,33 +86,35 @@ public class Board {
 
         //creating the kitchen tiles
         for (int i: B) {
-            board[((int) 'B' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('B')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall
-            board[((int) 'B' - 64)][i].setWall(Direction.NORTH);
+            board[charToInt('B')][i].setWall(Direction.NORTH);
         }
         for (int i: C)
-            board[((int)'C'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('C'))][i] = new RoomTile(rooms.get(room));
         for (int i: D)
-            board[((int)'D'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('D'))][i] = new RoomTile(rooms.get(room));
         for (int i: E)
-            board[((int)'E'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('E'))][i] = new RoomTile(rooms.get(room));
         for (int i: F) {
-            board[((int) 'F' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('F')][i] = new RoomTile(rooms.get(room));
             // F1 has a south wall
             if (i == 1)
-                board[((int) 'F' - 64)][i].setWall(Direction.SOUTH);
+                board[charToInt('F')][i].setWall(Direction.SOUTH);
         }
         for (int i: G) {
-            board[((int) 'G' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('G')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall, except 5 because its a door
             if (i == 5)
                 continue;
-            board[((int) 'G' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('G')][i].setWall(Direction.SOUTH);
         }
 
         //List of arrays
         //if the row has a door, dont put it into the list.
-        List<int[]> westWalls = Arrays.asList(B,C,D,E,F,G);
+        List<int[]> walls = Arrays.asList(B,C,D,E,F,G);
+        loadEastWalls('B', walls);
+        loadWestWalls('B', walls);
     }
 
     /**
@@ -136,29 +136,29 @@ public class Board {
         //North and South done
 
         for (int i: B) {
-            board[((int) 'B' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('B')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall
-            board[((int) 'B' - 64)][i].setWall(Direction.NORTH);
+            board[charToInt('B')][i].setWall(Direction.NORTH);
         }
         for (int i: C) {
-            board[((int) 'C' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('C')][i] = new RoomTile(rooms.get(room));
             if (i == 9 || i == 10 || i == 15 || i == 16)
-                board[((int) 'C' - 64)][i].setWall(Direction.NORTH);
+                board[charToInt('C')][i].setWall(Direction.NORTH);
         }
         for (int i: D)
-            board[((int)'D'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('D'))][i] = new RoomTile(rooms.get(room));
         for (int i: E)
-            board[((int)'E'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('E'))][i] = new RoomTile(rooms.get(room));
         for (int i: F)
-            board[((int)'F'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('F'))][i] = new RoomTile(rooms.get(room));
         for (int i: G)
-            board[((int)'G'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('G'))][i] = new RoomTile(rooms.get(room));
         for (int i: H) {
-            board[((int) 'H' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('H')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall, except 10 and 15 (doors)
             if (i == 10 || i == 15)
                 continue;
-            board[((int) 'H' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('H')][i].setWall(Direction.SOUTH);
         }
 
         //needs only 1 list, just call both wall methods on it and exclude F
@@ -182,24 +182,24 @@ public class Board {
         //North and South done
 
         for (int i: B) {
-            board[((int) 'B' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('B')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall
-            board[((int) 'B' - 64)][i].setWall(Direction.NORTH); //set all the tiles in B to have a North Wall
+            board[charToInt('B')][i].setWall(Direction.NORTH); //set all the tiles in B to have a North Wall
         }
         for (int i: C)
-            board[((int)'C'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('C'))][i] = new RoomTile(rooms.get(room));
         for (int i: D)
-            board[((int)'D'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('D'))][i] = new RoomTile(rooms.get(room));
         for (int i: E) {
-            board[((int) 'E' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('E')][i] = new RoomTile(rooms.get(room));
             // E24 has a south wall
             if (i == 24)
-                board[((int) 'E' - 64)][i].setWall(Direction.SOUTH);
+                board[charToInt('E')][i].setWall(Direction.SOUTH);
         }
         for (int i: F) {
-            board[((int) 'F' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('F')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall
-            board[((int) 'F' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('F')][i].setWall(Direction.SOUTH);
         }
     }
 
@@ -222,30 +222,30 @@ public class Board {
         //North and South done
 
         for (int i: J) {
-            board[((int) 'J' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('J')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall
-            board[((int) 'J' - 64)][i].setWall(Direction.NORTH); //set all the tiles in J to have a North Wall
+            board[charToInt('J')][i].setWall(Direction.NORTH); //set all the tiles in J to have a North Wall
         }
         for (int i: K) {
-            board[((int) 'K' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('K')][i] = new RoomTile(rooms.get(room));
             //Sets K{6,7,8} to have north walls
             if (i >= 6)
-                board[((int) 'K' - 64)][i].setWall(Direction.NORTH);
+                board[charToInt('K')][i].setWall(Direction.NORTH);
         }
         for (int i: L)
-            board[((int)'L'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('L'))][i] = new RoomTile(rooms.get(room));
         for (int i: M)
-            board[((int)'M'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('M'))][i] = new RoomTile(rooms.get(room));
         for (int i: N)
-            board[((int)'N'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('N'))][i] = new RoomTile(rooms.get(room));
         for (int i: O)
-            board[((int)'O'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('O'))][i] = new RoomTile(rooms.get(room));
         for (int i: P) {
-            board[((int) 'P' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('P')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall, except 7(door)
             if (i == 7)
                 continue;
-            board[((int) 'P' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('P')][i].setWall(Direction.SOUTH);
         }
     }
 
@@ -266,22 +266,22 @@ public class Board {
         //North and South done
 
         for (int i : I){
-            board[((int) 'I' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('I')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall
-            board[((int) 'I' - 64)][i].setWall(Direction.NORTH); //set all the tiles in I to have a North Wall
+            board[charToInt('I')][i].setWall(Direction.NORTH); //set all the tiles in I to have a North Wall
         }
         for (int i: J)
-            board[((int)'J'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('J'))][i] = new RoomTile(rooms.get(room));
         for (int i: K)
-            board[((int)'K'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('K'))][i] = new RoomTile(rooms.get(room));
         for (int i: L)
-            board[((int)'L'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('L'))][i] = new RoomTile(rooms.get(room));
         for (int i: M) {
-            board[((int) 'M' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('M')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall, except 23(door)
             if (i == 23)
                 continue;
-            board[((int) 'M' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('M')][i].setWall(Direction.SOUTH);
         }
     }
 
@@ -302,30 +302,30 @@ public class Board {
         //North and South done
 
         for (int i: O) {
-            board[((int) 'O' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('O')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall, except 21
             if (i == 21)
                 continue;
-            board[((int) 'O' - 64)][i].setWall(Direction.NORTH);
+            board[charToInt('O')][i].setWall(Direction.NORTH);
         }
         for (int i: P) {
-            board[((int) 'P' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('P')][i] = new RoomTile(rooms.get(room));
             //Sets P{18,24} to have north walls
             if (i == 18 || i == 24)
-                board[((int) 'P' - 64)][i].setWall(Direction.NORTH);
+                board[charToInt('P')][i].setWall(Direction.NORTH);
         }
         for (int i: Q)
-            board[((int)'Q'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('Q'))][i] = new RoomTile(rooms.get(room));
         for (int i: R) {
-            board[((int) 'R' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('R')][i] = new RoomTile(rooms.get(room));
             //R{18,24} have a south wall
             if (i == 18 || i == 24)
-                board[((int) 'R' - 64)][i].setWall(Direction.SOUTH);
+                board[charToInt('R')][i].setWall(Direction.SOUTH);
         }
         for (int i: S) {
-            board[((int) 'S' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('S')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall
-            board[((int) 'S' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('S')][i].setWall(Direction.SOUTH);
         }
     }
 
@@ -347,28 +347,28 @@ public class Board {
         //North and South done
 
         for (int i: T) {
-            board[((int) 'T' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('T')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall except 7 (door)
             if (i == 7)
                 continue;
-            board[((int) 'T' - 64)][i].setWall(Direction.NORTH);
+            board[charToInt('T')][i].setWall(Direction.NORTH);
         }
         for (int i: U)
-            board[((int)'U'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('U'))][i] = new RoomTile(rooms.get(room));
         for (int i: V)
-            board[((int)'V'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('V'))][i] = new RoomTile(rooms.get(room));
         for (int i: W)
-            board[((int)'W'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('W'))][i] = new RoomTile(rooms.get(room));
         for (int i: X) {
-            board[((int) 'X' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('X')][i] = new RoomTile(rooms.get(room));
             //X{7} has a south wall
             if (i == 7)
-                board[((int) 'X' - 64)][i].setWall(Direction.SOUTH);
+                board[charToInt('X')][i].setWall(Direction.SOUTH);
         }
         for (int i: Y) {
-            board[((int) 'Y' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('Y')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall
-            board[((int) 'Y' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('Y')][i].setWall(Direction.SOUTH);
         }
     }
 
@@ -391,26 +391,26 @@ public class Board {
         //North and South done
 
         for (int i : S){
-            board[((int) 'S' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('S')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall except 12 and 13 (door)
             if (i == 12 || i == 13)
                 continue;
-            board[((int) 'S' - 64)][i].setWall(Direction.NORTH);
+            board[charToInt('S')][i].setWall(Direction.NORTH);
         }
         for (int i: T)
-            board[((int)'T'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('T'))][i] = new RoomTile(rooms.get(room));
         for (int i: U)
-            board[((int)'U'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('U'))][i] = new RoomTile(rooms.get(room));
         for (int i: V)
-            board[((int)'V'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('V'))][i] = new RoomTile(rooms.get(room));
         for (int i: W)
-            board[((int)'W'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('W'))][i] = new RoomTile(rooms.get(room));
         for (int i: X)
-            board[((int)'X'-64)][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('X'))][i] = new RoomTile(rooms.get(room));
         for (int i: Y) {
-            board[((int) 'Y' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('Y')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall
-            board[((int) 'Y' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('Y')][i].setWall(Direction.SOUTH);
         }
 
     }
@@ -431,34 +431,33 @@ public class Board {
         //North and South done
 
         for (int i: V) {
-            board[((int) 'V' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('V')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a North Wall except 18(door)
             if (i == 18)
                 continue;
-            board[((int) 'V' - 64)][i].setWall(Direction.NORTH);
+            board[charToInt('V')][i].setWall(Direction.NORTH);
         }
         for (int i: W)
-            board[((int)'W'-64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('W')][i] = new RoomTile(rooms.get(room));
         for (int i: X) {
-            board[((int) 'X' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('X')][i] = new RoomTile(rooms.get(room));
             //X{18} has a south wall
             if (i == 18)
-                board[((int) 'X' - 64)][i].setWall(Direction.SOUTH);
+                board[charToInt('X')][i].setWall(Direction.SOUTH);
         }
         for (int i: Y) {
-            board[((int) 'Y' - 64)][i] = new RoomTile(rooms.get(room));
+            board[charToInt('Y')][i] = new RoomTile(rooms.get(room));
             //set all the tiles to have a South Wall
-            board[((int) 'Y' - 64)][i].setWall(Direction.SOUTH);
+            board[charToInt('Y')][i].setWall(Direction.SOUTH);
         }
     }
 
     /**
      * Loads the Cellar tiles, but does not add to rooms list
      */
-    //TODO - Have NOT done cellar walls yet
     private void loadCellar() {
         Room cellar = new Room("Cellar");
-        for(int y = (int)'K'-64; y <= (int)'Q'-64; y++)
+        for(int y = charToInt('K'); y <= charToInt('Q'); y++)
             for(int x = 11; x <= 15; x++)
                 board[y][x] = new RoomTile(cellar);
     }
@@ -473,44 +472,49 @@ public class Board {
                 if(board[y][x] == null)
                     board[y][x] = new CorridorTile();
         //Outlier corridor tiles (mostly used for starting points)
-        board[(int)'A'-64][10]  = new CorridorTile();
-        board[(int)'A'-64][15]  = new CorridorTile();
-        board[(int)'G'-64][24]  = new CorridorTile();
-        board[(int)'H'-64][1]   = new CorridorTile();
-        board[(int)'R'-64][1]   = new CorridorTile();
-        board[(int)'T'-64][24]  = new CorridorTile();
-        board[(int)'Y'-64][8]   = new CorridorTile();
-        board[(int)'Y'-64][17]  = new CorridorTile();
-    }
-
-    private void loadWalls() {
-        //North Walls//
-        //South Walls//
-        //East Walls//
-        //West Walls//
-
-        //for each room the first array of every room will have a north wall
-        //1. iterate through the array of tiles
-        //2. set the wall direction to North
-        //3. set the wall direction for the tiles above as south.
-
-    }
-
-
-    private void loadEastWalls(List<int[]> tiles) {
-
+        board[charToInt('A')][10]  = new CorridorTile();
+        board[charToInt('A')][15]  = new CorridorTile();
+        board[charToInt('G')][24]  = new CorridorTile();
+        board[charToInt('H')][1]   = new CorridorTile();
+        board[charToInt('R')][1]   = new CorridorTile();
+        board[charToInt('T')][24]  = new CorridorTile();
+        board[charToInt('Y')][8]   = new CorridorTile();
+        board[charToInt('Y')][17]  = new CorridorTile();
     }
 
     /**
-     * Sets the last tile in each array to have a West wall
-     * @param tiles - an array of tiles
+     * Sets the last tile in each array to have a East wall
+     * @param y     - the first Y coordinate of the list
+     * @param tiles - room tile X coordinates
      */
-    private void loadWestWalls(List<int[]> tiles) {
+    private void loadEastWalls(char y, List<int[]> tiles) {
+        int yValue = charToInt(y);
 
         for (int[] i: tiles) {
-            int lastTile = i.length;
+            board[yValue][i[tiles.size()-1]].setWall(Direction.EAST);
+            yValue++;
         }
-
     }
+
+    /**
+     * Sets the first tile in each array to have a West wall
+     * @param y     - the first Y coordinate of the list
+     * @param tiles - room tile X coordinates
+     */
+    private void loadWestWalls(char y, List<int[]> tiles) {
+        int yValue = charToInt(y);
+
+        for (int[] i: tiles) {
+            board[yValue][i[0]].setWall(Direction.WEST);
+            yValue++;
+        }
+    }
+
+    /**
+     * Converts character coordinate to integer index
+     * @param c - the board Y coordinate
+     * @return  - the corresponding Y index
+     */
+    public int charToInt(char c) { return c-64; }
 
 }
