@@ -491,7 +491,7 @@ public class Board {
         int yValue = charToInt(y);
 
         for (int[] i: tiles) {
-            board[yValue][i[tiles.size()-1]].setWall(Direction.EAST);
+            board[yValue][i[i.length-1]].setWall(Direction.EAST);
             yValue++;
         }
     }
