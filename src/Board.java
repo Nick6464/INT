@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Class for the "Board" the game is played on.
@@ -77,6 +79,8 @@ public class Board {
         int[] E = {1,2,3,4,5,6};
         int[] F = {1,2,3,4,5,6};
         int[] G = {2,3,4,5,6};   //every tile here will have a south wall
+
+        List<int[]> westWalls = Arrays.asList(B,C,D,E,F,G);
 
         for (int i: B)
             board[((int)'B'-64)][i] = new RoomTile(rooms.get(room));
