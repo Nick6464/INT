@@ -60,7 +60,11 @@ public class Board {
         //Add cellar and corridors
         loadCellar();
         loadCorridor();
+        //TODO - initialise teleport pads -> link to other tile, so must be done after board is loaded
+        //TODO - East/West walls
+        //TODO - corridor walls
     }
+
 
     public Tile[][] getBoard() { return board; }
 

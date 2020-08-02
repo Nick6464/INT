@@ -60,11 +60,17 @@ public class Location {
         return true;
     }
 
+    public boolean takeShortcut() {
+        //TODO - use teleport tile; return true if valid action, otherwise return false
+        return false;
+    }
+
     /**
      * returns true if the location is within a room
      * @return
      */
     public boolean inRoom(Tile[][] board) {
+        //TODO - do we need a method here, or in player to return what Room, rather than boolean; or make this return a RoomTile for true, and null for false?
         return (board[getYIndex()][x] instanceof RoomTile);
     }
 }

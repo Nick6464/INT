@@ -108,6 +108,7 @@ public class Game {
         addPlayers();
         dealCards();
         board.getRooms().get(crimeScene.toString()).setCrimeScene();
+        //TODO - while loop to go through players as they take turns
     }
 
     public static void main(String[] args) {

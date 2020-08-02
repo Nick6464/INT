@@ -16,7 +16,8 @@ public class Player {
         rollDice();
         while (moves > 0) {
             System.out.println(moves + " moves remaining");
-            //TODO - Ask user for direction and distance to move
+            //TODO - Ask user for direction and distance to move; or could implement key listener (key listener could be initialised in Game, and passed to takeTurn as a parameter
+            //TODO - undo option?
 
             //User Input// -- Temp hardcode to prevent error
             Direction dir = Direction.NORTH;
@@ -29,6 +30,7 @@ public class Player {
         }
 
         if (location.inRoom(board.getBoard())) {
+            //TODO - allow player to question other player
             //TODO - allow player to make a guess
         }
     }
@@ -39,6 +41,7 @@ public class Player {
      * @param distance  how far to move
      */
     public int move(Direction direction, int distance) {
+        //TODO - I dont think this is initialised fully, may need to be edited in Location as well as here
         if (distance > moves) {
             System.out.println("Can only move " + moves + " spaces this turn");
             return distance;
@@ -51,6 +54,13 @@ public class Player {
             distance--;
         }
         return 0;
+    }
+
+    /**
+     * Player is being questioned, and must be moved to the room in question
+     */
+    public void suspect(Room investigation){
+        //TODO - move the player to room where investigation is being held
     }
 
     /**
@@ -79,11 +89,21 @@ public class Player {
         hand.add(card);
     }
 
+    public void showHand() {
+        //TODO - show the players hand (do we also want to store cards shown to player, or make them remember manually?
+    }
+
+    public Card showCard() {
+        //TODO - show a card to another player
+        return null;
+    }
+
     /**
      * Creates a new player, and assigns a position based on chosen character
      * @param name  the name of the chosen character
      */
     public Player(String name) {
+        //TODO - probably needs to be edited under Game.addPlayers() - ensure only below options are valid parameters, and no duplicates
         switch (name) {
             case "Miss Scarlett":
                 location = new Location('Y', 8);
