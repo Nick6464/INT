@@ -70,7 +70,7 @@ public class Player {
         int die1 = (int)(Math.random()*6) + 1;
         int die2 = (int)(Math.random()*6) + 1;
         moves = die1 + die2;
-        System.out.printf("%s rolled %.0f and %.0f\n", playerName, die1, die2);
+        System.out.printf("%s rolled %d and %d\n", playerName, die1, die2);
     }
 
     /**

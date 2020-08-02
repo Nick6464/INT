@@ -19,7 +19,5 @@ public interface Tile {
      * Adds a wall to the tile
      * @param dir   The direction in which travel is blocked by a wall
      */
-    default void setWall(Direction dir) {
-        walls.add(dir);
-    };
+    default void setWall(Direction dir) { walls.add(dir); }
 }

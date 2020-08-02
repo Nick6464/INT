@@ -6,6 +6,10 @@ public class Room {
         roomName = name;
     }
 
+    public String getName() {
+        return roomName;
+    }
+
     public void setCrimeScene() { isCrimeScene = true; }
 
     public boolean isCrimeScene() { return  isCrimeScene; }

@@ -14,8 +14,8 @@ public class RoomTile implements Tile {
     }
 
     /**
-     *
-     * @param shortcutExit
+     * Adds a shortcut to a tile
+     * @param shortcutExit  - the exit tile of the shortcut
      */
     public void addShortcut(RoomTile shortcutExit) {
         this.shortcutExit = shortcutExit;
