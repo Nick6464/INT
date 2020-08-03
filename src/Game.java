@@ -6,6 +6,7 @@ import Cards.WeaponCard;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Game {
     private static Board board;
@@ -13,12 +14,44 @@ public class Game {
     private Cards.CharacterCard culprit;
     private Cards.WeaponCard murderWeapon;
     private Cards.RoomCard crimeScene;
+    public Boolean running = true;
+    private int miss_scarlett = -1;
 
     /**
      * Adds desired number of players to current game
      */
     private void addPlayers() {
-        //TODO - add players!!!!
+        //Creates a scanner to get user input
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Welcome! How many players wish to play? (From 3 to 6)");
+        String playerString = myScanner.nextLine();
+        //Catches string numbers like "six" as invalid
+        try{
+            int playerNumber = Integer.parseInt(playerString);
+            int i = 1;
+            ArrayList<String> allCharacters = new ArrayList<>(Arrays.asList(
+                    "Miss Scarlett", "Rev Green",
+                    "Colonel Mustard", "Professor Plum",
+                    "Mrs. Peacock", "Mrs. White"));
+            while (i <= playerNumber){ //Lets all players pick their character
+                System.out.println("Player " + i + " who do you want to play?");
+                Scanner charScanner = new Scanner(System.in);
+                System.out.println(allCharacters);
+                String character = charScanner.nextLine();
+                if (allCharacters.contains(character)){ //Checks if the character has already been picked
+                    i++;
+                    players.add(new Player(character, board)); //Adds the character to the board
+                    allCharacters.remove(character); //Makes chosen characters unavailable
+                } else {
+                    System.out.println("Please enter a valid character name.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter a valid number e.g. 3");
+            addPlayers(); //Recursively calls addPlayers until a valid number is entered
+        }
+
+
     }
 
     /**
@@ -32,8 +65,8 @@ public class Game {
         cards.addAll(dealRooms());
         Collections.shuffle(cards);
         int handSize = cards.size() / players.size();
-        for (int i=0; i < players.size(); i++) {
-            players.get(i).dealHand(cards.subList(0, handSize));
+        for (Player player : players) {
+            player.dealHand(cards.subList(0, handSize));
             cards.subList(0, handSize).clear();
         }
         int p = 0;
@@ -102,13 +135,37 @@ public class Game {
         return rooms;
     }
 
+    /**
+     * Main game loop once all set up is complete
+     */
+    private void gameLoop(){
+        int playerTurn;
+        if (miss_scarlett >= 0){        //Miss Scarlett always starts, so sets her turn first
+            playerTurn = miss_scarlett; //if she is in the game, otherwise player 1 starts.
+        } else {
+            playerTurn = 1;
+        }
+        while (running){
+            Player currentPlayer = players.get(playerTurn);
+            currentPlayer.takeTurn(board);
+            playerTurn++;
+            if (playerTurn > players.size()) { //Resets the turn to player 1 after all have gone
+                playerTurn = 1;
+            }
+        }
+    }
+
+
+    /**
+     * Constructor for Game
+     */
     public Game() {
         board = new Board();
         players = new ArrayList<>();
         addPlayers();
         dealCards();
         board.getRooms().get(crimeScene.toString()).setCrimeScene();
-        //TODO - while loop to go through players as they take turns
+        gameLoop();
     }
 
     public static void main(String[] args) {
