@@ -6,6 +6,7 @@ import Cards.WeaponCard;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Game {
     private static Board board;
@@ -18,7 +19,34 @@ public class Game {
      * Adds desired number of players to current game
      */
     private void addPlayers() {
-        //TODO - add players!!!!
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Welcome! How many players wish to play? (From 3 to 6)");
+        String playerString = myScanner.nextLine();
+        try{
+            int playerNumber = Integer.parseInt(playerString);
+            int i = 1;
+            ArrayList<String> allCharacters = new ArrayList<>(Arrays.asList(
+                    "Miss Scarlett", "Rev Green",
+                    "Colonel Mustard", "Professor Plum",
+                    "Mrs. Peacock", "Mrs. White"));
+            while (i <= playerNumber){
+                System.out.println("Player " + i + " who do you want to play?");
+                Scanner charScanner = new Scanner(System.in);
+                System.out.println(allCharacters);
+                String character = charScanner.nextLine();
+                if (allCharacters.contains(character)){
+                    i++;
+                    players.add(new Player(character));
+                    allCharacters.remove(character);
+                } else {
+                    System.out.println("Please enter a valid character name.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter a valid number e.g. 3");
+            addPlayers();
+        }
+
     }
 
     /**
@@ -32,8 +60,8 @@ public class Game {
         cards.addAll(dealRooms());
         Collections.shuffle(cards);
         int handSize = cards.size() / players.size();
-        for (int i=0; i < players.size(); i++) {
-            players.get(i).dealHand(cards.subList(0, handSize));
+        for (Player player : players) {
+            player.dealHand(cards.subList(0, handSize));
             cards.subList(0, handSize).clear();
         }
         int p = 0;
