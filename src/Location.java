@@ -46,7 +46,7 @@ public class Location {
      * @return      Returns true is move is valid, or false id unsuccessful
      */
     public boolean move(Direction dir){
-        //if (wall in dir) { return false;}
+        //TODO - if (wall in dir) { return false;}
         switch (dir) {
             case NORTH:
                 y -= y;

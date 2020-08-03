@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Player {
     String playerName;
+    Board board;
     private ArrayList<Card> hand;
     private Location location;
     private int moves;
@@ -102,7 +103,8 @@ public class Player {
      * Creates a new player, and assigns a position based on chosen character
      * @param name  the name of the chosen character
      */
-    public Player(String name) {
+    public Player(String name, Board board) {
+       this.board = board;
         //TODO - probably needs to be edited under Game.addPlayers() - ensure only below options are valid parameters, and no duplicates
         switch (name) {
             case "Miss Scarlett":
@@ -118,5 +120,13 @@ public class Player {
             case "Mrs. White":
                 location = new Location('A', 10);
         }
+    }
+
+    public String playerLocation() {
+        Tile currentTile = board.getTile(location.getYIndex(), location.getX());
+
+        //if (!currentTile.getWalls().isEmpty())
+        //    currentTile.getWalls().toString();
+        return "You are currently at " + location.toString();
     }
 }
