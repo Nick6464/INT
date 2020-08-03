@@ -45,8 +45,10 @@ public class Location {
      * @param dir   The direction in which the location should move
      * @return      Returns true is move is valid, or false id unsuccessful
      */
-    public boolean move(Direction dir){
+    public boolean move(Direction dir, Board board){
         //TODO - if (wall in dir) { return false;}
+        if (board.getTile(getYIndex(), x).getWalls().contains(dir))
+            return false;
         switch (dir) {
             case NORTH:
                 y -= y;
@@ -70,7 +72,11 @@ public class Location {
      * @return
      */
     public boolean inRoom(Tile[][] board) {
-        //TODO - do we need a method here, or in player to return what Room, rather than boolean; or make this return a RoomTile for true, and null for false?
+        //TODO - redundant method, just access from Tile class?
         return (board[getYIndex()][x] instanceof RoomTile);
+    }
+
+    public String toString() {
+        return "[" + y + ", " + x + "]";
     }
 }

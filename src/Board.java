@@ -65,7 +65,6 @@ public class Board {
         //TODO - corridor walls
     }
 
-
     public Tile getTile(int y, int x) { return board[y][x]; }
 
     public HashMap<String,Room> getRooms() {return rooms; }

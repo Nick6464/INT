@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    String playerName;
-    Board board;
+    private final String playerName;
+    private Board board;
     private ArrayList<Card> hand;
     private Location location;
     private int moves;
@@ -13,7 +13,7 @@ public class Player {
     /**
      * Allows player to perform move and guess actions before ending their turn
      */
-    public void takeTurn(Board board) {
+    public void takeTurn() {
 
         playerLocation(); //added 3/08/20
         rollDice();
@@ -51,7 +51,7 @@ public class Player {
             return distance;
         }
         while (distance > 0) {
-            if (!location.move(direction)) {
+            if (!location.move(direction, board)) {
                 System.out.println("You cannot move further in that direction");
                 return distance;
             }
@@ -111,6 +111,7 @@ public class Player {
      */
     public Player(String name, Board board) {
        this.board = board;
+       playerName = name;
         //TODO - probably needs to be edited under Game.addPlayers() - ensure only below options are valid parameters, and no duplicates
         switch (name) {
             case "Miss Scarlett":
@@ -134,9 +135,33 @@ public class Player {
      * @return returns a String describing the players location
      */
     public String playerLocation() {
-        StringBuilder sb = new StringBuilder();
-        String wallDirection = "";
         Tile currentTile = board.getTile(location.getYIndex(), location.getX());
+        StringBuilder sb = new StringBuilder();
+
+//        sb.append("You are currently at ");
+//        sb.append(location.toString());
+//        if (currentTile instanceof RoomTile) {
+//            sb.append(", in the ")
+//            sb.append(((RoomTile) currentTile).getRoom().getName());
+//        }
+//        sb.append(".\n");
+//
+//        if (!currentTile.getWalls().isEmpty()) {
+//            ArrayList<Direction> walls = currentTile.getWalls()
+//            if (walls.size() == 1)
+//                sb.append("There is a wall to your ");
+//            else
+//                sb.append("There are walls to your ");
+//            for (Direction dir : walls){
+//                sb.append(dir.toString());
+//                sb.append(", ");
+//            }
+//            sb.replace(sb.length()-2, sb.length()-1, ".\n");
+//        }
+//
+//        return sb.toString();
+        String wallDirection = "";
+
 
         if (!currentTile.getWalls().isEmpty()) {
             wallDirection = "There is a wall to your: \n";
