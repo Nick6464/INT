@@ -14,6 +14,8 @@ public class Player {
      * Allows player to perform move and guess actions before ending their turn
      */
     public void takeTurn(Board board) {
+
+        playerLocation(); //added 3/08/20
         rollDice();
         while (moves > 0) {
             System.out.println(moves + " moves remaining");
@@ -25,19 +27,20 @@ public class Player {
             int dist = 0;
 
             if (dist > 0)
-                move(dir,dist);
+                move(dir, dist);
             else
                 break; //Player has chosen to stop early
         }
 
-        if (location.inRoom(board.getBoard())) {
-            //TODO - allow player to question other player
-            //TODO - allow player to make a guess
-        }
+//        if (location.inRoom()) {
+//            //TODO - allow player to question other player
+//            //TODO - allow player to make a guess
+//        }
     }
 
     /**
      * Moves player in desired direction on the board if no wall is in the way
+     *
      * @param direction direction to travel in
      * @param distance  how far to move
      */
@@ -60,7 +63,7 @@ public class Player {
     /**
      * Player is being questioned, and must be moved to the room in question
      */
-    public void suspect(Room investigation){
+    public void suspect(Room investigation) {
         //TODO - move the player to room where investigation is being held
     }
 
@@ -68,14 +71,15 @@ public class Player {
      * Rolls dice to determine number of moves this turn
      */
     public void rollDice() {
-        int die1 = (int)(Math.random()*6) + 1;
-        int die2 = (int)(Math.random()*6) + 1;
+        int die1 = (int) (Math.random() * 6) + 1;
+        int die2 = (int) (Math.random() * 6) + 1;
         moves = die1 + die2;
         System.out.printf("%s rolled %d and %d\n", playerName, die1, die2);
     }
 
     /**
      * Initialises players card hand
+     *
      * @param cards cards held this game
      */
     public void dealHand(List<Card> cards) {
@@ -84,7 +88,8 @@ public class Player {
 
     /**
      * Adds leftover cards from deck in case of unequal deal
-     * @param card  an extra card for the hand
+     *
+     * @param card an extra card for the hand
      */
     public void dealHand(Card card) {
         hand.add(card);
@@ -101,7 +106,8 @@ public class Player {
 
     /**
      * Creates a new player, and assigns a position based on chosen character
-     * @param name  the name of the chosen character
+     *
+     * @param name the name of the chosen character
      */
     public Player(String name, Board board) {
        this.board = board;
@@ -122,11 +128,27 @@ public class Player {
         }
     }
 
+    //TODO could implement this differently and less messy
+    /**
+     * Gets the players location and returns if there are walls, and in what direction.
+     * @return returns a String describing the players location
+     */
     public String playerLocation() {
+        StringBuilder sb = new StringBuilder();
+        String wallDirection = "";
         Tile currentTile = board.getTile(location.getYIndex(), location.getX());
 
-        //if (!currentTile.getWalls().isEmpty())
-        //    currentTile.getWalls().toString();
-        return "You are currently at " + location.toString();
+        if (!currentTile.getWalls().isEmpty()) {
+            wallDirection = "There is a wall to your: \n";
+            String wallList = "";
+            for (Direction d : currentTile.getWalls()) {
+                wallList = wallList + "\n -" + d.toString();
+            }
+            wallDirection = wallDirection + wallList;
+        }
+
+        //TODO - add what room the player is in
+        sb.append("You are currently at " + location.toString() + "." + "\n" + wallDirection);
+        return sb.toString();
     }
 }
