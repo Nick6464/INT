@@ -39,7 +39,7 @@ import java.util.List;
 //North and south walls for all main rooms DONE.
 public class Board {
     private HashMap<String,Room> rooms;
-    private Tile[][] board;
+    private Tile[][] board;  //[Yaxis][xAxis]
 
     /**
      * Initialises the playing board
@@ -66,7 +66,7 @@ public class Board {
     }
 
 
-    public Tile[][] getBoard() { return board; }
+    public Tile getTile(int y, int x) { return board[y][x]; }
 
     public HashMap<String,Room> getRooms() {return rooms; }
 
