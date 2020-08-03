@@ -1,8 +1,11 @@
+import java.util.HashSet;
+
 /**
  * Class for the Tiles that are in rooms.
  */
 public class RoomTile implements Tile {
     private final Room room;
+    private HashSet<Direction> walls = new HashSet<>();
     private RoomTile shortcutExit = null;
 
     /**
@@ -12,6 +15,22 @@ public class RoomTile implements Tile {
     public RoomTile(Room room) {
         this.room = room;
     }
+
+    /**
+     * Getter for the walls each tile has
+     *
+     * @return an ArrayList of Directions, the directions represent where walls are.
+     */
+    @Override
+    public HashSet<Direction> getWalls() { return walls; }
+
+    /**
+     * Adds a wall to the tile
+     *
+     * @param dir The direction in which travel is blocked by a wall
+     */
+    @Override
+    public void setWall(Direction dir) { walls.add(dir); }
 
     /**
      * Adds a shortcut to a tile

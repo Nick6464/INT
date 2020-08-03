@@ -24,19 +24,19 @@ public class Location {
 
     /**
      * Sets the X location value
-     * @param x
+     * @param x - X axis value
      */
     public void setX(int x) { this.x = x; }
 
     /**
      * Sets the Y location value
-     * @param y
+     * @param y - Y axis value
      */
     public void setY(char y) { this.y = y; }
 
     /**
      * Sets the Y location when given a Y index instead of character value
-     * @param y
+     * @param y - Y axis value
      */
     public void setY(int y) { this.y = (char)(y+64); }
 
@@ -69,7 +69,7 @@ public class Location {
 
     /**
      * returns true if the location is within a room
-     * @return
+     * @return  boolean if location is in a room
      */
     public boolean inRoom(Tile[][] board) {
         //TODO - redundant method, just access from Tile class?

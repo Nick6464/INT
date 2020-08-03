@@ -1,6 +1,7 @@
 import Cards.Card;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Player {
@@ -15,7 +16,7 @@ public class Player {
      */
     public void takeTurn() {
 
-        playerLocation(); //added 3/08/20
+        System.out.println(playerLocation()); //added 3/08/20
         rollDice();
         while (moves > 0) {
             System.out.println(moves + " moves remaining");
@@ -126,7 +127,7 @@ public class Player {
                 location = new Location('G', 24);
             case "Mrs. White":
                 location = new Location('A', 10);
-        }
+        } //TODO - ERROR: All starting at A,10
     }
 
     //TODO could implement this differently and less messy
@@ -138,42 +139,39 @@ public class Player {
         Tile currentTile = board.getTile(location.getYIndex(), location.getX());
         StringBuilder sb = new StringBuilder();
 
-//        sb.append("You are currently at ");
-//        sb.append(location.toString());
-//        if (currentTile instanceof RoomTile) {
-//            sb.append(", in the ")
-//            sb.append(((RoomTile) currentTile).getRoom().getName());
-//        }
-//        sb.append(".\n");
-//
-//        if (!currentTile.getWalls().isEmpty()) {
-//            ArrayList<Direction> walls = currentTile.getWalls()
-//            if (walls.size() == 1)
-//                sb.append("There is a wall to your ");
-//            else
-//                sb.append("There are walls to your ");
-//            for (Direction dir : walls){
-//                sb.append(dir.toString());
-//                sb.append(", ");
-//            }
-//            sb.replace(sb.length()-2, sb.length()-1, ".\n");
-//        }
-//
-//        return sb.toString();
-        String wallDirection = "";
-
+        sb.append(playerName).append(" is currently at ").append(location.toString());
+        if (currentTile instanceof RoomTile) {
+            sb.append(", in the ").append(((RoomTile) currentTile).getRoom().getName());
+        }
+        sb.append(".\n");
 
         if (!currentTile.getWalls().isEmpty()) {
-            wallDirection = "There is a wall to your: \n";
-            String wallList = "";
-            for (Direction d : currentTile.getWalls()) {
-                wallList = wallList + "\n -" + d.toString();
+            HashSet<Direction> walls = currentTile.getWalls();
+            if (walls.size() == 1)
+                sb.append("There is a wall to your ");
+            else
+                sb.append("There are walls to your ");
+            for (Direction dir : walls){
+                sb.append(dir.toString()).append(", ");
             }
-            wallDirection = wallDirection + wallList;
+            sb.replace(sb.length()-2, sb.length()-1, ".\n");
         }
 
-        //TODO - add what room the player is in
-        sb.append("You are currently at " + location.toString() + "." + "\n" + wallDirection);
         return sb.toString();
+//        String wallDirection = "";
+//
+//
+//        if (!currentTile.getWalls().isEmpty()) {
+//            wallDirection = "There is a wall to your: \n";
+//            String wallList = "";
+//            for (Direction d : currentTile.getWalls()) {
+//                wallList = wallList + "\n -" + d.toString();
+//            }
+//            wallDirection = wallDirection + wallList;
+//        }
+//
+//        //TODO - add what room the player is in
+//        sb.append("You are currently at " + location.toString() + "." + "\n" + wallDirection);
+//        return sb.toString();
     }
 }
