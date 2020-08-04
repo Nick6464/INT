@@ -47,10 +47,10 @@ public class Player {
      */
     public int move(Direction direction, int distance) {
         //TODO - I dont think this is initialised fully, may need to be edited in Location as well as here
-        if (distance > moves) {
-            System.out.println("Can only move " + moves + " spaces this turn");
-            return distance;
-        }
+//        if (distance > moves) {
+//            System.out.println("Can only move " + moves + " spaces this turn");
+//            return distance;
+//        }
         while (distance > 0) {
             if (!location.move(direction, board)) {
                 System.out.println("You cannot move further in that direction");
@@ -113,24 +113,28 @@ public class Player {
     public Player(String name, Board board) {
        this.board = board;
        playerName = name;
-        //TODO - probably needs to be edited under Game.addPlayers() - ensure only below options are valid parameters, and no duplicates
         switch (name) {
             case "Miss Scarlett":
                 location = new Location('Y', 8);
+                break;
             case "Rev Green":
                 location = new Location('A', 15);
+                break;
             case "Colonel Mustard":
                 location = new Location('R', 1);
+                break;
             case "Professor Plum":
                 location = new Location('T', 24);
+                break;
             case "Mrs. Peacock":
                 location = new Location('G', 24);
+                break;
             case "Mrs. White":
                 location = new Location('A', 10);
-        } //TODO - ERROR: All starting at A,10
+                break;
+        }
     }
 
-    //TODO could implement this differently and less messy
     /**
      * Gets the players location and returns if there are walls, and in what direction.
      * @return returns a String describing the players location
@@ -138,23 +142,19 @@ public class Player {
     public String playerLocation() {
         Tile currentTile = board.getTile(location.getYIndex(), location.getX());
         StringBuilder sb = new StringBuilder();
-
+        //Player's name and location
         sb.append(playerName).append(" is currently at ").append(location.toString());
-        if (currentTile instanceof RoomTile) {
+        if (currentTile instanceof RoomTile)
             sb.append(", in the ").append(((RoomTile) currentTile).getRoom().getName());
-        }
         sb.append(".\n");
-
+        //Walls around player's location
         if (!currentTile.getWalls().isEmpty()) {
             HashSet<Direction> walls = currentTile.getWalls();
             if (walls.size() == 1)
-                sb.append("There is a wall to your ");
+                sb.append("There is a wall to the ");
             else
-                sb.append("There are walls to your ");
-            for (Direction dir : walls){
-                sb.append(dir.toString()).append(", ");
-            }
-            sb.replace(sb.length()-2, sb.length()-1, ".\n");
+                sb.append("There are walls to the ");
+        sb.append(walls.toString().substring(1,walls.toString().length()-1)).append(".\n");
         }
 
         return sb.toString();
@@ -169,8 +169,6 @@ public class Player {
 //            }
 //            wallDirection = wallDirection + wallList;
 //        }
-//
-//        //TODO - add what room the player is in
 //        sb.append("You are currently at " + location.toString() + "." + "\n" + wallDirection);
 //        return sb.toString();
     }

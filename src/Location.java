@@ -46,18 +46,21 @@ public class Location {
      * @return      Returns true is move is valid, or false id unsuccessful
      */
     public boolean move(Direction dir, Board board){
-        //TODO - if (wall in dir) { return false;}
         if (board.getTile(getYIndex(), x).getWalls().contains(dir))
             return false;
         switch (dir) {
             case NORTH:
-                y -= y;
+                y -= 1;
+                break;
             case SOUTH:
-                y += y;
+                y += 1;
+                break;
             case EAST:
-                x += x;
+                x += 1;
+                break;
             case WEST:
-                x -= x;
+                x -= 1;
+                break;
         }
         return true;
     }
