@@ -41,57 +41,56 @@ public class UI {
             "\n U |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
             "\n V |LO|LO|LO|LO|LO|LO|//|ms|//|HA|HA|HA|HA|HA|HA|//|__|//|ST|ST|ST|ST|ST|ST|";
 
-    public String separator =
-            "\n ****************************************************************************";
-
+    public static String separator =
+            "****************************************************************************";
 
     /**
      * A string for of the definition of the general Tiles
      */
-    public String helpDef =
-            "\n     HELP COMMANDS:"                     +
-            "\n         /gt - General Tile definitions" +
-            "\n         /st - Spawn Tile definitions"   +
-            "\n         /rt - Room Tile definitions"    +
-            "\n         /exit - Exits the help menu";
+    public static String helpDef =
+            "HELP COMMANDS:"                        +
+            "\n     /gt - General Tile definitions" +
+            "\n     /st - Spawn Tile definitions"   +
+            "\n     /rt - Room Tile definitions"    +
+            "\n     /exit - Exits the help menu \n";
     /**
      * A string for of the definition of the general Tiles
      */
-    public String generalDef =
-            "\n     GENERAL TILES:"                     +
-            "\n         //       - Inaccessible Tiles"  +
-            "\n         01 to 24 - X coordinate"        +
-            "\n         A to V   - Y coordinate"        +
-            "\n         __       - Corridor Tile"       +
-            "\n         []       - Door Tile";
+    public static String generalDef =
+            "GENERAL TILES:"                        +
+            "\n     //       - Inaccessible Tiles"  +
+            "\n     01 to 24 - X coordinate"        +
+            "\n     A to V   - Y coordinate"        +
+            "\n     __       - Corridor Tile"       +
+            "\n     []       - Door Tile \n";
 
     /**
      * A string of the definition of the player spawn Tiles
      */
-    public String spawnDef =
-            "\n     SPAWN TILES:"                       +
-            "\n         mw  - Mrs. White"               +
-            "\n         mg  - Mr. Green"                +
-            "\n         mp  - Mrs. Peacock"             +
-            "\n         pp  - Prof. Plum"               +
-            "\n         ms  - Miss Scarlett"            +
-            "\n         cm  - Col. Mustard";
+    public static String spawnDef =
+            "SPAWN TILES:"                          +
+            "\n     mw  - Mrs. White"               +
+            "\n     mg  - Mr. Green"                +
+            "\n     mp  - Mrs. Peacock"             +
+            "\n     pp  - Prof. Plum"               +
+            "\n     ms  - Miss Scarlett"            +
+            "\n     cm  - Col. Mustard \n";
 
     /**
      * A string printing who the
      */
-    public String roomDef =
-            "\n     ROOM TILES:"                        +
-            "\n         KI  - Kitchen"                  +
-            "\n         BA  - Ball Room"                +
-            "\n         CO  - Conservatory"             +
-            "\n         DI  - Dining Room"              +
-            "\n         BI  - Billiard Room"            +
-            "\n         LI  - Library"                  +
-            "\n         LO  - Lounge"                   +
-            "\n         HA  - Hall"                     +
-            "\n         ST  - Study"                    +
-            "\n         CC  - Cellar(Inaccessible)";
+    public static String roomDef =
+            "ROOM TILES:"                           +
+            "\n     KI  - Kitchen"                  +
+            "\n     BA  - Ball Room"                +
+            "\n     CO  - Conservatory"             +
+            "\n     DI  - Dining Room"              +
+            "\n     BI  - Billiard Room"            +
+            "\n     LI  - Library"                  +
+            "\n     LO  - Lounge"                   +
+            "\n     HA  - Hall"                     +
+            "\n     ST  - Study"                    +
+            "\n     CC  - Cellar(Inaccessible) \n";
 
     /**
      *  prints the map
@@ -103,10 +102,9 @@ public class UI {
     /**
      * Prints the definition of each tile on the map
      */
-    public void help() {
+    public static void help() {
         System.out.println(separator);
         System.out.println(helpDef);
-        System.out.println("\n");
 
         String command = userInput("Enter a command: ");
 
@@ -123,11 +121,10 @@ public class UI {
                 System.out.println(separator);
                 System.out.println(roomDef);
             }
-            case "/exit" -> System.out.println("Exiting help menu");
+            case "/exit" -> System.out.println("Exiting help menu...\n");
 
             default -> System.out.println("Invalid Command");
         }
-
     }
 
 
