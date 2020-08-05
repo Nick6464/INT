@@ -2,13 +2,27 @@ import java.util.ArrayList;
 
 public class UI {
 
+    //TODO - initialiseGame(), asks the basic beginning questions, how many players? how is what char?
+    //TODO - displayBoard()
+    //TODO - displayCards() - prints what cards you have in your hand
+    //TODO - Questions at the beginning of each turn, where do you want to move?
+    //TODO - describeTile(), when you move a tile, describe what is around you
+    //TODO - describeRoom(), when you enter a room, describe room name, what weapons and players are already in the room
+    //TODO - ask for who you suspect(CONDITION: if player are in a room)
+    //TODO - declareAccusation() - the final declaration of who it is with what wep in what room
+
+
+
+
+
     public void initialiseGame() {
 
     }
 
 
-
-
+    /**
+     *
+     */
     public void displayBoard() {
         String b =
         "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
