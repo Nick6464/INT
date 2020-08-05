@@ -4,37 +4,135 @@ import java.util.Scanner;
 public class UI {
     private static Board board;
 
-    //TODO - do we want to play in a JWindow, or terminal?
-    public void displayBoard() {
-        //TODO - make this automated rather than hard coded to update player location
-        String b = "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
-                "\n A |//|//|//|//|//|//|//|//|//|MW|//|//|//|//|MG|//|//|//|//|//|//|//|//|//|" +
-                "\n B |KI|KI|KI|KI|KI|KI|//|__|__|__|BA|BA|BA|BA|__|__|__|//|Cn|Cn|Cn|Cn|Cn|Cn|" +
-                "\n C |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|Cn|Cn|Cn|Cn|Cn|Cn|" +
-                "\n D |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|Cn|Cn|Cn|Cn|Cn|Cn|" +
-                "\n E |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|[]|Cn|Cn|Cn|Cn|Cn|" +
-                "\n F |KI|KI|KI|KI|KI|KI|__|__|[]|BA|BA|BA|BA|BA|BA|[]|__|__|__|Cn|Cn|Cn|Cn|//|" +
-                "\n G |//|KI|KI|KI|[]|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|__|__|__|__|__|MP|" +
-                "\n H |__|__|__|__|__|__|__|__|BA|[]|BA|BA|BA|BA|[]|BA|__|__|__|__|__|__|__|//|" +
-                "\n I |//|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|BI|BI|BI|BI|BI|BI|" +
-                "\n J |DR|DR|DR|DR|DR|__|__|__|__|__|__|__|__|__|__|__|__|__|[]|BI|BI|BI|BI|BI|" +
-                "\n K |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|BI|BI|" +
-                "\n L |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|BI|BI|" +
-                "\n M |DR|DR|DR|DR|DR|DR|DR|[]|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|[]|BI|" +
-                "\n N |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|__|__|__|__|__|//|" +
-                "\n O |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|LI|LI|[]|LI|LI|//|" +
-                "\n P |DR|DR|DR|DR|DR|DR|[]|DR|__|__|CC|CC|CC|CC|CC|__|__|LI|LI|LI|LI|LI|LI|LI|" +
-                "\n Q |//|__|__|__|__|__|__|__|__|__|CC|CC|CC|CC|CC|__|__|[]|LI|LI|LI|LI|LI|LI|" +
-                "\n R |CM|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|LI|LI|LI|LI|LI|LI|LI|" +
-                "\n S |//|__|__|__|__|__|__|__|__|HA|HA|[]|[]|HA|HA|__|__|__|LI|LI|LI|LI|LI|//|" +
-                "\n T |LO|LO|LO|LO|LO|LO|[]|__|__|HA|HA|HA|HA|HA|HA|__|__|__|__|__|__|__|__|PP|" +
-                "\n U |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|[]|__|__|__|__|__|__|__|__|//|" +
-                "\n V |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|[]|ST|ST|ST|ST|ST|ST|" +
-                "\n W |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
-                "\n U |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
-                "\n V |LO|LO|LO|LO|LO|LO|//|MS|//|HA|HA|HA|HA|HA|HA|//|__|//|ST|ST|ST|ST|ST|ST|";
-        System.out.println(b);
+    //TODO - initialiseGame(), asks the basic beginning questions, how many players? how is what char?
+    //TODO - displayMap()
+    //TODO - displayCards() - prints what cards you have in your hand
+    //TODO - Questions at the beginning of each turn, where do you want to move?
+    //TODO - describeTile(), when you move a tile, describe what is around you
+    //TODO - describeRoom(), when you enter a room, describe room name, what weapons and players are already in the room
+    //TODO - ask for who you suspect(CONDITION: if player are in a room)
+    //TODO - declareAccusation() - the final declaration of who it is with what wep in what room*
+
+    public String map =
+            "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
+            "\n A |//|//|//|//|//|//|//|//|//|mw|//|//|//|//|mg|//|//|//|//|//|//|//|//|//|" +
+            "\n B |KI|KI|KI|KI|KI|KI|//|__|__|__|BA|BA|BA|BA|__|__|__|//|CO|CO|CO|CO|CO|CO|" +
+            "\n C |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|CO|CO|CO|CO|CO|CO|" +
+            "\n D |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|CO|CO|CO|CO|CO|CO|" +
+            "\n E |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|[]|CO|CO|CO|CO|CO|" +
+            "\n F |KI|KI|KI|KI|KI|KI|__|__|[]|BA|BA|BA|BA|BA|BA|[]|__|__|__|CO|CO|CO|CO|//|" +
+            "\n G |//|KI|KI|KI|[]|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|__|__|__|__|__|mp|" +
+            "\n H |__|__|__|__|__|__|__|__|BA|[]|BA|BA|BA|BA|[]|BA|__|__|__|__|__|__|__|//|" +
+            "\n I |//|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|BI|BI|BI|BI|BI|BI|" +
+            "\n J |DR|DR|DR|DR|DR|__|__|__|__|__|__|__|__|__|__|__|__|__|[]|BI|BI|BI|BI|BI|" +
+            "\n K |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|BI|BI|" +
+            "\n L |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|BI|BI|" +
+            "\n M |DR|DR|DR|DR|DR|DR|DR|[]|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|[]|BI|" +
+            "\n N |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|__|__|__|__|__|//|" +
+            "\n O |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|LI|LI|[]|LI|LI|//|" +
+            "\n P |DR|DR|DR|DR|DR|DR|[]|DR|__|__|CC|CC|CC|CC|CC|__|__|LI|LI|LI|LI|LI|LI|LI|" +
+            "\n Q |//|__|__|__|__|__|__|__|__|__|CC|CC|CC|CC|CC|__|__|[]|LI|LI|LI|LI|LI|LI|" +
+            "\n R |cm|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|LI|LI|LI|LI|LI|LI|LI|" +
+            "\n S |//|__|__|__|__|__|__|__|__|HA|HA|[]|[]|HA|HA|__|__|__|LI|LI|LI|LI|LI|//|" +
+            "\n T |LO|LO|LO|LO|LO|LO|[]|__|__|HA|HA|HA|HA|HA|HA|__|__|__|__|__|__|__|__|pp|" +
+            "\n U |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|[]|__|__|__|__|__|__|__|__|//|" +
+            "\n V |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|[]|ST|ST|ST|ST|ST|ST|" +
+            "\n W |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
+            "\n U |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
+            "\n V |LO|LO|LO|LO|LO|LO|//|ms|//|HA|HA|HA|HA|HA|HA|//|__|//|ST|ST|ST|ST|ST|ST|";
+
+    public String separator =
+            "\n ****************************************************************************";
+
+
+    /**
+     * A string for of the definition of the general Tiles
+     */
+    public String helpDef =
+            "\n     HELP COMMANDS:"                     +
+            "\n         /gt - General Tile definitions" +
+            "\n         /st - Spawn Tile definitions"   +
+            "\n         /rt - Room Tile definitions"    +
+            "\n         /exit - Exits the help menu";
+    /**
+     * A string for of the definition of the general Tiles
+     */
+    public String generalDef =
+            "\n     GENERAL TILES:"                     +
+            "\n         //       - Inaccessible Tiles"  +
+            "\n         01 to 24 - X coordinate"        +
+            "\n         A to V   - Y coordinate"        +
+            "\n         __       - Corridor Tile"       +
+            "\n         []       - Door Tile";
+
+    /**
+     * A string of the definition of the player spawn Tiles
+     */
+    public String spawnDef =
+            "\n     SPAWN TILES:"                       +
+            "\n         mw  - Mrs. White"               +
+            "\n         mg  - Mr. Green"                +
+            "\n         mp  - Mrs. Peacock"             +
+            "\n         pp  - Prof. Plum"               +
+            "\n         ms  - Miss Scarlett"            +
+            "\n         cm  - Col. Mustard";
+
+    /**
+     * A string printing who the
+     */
+    public String roomDef =
+            "\n     ROOM TILES:"                        +
+            "\n         KI  - Kitchen"                  +
+            "\n         BA  - Ball Room"                +
+            "\n         CO  - Conservatory"             +
+            "\n         DI  - Dining Room"              +
+            "\n         BI  - Billiard Room"            +
+            "\n         LI  - Library"                  +
+            "\n         LO  - Lounge"                   +
+            "\n         HA  - Hall"                     +
+            "\n         ST  - Study"                    +
+            "\n         CC  - Cellar(Inaccessible)";
+
+    /**
+     *  prints the map
+     */
+    public void displayMap() {
+        System.out.println(map);
     }
+
+    /**
+     * Prints the definition of each tile on the map
+     */
+    public void help() {
+        System.out.println(separator);
+        System.out.println(helpDef);
+        System.out.println("Enter one of the commands: ");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+//        switch (name) {
+//            case "Miss Scarlett":
+//                location = new Location('Y', 8);
+//                break;
+//            case "Rev Green":
+//                location = new Location('A', 15);
+//                break;
+//            case "Colonel Mustard":
+//                location = new Location('R', 1);
+//                break;
+//            case "Professor Plum":
+//                location = new Location('T', 24);
+//                break;
+//            case "Mrs. Peacock":
+//                location = new Location('G', 24);
+//                break;
+//            case "Mrs. White":
+//                location = new Location('A', 10);
+//                break;
+//        }
+
+    }
+
 
     public static String userTurn(int moves, String playerLocation){
         System.out.println(playerLocation);
