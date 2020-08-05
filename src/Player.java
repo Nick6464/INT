@@ -52,7 +52,7 @@ public class Player {
 //        }
     }
 
-    public void playerMoves(int moves){
+    public void playerMoves(){
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
@@ -65,7 +65,13 @@ public class Player {
             };
             String userDistance = UI.userInput("How far do you want to move " + direction.toString() + "?");
             int distance = Integer.parseInt(userDistance);
-            move(direction, distance);
+            while (distance > 0) {
+                if (location.move(direction, board)) {
+                    moves--;
+                    distance--;
+                }
+                else break;
+            }
         } catch (Exception e){
             System.out.println("Please enter a valid move");
         }
