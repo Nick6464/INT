@@ -13,6 +13,9 @@ public class UI {
     //TODO - ask for who you suspect(CONDITION: if player are in a room)
     //TODO - declareAccusation() - the final declaration of who it is with what wep in what room*
 
+    /**
+     * String used to draw the entire board
+     */
     public String map =
             "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
             "\n A |//|//|//|//|//|//|//|//|//|mw|//|//|//|//|mg|//|//|//|//|//|//|//|//|//|" +
@@ -41,6 +44,10 @@ public class UI {
             "\n X |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
             "\n Y |LO|LO|LO|LO|LO|LO|//|ms|//|HA|HA|HA|HA|HA|HA|//|__|//|ST|ST|ST|ST|ST|ST|";
 
+
+    /**
+     * A String for a line that's sole purpose its to make things pretty
+     */
     public static String separator =
             "****************************************************************************";
 
@@ -100,29 +107,33 @@ public class UI {
     }
 
     /**
-     * Prints the definition of each tile on the map
+     * Help
+     * Reads the command entered and prints the appropriate help menu
      */
     public static void help() {
         System.out.println(separator);
         System.out.println(helpDef);
-
         String command = userInput("Enter a command: ");
 
         switch (command) {
+            //General Tiles
             case "/gt" -> {
                 System.out.println(separator);
                 System.out.println(generalDef);
             }
+            //Spawn Tiles
             case "/st" -> {
                 System.out.println(separator);
                 System.out.println(spawnDef);
             }
+            //Room Tiles
             case "/rt" -> {
                 System.out.println(separator);
                 System.out.println(roomDef);
             }
+            //Exit Command
             case "/exit" -> System.out.println("Exiting help menu...\n");
-
+            //Invalid input scenario
             default -> System.out.println("Invalid Command");
         }
     }
