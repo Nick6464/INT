@@ -25,7 +25,7 @@ public class Player {
             //TODO - undo option?
             switch (userMove) {
                 case "/help":
-                    //UI.help();
+                    UI.help();
                     //TODO - Fix UI
                     break;
                 case "move":
