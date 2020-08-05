@@ -50,26 +50,9 @@ public class Game {
      * Adds desired number of players to current game
      */
     private void addPlayers() {
-        System.out.println(b); //was testing the display map string
+        //System.out.println(b); //was testing the display map string
         int playerNumber = UI.playerNumber();
-        int i = 1;
-        ArrayList<String> allCharacters = new ArrayList<>(Arrays.asList(
-                "Miss Scarlett", "Rev Green",
-                "Colonel Mustard", "Professor Plum",
-                "Mrs. Peacock", "Mrs. White"));
-        while (i <= playerNumber) { //Lets all players pick their character
-            System.out.println("Player " + i + " who do you want to play?");
-            Scanner charScanner = new Scanner(System.in);
-            System.out.println(allCharacters);
-            String character = charScanner.nextLine();
-            if (allCharacters.contains(character)) { //Checks if the character has already been picked
-                i++;
-                players.add(new Player(character, board)); //Adds the character to the board
-                allCharacters.remove(character); //Makes chosen characters unavailable
-            } else {
-                System.out.println("Please enter a valid character name.");
-            }
-        }
+        players = UI.playerSelection(playerNumber, board);
     }
 
     /**
@@ -160,13 +143,10 @@ public class Game {
      * Main game loop once all set up is complete
      */
     private void gameLoop() {
-        int playerTurn;
-        if (miss_scarlett >= 0) {        //Miss Scarlett always starts, so sets her turn first
-            playerTurn = miss_scarlett; //if she is in the game, otherwise player 1 starts.
-            // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
-        } else {
-            playerTurn = 0;
-        }
+        //Miss Scarlett always starts, so sets her turn first
+        int playerTurn = Math.max(miss_scarlett, 0);
+        // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
+        //if she is in the game, otherwise player 1 starts.
         while (running) { //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
             Player currentPlayer = players.get(playerTurn);
             currentPlayer.takeTurn();

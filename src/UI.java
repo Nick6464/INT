@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UI {
@@ -20,12 +21,34 @@ public class UI {
             Scanner myScanner = new Scanner(System.in);
             System.out.println("Welcome! How many players wish to play? (From 3 to 6)");
             String playerString = myScanner.nextLine();
-            int playerNumber = Integer.parseInt(playerString);
-            return playerNumber;
+            return Integer.parseInt(playerString);
         } catch (Exception e) {
             System.out.println("Please enter a valid number e.g. 3");
             return playerNumber(); //Recursively calls playerNumber() until a valid number is entered
         }
+    }
+
+    public static ArrayList<Player> playerSelection(int playerNumber, Board board){
+        int i = 1;
+        ArrayList<Player> charactersChosen = new ArrayList<>();
+        ArrayList<String> allCharacters = new ArrayList<>(Arrays.asList(
+                "Miss Scarlett", "Rev Green",
+                "Colonel Mustard", "Professor Plum",
+                "Mrs. Peacock", "Mrs. White"));
+        while (i <= playerNumber) { //Lets all players pick their character
+            System.out.println("Player " + i + " who do you want to play?");
+            Scanner charScanner = new Scanner(System.in);
+            System.out.println(allCharacters);
+            String character = charScanner.nextLine();
+            if (allCharacters.contains(character)) { //Checks if the character has already been picked
+                i++;
+                charactersChosen.add(new Player(character, board)); //Adds the character to the board
+                allCharacters.remove(character); //Makes chosen characters unavailable
+            } else {
+                System.out.println("Please enter a valid character name.");
+            }
+        }
+        return charactersChosen;
     }
 
 
