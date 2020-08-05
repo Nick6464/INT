@@ -29,7 +29,7 @@ public class Game {
                 "Colonel Mustard", "Professor Plum",
                 "Mrs. Peacock", "Mrs. White"));
 
-        while (i <= numPlayers){ //Lets all players pick their character
+        while (i <= numPlayers) { //Lets all players pick their character
             String character = UI.playerSelect(i, characters);
 
             if (character == null)
@@ -65,6 +65,7 @@ public class Game {
     /**
      * Creates a set of weapon cards, shuffles them,
      * and then selects one as the murder weapon for the current game
+     *
      * @return weapon card deck
      */
     private ArrayList<Card> dealWeapons() {
@@ -81,11 +82,11 @@ public class Game {
         return weapons;
     }
 
-    //STOP BREAKING THINGS NICK
 
     /**
      * Creates a set of character cards, shuffles them,
      * and then selects one as the murderer for the current game
+     *
      * @return character card deck
      */
     private ArrayList<Card> dealCharacters() {
@@ -105,6 +106,7 @@ public class Game {
     /**
      * Creates a set of room cards, shuffles them,
      * and then selects one as the crime scene for the current game
+     *
      * @return room card deck
      */
     private ArrayList<Card> dealRooms() {
@@ -127,15 +129,12 @@ public class Game {
     /**
      * Main game loop once all set up is complete
      */
-    private void gameLoop(){
-        int playerTurn;
-        if (miss_scarlett >= 0){        //Miss Scarlett always starts, so sets her turn first
-            playerTurn = miss_scarlett; //if she is in the game, otherwise player 1 starts.
-            // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
-        } else {
-            playerTurn = 0;
-        }
-        while (running){ //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
+    private void gameLoop() {
+        //Miss Scarlett always starts, so sets her turn first
+        int playerTurn = Math.max(miss_scarlett, 0);
+        // if she is in the game, otherwise player 1 starts.
+        // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
+        while (running) { //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
             Player currentPlayer = players.get(playerTurn);
             currentPlayer.takeTurn();
             playerTurn++;
@@ -160,10 +159,10 @@ public class Game {
         //Testing move and UI function with Miss Scarlett//
         Player p = players.get(0);
         p.takeTurn();
-        p.move(Direction.NORTH,1);
-        p.move(Direction.WEST,2);
-        p.move(Direction.NORTH,4);
-        p.move(Direction.WEST,1);
+        p.move(Direction.NORTH, 1);
+        p.move(Direction.WEST, 2);
+        p.move(Direction.NORTH, 4);
+        p.move(Direction.WEST, 1);
         p.takeTurn();
         //                              //
 

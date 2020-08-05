@@ -18,13 +18,22 @@ public class Player {
      */
     public void takeTurn() {
 
-        System.out.println(playerLocation()); //added 3/08/20
         rollDice();
         while (moves > 0) {
-            System.out.println(moves + " moves remaining");
+            String userMove = UI.userTurn(moves, playerLocation());
             //TODO - Ask user for direction and distance to move; or could implement key listener (key listener could be initialised in Game, and passed to takeTurn as a parameter
             //TODO - undo option?
-
+            switch (userMove) {
+                case "/help":
+                    help();
+                    break;
+                case "move":
+                    playerMoves();
+                    break;
+                case "suspect":
+                    playerSuspects();
+                    break;
+            }
             //User Input// -- Temp hardcode to prevent error
             Direction dir = Direction.NORTH;
             int dist = 0;
@@ -39,6 +48,14 @@ public class Player {
 //            //TODO - allow player to question other player
 //            //TODO - allow player to make a guess
 //        }
+    }
+
+    public void playerMoves(){
+        try {
+            String direction = UI.userInput("What Direction do you want to move?");
+        } catch (Exception e){
+
+        }
     }
 
     /**
