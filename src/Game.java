@@ -6,9 +6,9 @@ import Cards.WeaponCard;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Scanner;
 
 public class Game {
+    private static UI UI;
     private static Board board;
     private static ArrayList<Player> players;
     private Cards.CharacterCard culprit;
@@ -17,72 +17,28 @@ public class Game {
     public Boolean running = true;
     private int miss_scarlett = -1;
 
-    String b =
-                    "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
-                    "\n A |//|//|//|//|//|//|//|//|//|MW|//|//|//|//|MG|//|//|//|//|//|//|//|//|//|" +
-                    "\n B |KI|KI|KI|KI|KI|KI|//|__|__|__|BA|BA|BA|BA|__|__|__|//|Cn|Cn|Cn|Cn|Cn|Cn|" +
-                    "\n C |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|Cn|Cn|Cn|Cn|Cn|Cn|" +
-                    "\n D |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|Cn|Cn|Cn|Cn|Cn|Cn|" +
-                    "\n E |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|[]|Cn|Cn|Cn|Cn|Cn|" +
-                    "\n F |KI|KI|KI|KI|KI|KI|__|__|[]|BA|BA|BA|BA|BA|BA|[]|__|__|__|Cn|Cn|Cn|Cn|//|" +
-                    "\n G |//|KI|KI|KI|[]|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|__|__|__|__|__|MP|" +
-                    "\n H |__|__|__|__|__|__|__|__|BA|[]|BA|BA|BA|BA|[]|BA|__|__|__|__|__|__|__|//|" +
-                    "\n I |//|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|BI|BI|BI|BI|BI|BI|" +
-                    "\n J |DR|DR|DR|DR|DR|__|__|__|__|__|__|__|__|__|__|__|__|__|[]|BI|BI|BI|BI|BI|" +
-                    "\n K |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|BI|BI|" +
-                    "\n L |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|BI|BI|" +
-                    "\n M |DR|DR|DR|DR|DR|DR|DR|[]|__|__|CC|CC|CC|CC|CC|__|__|__|BI|BI|BI|BI|[]|BI|" +
-                    "\n N |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|__|__|__|__|__|//|" +
-                    "\n O |DR|DR|DR|DR|DR|DR|DR|DR|__|__|CC|CC|CC|CC|CC|__|__|__|LI|LI|[]|LI|LI|//|" +
-                    "\n P |DR|DR|DR|DR|DR|DR|[]|DR|__|__|CC|CC|CC|CC|CC|__|__|LI|LI|LI|LI|LI|LI|LI|" +
-                    "\n Q |//|__|__|__|__|__|__|__|__|__|CC|CC|CC|CC|CC|__|__|[]|LI|LI|LI|LI|LI|LI|" +
-                    "\n R |CM|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|__|LI|LI|LI|LI|LI|LI|LI|" +
-                    "\n S |//|__|__|__|__|__|__|__|__|HA|HA|[]|[]|HA|HA|__|__|__|LI|LI|LI|LI|LI|//|" +
-                    "\n T |LO|LO|LO|LO|LO|LO|[]|__|__|HA|HA|HA|HA|HA|HA|__|__|__|__|__|__|__|__|PP|" +
-                    "\n U |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|[]|__|__|__|__|__|__|__|__|//|" +
-                    "\n V |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|[]|ST|ST|ST|ST|ST|ST|" +
-                    "\n W |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
-                    "\n U |LO|LO|LO|LO|LO|LO|LO|__|__|HA|HA|HA|HA|HA|HA|__|__|ST|ST|ST|ST|ST|ST|ST|" +
-                    "\n V |LO|LO|LO|LO|LO|LO|//|MS|//|HA|HA|HA|HA|HA|HA|//|__|//|ST|ST|ST|ST|ST|ST|";
-
-
     /**
      * Adds desired number of players to current game
      */
     private void addPlayers() {
-        System.out.println(b); //was testing the display map string
+        int numPlayers = UI.playerStart();
 
-        //Creates a scanner to get user input
-        Scanner myScanner = new Scanner(System.in);
-        System.out.println("Welcome! How many players wish to play? (From 3 to 6)");
-        String playerString = myScanner.nextLine();
-        //Catches string numbers like "six" as invalid
-        try{
-            int playerNumber = Integer.parseInt(playerString);
-            int i = 1;
-            ArrayList<String> allCharacters = new ArrayList<>(Arrays.asList(
-                    "Miss Scarlett", "Rev Green",
-                    "Colonel Mustard", "Professor Plum",
-                    "Mrs. Peacock", "Mrs. White"));
-            while (i <= playerNumber){ //Lets all players pick their character
-                System.out.println("Player " + i + " who do you want to play?");
-                Scanner charScanner = new Scanner(System.in);
-                System.out.println(allCharacters);
-                String character = charScanner.nextLine();
-                if (allCharacters.contains(character)){ //Checks if the character has already been picked
-                    i++;
-                    players.add(new Player(character, board)); //Adds the character to the board
-                    allCharacters.remove(character); //Makes chosen characters unavailable
-                } else {
-                    System.out.println("Please enter a valid character name.");
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Please enter a valid number e.g. 3");
-            addPlayers(); //Recursively calls addPlayers until a valid number is entered
+        int i = 1;
+        ArrayList<String> characters = new ArrayList<>(Arrays.asList(
+                "Miss Scarlett", "Rev Green",
+                "Colonel Mustard", "Professor Plum",
+                "Mrs. Peacock", "Mrs. White"));
+
+        while (i <= numPlayers){ //Lets all players pick their character
+            String character = UI.playerSelect(i, characters);
+
+            if (character == null)
+                continue;
+
+            characters.remove(character);
+            players.add(new Player(character, board)); //Adds the character to the board
+            i++;
         }
-
-
     }
 
     /**
@@ -193,12 +149,11 @@ public class Game {
      */
     public Game() {
         board = new Board();
+        UI = new UI(board);
         players = new ArrayList<>();
         addPlayers();
         dealCards();
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
-
-
 
         //Testing move and UI function with Miss Scarlett//
         Player p = players.get(0);
