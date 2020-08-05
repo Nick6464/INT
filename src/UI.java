@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class UI {
 
@@ -14,9 +15,17 @@ public class UI {
 
 
 
-
-    public void initialiseGame() {
-
+    public static Integer playerNumber(){
+        try {
+            Scanner myScanner = new Scanner(System.in);
+            System.out.println("Welcome! How many players wish to play? (From 3 to 6)");
+            String playerString = myScanner.nextLine();
+            int playerNumber = Integer.parseInt(playerString);
+            return playerNumber;
+        } catch (Exception e) {
+            System.out.println("Please enter a valid number e.g. 3");
+            return playerNumber(); //Recursively calls playerNumber() until a valid number is entered
+        }
     }
 
 

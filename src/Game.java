@@ -18,7 +18,7 @@ public class Game {
     private int miss_scarlett = -1;
 
     String b =
-                    "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
+            "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
                     "\n A |//|//|//|//|//|//|//|//|//|MW|//|//|//|//|MG|//|//|//|//|//|//|//|//|//|" +
                     "\n B |KI|KI|KI|KI|KI|KI|//|__|__|__|BA|BA|BA|BA|__|__|__|//|Cn|Cn|Cn|Cn|Cn|Cn|" +
                     "\n C |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|Cn|Cn|Cn|Cn|Cn|Cn|" +
@@ -51,38 +51,25 @@ public class Game {
      */
     private void addPlayers() {
         System.out.println(b); //was testing the display map string
-
-        //Creates a scanner to get user input
-        Scanner myScanner = new Scanner(System.in);
-        System.out.println("Welcome! How many players wish to play? (From 3 to 6)");
-        String playerString = myScanner.nextLine();
-        //Catches string numbers like "six" as invalid
-        try{
-            int playerNumber = Integer.parseInt(playerString);
-            int i = 1;
-            ArrayList<String> allCharacters = new ArrayList<>(Arrays.asList(
-                    "Miss Scarlett", "Rev Green",
-                    "Colonel Mustard", "Professor Plum",
-                    "Mrs. Peacock", "Mrs. White"));
-            while (i <= playerNumber){ //Lets all players pick their character
-                System.out.println("Player " + i + " who do you want to play?");
-                Scanner charScanner = new Scanner(System.in);
-                System.out.println(allCharacters);
-                String character = charScanner.nextLine();
-                if (allCharacters.contains(character)){ //Checks if the character has already been picked
-                    i++;
-                    players.add(new Player(character, board)); //Adds the character to the board
-                    allCharacters.remove(character); //Makes chosen characters unavailable
-                } else {
-                    System.out.println("Please enter a valid character name.");
-                }
+        int playerNumber = UI.playerNumber();
+        int i = 1;
+        ArrayList<String> allCharacters = new ArrayList<>(Arrays.asList(
+                "Miss Scarlett", "Rev Green",
+                "Colonel Mustard", "Professor Plum",
+                "Mrs. Peacock", "Mrs. White"));
+        while (i <= playerNumber) { //Lets all players pick their character
+            System.out.println("Player " + i + " who do you want to play?");
+            Scanner charScanner = new Scanner(System.in);
+            System.out.println(allCharacters);
+            String character = charScanner.nextLine();
+            if (allCharacters.contains(character)) { //Checks if the character has already been picked
+                i++;
+                players.add(new Player(character, board)); //Adds the character to the board
+                allCharacters.remove(character); //Makes chosen characters unavailable
+            } else {
+                System.out.println("Please enter a valid character name.");
             }
-        } catch (Exception e) {
-            System.out.println("Please enter a valid number e.g. 3");
-            addPlayers(); //Recursively calls addPlayers until a valid number is entered
         }
-
-
     }
 
     /**
@@ -109,6 +96,7 @@ public class Game {
     /**
      * Creates a set of weapon cards, shuffles them,
      * and then selects one as the murder weapon for the current game
+     *
      * @return weapon card deck
      */
     private ArrayList<Card> dealWeapons() {
@@ -128,6 +116,7 @@ public class Game {
     /**
      * Creates a set of character cards, shuffles them,
      * and then selects one as the murderer for the current game
+     *
      * @return character card deck
      */
     private ArrayList<Card> dealCharacters() {
@@ -147,6 +136,7 @@ public class Game {
     /**
      * Creates a set of room cards, shuffles them,
      * and then selects one as the crime scene for the current game
+     *
      * @return room card deck
      */
     private ArrayList<Card> dealRooms() {
@@ -169,15 +159,15 @@ public class Game {
     /**
      * Main game loop once all set up is complete
      */
-    private void gameLoop(){
+    private void gameLoop() {
         int playerTurn;
-        if (miss_scarlett >= 0){        //Miss Scarlett always starts, so sets her turn first
+        if (miss_scarlett >= 0) {        //Miss Scarlett always starts, so sets her turn first
             playerTurn = miss_scarlett; //if she is in the game, otherwise player 1 starts.
             // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
         } else {
             playerTurn = 0;
         }
-        while (running){ //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
+        while (running) { //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
             Player currentPlayer = players.get(playerTurn);
             currentPlayer.takeTurn();
             playerTurn++;
@@ -199,14 +189,13 @@ public class Game {
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 
 
-
         //Testing move and UI function with Miss Scarlett//
         Player p = players.get(0);
         p.takeTurn();
-        p.move(Direction.NORTH,1);
-        p.move(Direction.WEST,2);
-        p.move(Direction.NORTH,4);
-        p.move(Direction.WEST,1);
+        p.move(Direction.NORTH, 1);
+        p.move(Direction.WEST, 2);
+        p.move(Direction.NORTH, 4);
+        p.move(Direction.WEST, 1);
         p.takeTurn();
         //                              //
 
