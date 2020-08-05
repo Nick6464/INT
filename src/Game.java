@@ -81,6 +81,8 @@ public class Game {
         return weapons;
     }
 
+    //STOP BREAKING THINGS NICK
+
     /**
      * Creates a set of character cards, shuffles them,
      * and then selects one as the murderer for the current game
