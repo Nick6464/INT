@@ -25,23 +25,25 @@ public class Player {
             //TODO - undo option?
             switch (userMove) {
                 case "/help":
-                    help();
+                    //UI.help();
+                    //TODO - Fix UI
                     break;
                 case "move":
                     playerMoves();
                     break;
                 case "suspect":
-                    playerSuspects();
+                    //TODO - Add UI and interaction for suspect
+                    //playerSuspects();
                     break;
             }
             //User Input// -- Temp hardcode to prevent error
-            Direction dir = Direction.NORTH;
-            int dist = 0;
-
-            if (dist > 0)
-                move(dir, dist);
-            else
-                break; //Player has chosen to stop early
+            //Direction dir = Direction.NORTH;
+//            int dist = 0;
+//
+//            if (dist > 0)
+//                move(dir, dist);
+//            else
+//                break; //Player has chosen to stop early
         }
 
 //        if (location.inRoom()) {
@@ -52,9 +54,19 @@ public class Player {
 
     public void playerMoves(){
         try {
-            String direction = UI.userInput("What Direction do you want to move?");
+            Direction direction;
+            String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
+            direction = switch (input) {
+                case "North" -> Direction.NORTH;
+                case "South" -> Direction.SOUTH;
+                case "East" -> Direction.EAST;
+                case "West" -> Direction.WEST;
+                default -> throw new IllegalStateException("Unexpected value: " + input);
+            };
+            String userDistance = UI.userInput("How far do you want to move " + direction.toString() + "?");
+            move(direction, Integer.parseInt(userDistance));
         } catch (Exception e){
-
+            System.out.println("Please enter a valid move");
         }
     }
 
@@ -66,6 +78,7 @@ public class Player {
      */
     public int move(Direction direction, int distance) {
         //TODO - I dont think this is initialised fully, may need to be edited in Location as well as here
+        //TODO - Add checking to see if a move is valid
 //        if (distance > moves) {
 //            System.out.println("Can only move " + moves + " spaces this turn");
 //            return distance;
@@ -133,24 +146,12 @@ public class Player {
        this.board = board;
        playerName = name;
         switch (name) {
-            case "Miss Scarlett":
-                location = new Location('Y', 8);
-                break;
-            case "Rev Green":
-                location = new Location('A', 15);
-                break;
-            case "Colonel Mustard":
-                location = new Location('R', 1);
-                break;
-            case "Professor Plum":
-                location = new Location('T', 24);
-                break;
-            case "Mrs. Peacock":
-                location = new Location('G', 24);
-                break;
-            case "Mrs. White":
-                location = new Location('A', 10);
-                break;
+            case "Miss Scarlett" -> location = new Location('Y', 8);
+            case "Rev Green" -> location = new Location('A', 15);
+            case "Colonel Mustard" -> location = new Location('R', 1);
+            case "Professor Plum" -> location = new Location('T', 24);
+            case "Mrs. Peacock" -> location = new Location('G', 24);
+            case "Mrs. White" -> location = new Location('A', 10);
         }
     }
 
@@ -173,7 +174,7 @@ public class Player {
                 sb.append("There is a wall to the ");
             else
                 sb.append("There are walls to the ");
-        sb.append(walls.toString().substring(1,walls.toString().length()-1)).append(".\n");
+        sb.append(walls.toString(), 1, walls.toString().length()-1).append(".\n");
         }
 
         return sb.toString();
