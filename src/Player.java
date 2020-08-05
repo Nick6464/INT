@@ -29,7 +29,7 @@ public class Player {
                     //TODO - Fix UI
                     break;
                 case "move":
-                    playerMoves();
+                    playerMoves(moves);
                     break;
                 case "suspect":
                     //TODO - Add UI and interaction for suspect
@@ -52,19 +52,20 @@ public class Player {
 //        }
     }
 
-    public void playerMoves(){
+    public void playerMoves(int moves){
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
-            direction = switch (input) {
-                case "North" -> Direction.NORTH;
-                case "South" -> Direction.SOUTH;
-                case "East" -> Direction.EAST;
-                case "West" -> Direction.WEST;
+            direction = switch (input.toLowerCase()) {
+                case "north" -> Direction.NORTH;
+                case "south" -> Direction.SOUTH;
+                case "east" -> Direction.EAST;
+                case "west" -> Direction.WEST;
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             };
             String userDistance = UI.userInput("How far do you want to move " + direction.toString() + "?");
-            move(direction, Integer.parseInt(userDistance));
+            int distance = Integer.parseInt(userDistance);
+            move(direction, distance);
         } catch (Exception e){
             System.out.println("Please enter a valid move");
         }
@@ -79,16 +80,19 @@ public class Player {
     public int move(Direction direction, int distance) {
         //TODO - I dont think this is initialised fully, may need to be edited in Location as well as here
         //TODO - Add checking to see if a move is valid
-//        if (distance > moves) {
-//            System.out.println("Can only move " + moves + " spaces this turn");
-//            return distance;
-//        }
-        while (distance > 0) {
-            if (!location.move(direction, board)) {
-                System.out.println("You cannot move further in that direction");
-                return distance;
+        try {
+            if (distance > moves) {
+                throw new IllegalStateException("Unexpected value");
             }
-            distance--;
+            while (distance > 0) {
+                if (!location.move(direction, board)) {
+                    System.out.println("You cannot move further in that direction");
+                    return distance;
+                }
+                distance--;
+            }
+        } catch (IllegalStateException e) {
+            System.out.println("Can only move " + moves + " spaces this turn");
         }
         return 0;
     }

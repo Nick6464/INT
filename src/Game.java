@@ -159,11 +159,12 @@ public class Game {
         //Testing move and UI function with Miss Scarlett//
         Player p = players.get(0);
         p.takeTurn();
+        p.rollDice();
         p.move(Direction.NORTH, 1);
         p.move(Direction.WEST, 2);
         p.move(Direction.NORTH, 4);
         p.move(Direction.WEST, 1);
-        p.takeTurn();
+        //p.takeTurn();
         //                              //
 
         //gameLoop(); currently and infinite loop
