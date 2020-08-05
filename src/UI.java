@@ -106,30 +106,27 @@ public class UI {
     public void help() {
         System.out.println(separator);
         System.out.println(helpDef);
-        System.out.println("Enter one of the commands: ");
-        Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
+        System.out.println("\n");
 
-//        switch (name) {
-//            case "Miss Scarlett":
-//                location = new Location('Y', 8);
-//                break;
-//            case "Rev Green":
-//                location = new Location('A', 15);
-//                break;
-//            case "Colonel Mustard":
-//                location = new Location('R', 1);
-//                break;
-//            case "Professor Plum":
-//                location = new Location('T', 24);
-//                break;
-//            case "Mrs. Peacock":
-//                location = new Location('G', 24);
-//                break;
-//            case "Mrs. White":
-//                location = new Location('A', 10);
-//                break;
-//        }
+        String command = userInput("Enter a command: ");
+
+        switch (command) {
+            case "/gt" -> {
+                System.out.println(separator);
+                System.out.println(generalDef);
+            }
+            case "/st" -> {
+                System.out.println(separator);
+                System.out.println(spawnDef);
+            }
+            case "/rt" -> {
+                System.out.println(separator);
+                System.out.println(roomDef);
+            }
+            case "/exit" -> System.out.println("Exiting help menu");
+
+            default -> System.out.println("Invalid Command");
+        }
 
     }
 
@@ -138,8 +135,7 @@ public class UI {
         System.out.println(playerLocation);
         System.out.println(moves + " moves remaining");
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        return input;
+        return sc.nextLine();
     }
 
     public static String userInput(String question){
