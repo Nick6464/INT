@@ -137,6 +137,7 @@ public class Player {
         hand = new ArrayList<>(cards);
         seen.addAll(cards);
         unseen.removeAll(cards);
+        Collections.sort(hand);
     }
 
     /**

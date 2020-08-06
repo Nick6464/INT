@@ -105,7 +105,7 @@ public class UI {
      *  //TODO - call at the start of every turn
      */
     public static void displayMap() {
-        System.out.println(map);
+        System.out.println(board.printBoard());
     }
 
 

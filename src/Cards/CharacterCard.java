@@ -10,4 +10,9 @@ public class CharacterCard implements Card {
     public String toString() {
         return "[Character: " + characterName + "]";
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return toString().compareTo(o.toString());
+    }
 }

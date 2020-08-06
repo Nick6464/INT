@@ -12,4 +12,9 @@ public class RoomCard implements Card {
     public String toString() {
         return "[Room: " + roomName + "]";
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return toString().compareTo(o.toString());
+    }
 }

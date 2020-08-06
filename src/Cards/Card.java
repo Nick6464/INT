@@ -1,4 +1,4 @@
 package Cards;
 
-public interface Card {
+public interface Card extends Comparable{
 }

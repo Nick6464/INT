@@ -12,4 +12,9 @@ public class WeaponCard implements Card {
     public String toString() {
         return "[Weapon: " + weaponName + "]";
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return toString().compareTo(o.toString());
+    }
 }
