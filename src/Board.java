@@ -1,10 +1,7 @@
 import Cards.Card;
 import Cards.WeaponCard;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Class for the "Board" the game is played on.
@@ -52,6 +49,7 @@ public class Board {
     public Board() {
         board = new Tile[26][25]; //[0][0] Not used to allow for easier indexing - A1 == [1][1]
         rooms = new HashMap<>();
+        weapons = new HashMap<String,Weapon>();
         //Load rooms//
         loadKitchen();
         loadBallroom();
