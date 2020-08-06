@@ -1,3 +1,7 @@
+import Cards.Card;
+import Cards.WeaponCard;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -40,6 +44,7 @@ import java.util.List;
 public class Board {
     private HashMap<String,Room> rooms;
     private Tile[][] board;  //[Yaxis][xAxis]
+    private static HashMap<String, Weapon> weapons;
 
     /**
      * Initialises the playing board
@@ -510,6 +515,13 @@ public class Board {
         for (int[] i: tiles) {
             board[yValue][i[0]].setWall(Direction.WEST);
             yValue++;
+        }
+    }
+
+    public void addWeapons(ArrayList<Card> weps) {
+        for(Card card : weps) {
+            String name = ((WeaponCard) card).getWeaponName();
+            weapons.put(name, new Weapon(name));
         }
     }
 

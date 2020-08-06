@@ -58,7 +58,7 @@ public class Location {
     }
 
     public boolean takeShortcut() {
-        //TODO - use teleport tile; return true if valid action, otherwise return false
+        //TODO - use teleport tile; return true if valid action, otherwise return false **May be moved to Room.class**
         return false;
     }
 

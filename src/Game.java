@@ -11,6 +11,7 @@ public class Game {
     private static UI UI;
     private static Board board;
     private static ArrayList<Player> players;
+
     private Cards.CharacterCard culprit;
     private Cards.WeaponCard murderWeapon;
     private Cards.RoomCard crimeScene;
@@ -79,6 +80,7 @@ public class Game {
         ));
         Collections.shuffle(weapons);
         murderWeapon = (WeaponCard) weapons.remove(0);
+        board.addWeapons(weapons);
         return weapons;
     }
 
@@ -143,7 +145,6 @@ public class Game {
             }
         }
     }
-
 
     /**
      * Constructor for Game
