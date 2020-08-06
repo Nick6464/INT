@@ -12,6 +12,8 @@ public class Player {
     private ArrayList<Card> hand;
     private Location location;
     private int moves;
+    private ArrayList<Card> seen;
+    private ArrayList<Card> notSeen;
 
     /**
      * Allows player to perform move and guess actions before ending their turn
@@ -36,6 +38,7 @@ public class Player {
                     //playerSuspects();
                     break;
                 case "map":
+                    UI.clearConsole();
                     UI.displayMap();
                     break;
                 case "end":
@@ -56,6 +59,7 @@ public class Player {
 //            //TODO - allow player to make a guess
 //            //TODO - Move into UI class
 //        }
+        UI.clearConsole();
     }
 
     public void playerMoves(){
