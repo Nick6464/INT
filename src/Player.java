@@ -7,42 +7,27 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Player {
+
     private final String playerName;
     private Board board;
     private ArrayList<Card> hand;
     private Location location;
     private int moves;
-    private ArrayList<Card> seen;
-    private ArrayList<Card> notSeen;
+    public ArrayList<Card> seen = new ArrayList<>();
+    public ArrayList<Card> unseen = new ArrayList<>();
+
+    //state of the players turn
+    private boolean takingTurn = false;
 
     /**
      * Allows player to perform move and guess actions before ending their turn
      */
     public void takeTurn() {
         rollDice();
-        boolean takingTurn = true;
+        startTurn();
         while (takingTurn) {
-            String userMove = UI.userTurn(moves, playerLocation());
-            //TODO - Ask user for direction and distance to move; or could implement key listener (key listener could be initialised in Game, and passed to takeTurn as a parameter
-            //TODO - undo option?
-            switch (userMove) {
-                case "/help":
-                    UI.help();
-                    //TODO - Fix UI
-                    break;
-                case "move":
-                    playerMoves();
-                    break;
-                case "suspect":
-                    //TODO - Add UI and interaction for suspect
-                    //playerSuspects();
-                    break;
-                case "map":
-                    UI.displayMap();
-                    break;
-                case "end":
-                    takingTurn = false;
-            }
+            UI.userTurn(this, moves, playerLocation());
+
             //User Input// -- Temp hardcode to prevent error
             //Direction dir = Direction.NORTH;
 //            int dist = 0;
@@ -58,6 +43,20 @@ public class Player {
 //            //TODO - allow player to make a guess
 //            //TODO - Move into UI class
 //        }
+    }
+
+    /**
+     * Sets player to have started their turn
+     */
+    public void startTurn() {
+        takingTurn = true;
+    }
+
+    /**
+     * Sets player to have ended their turn
+     */
+    public void endTurn() {
+        takingTurn = false;
     }
 
     public void playerMoves(){
@@ -135,6 +134,8 @@ public class Player {
      */
     public void dealHand(List<Card> cards) {
         hand = new ArrayList<>(cards);
+        seen.addAll(cards);
+        unseen.removeAll(cards);
     }
 
     /**
@@ -144,6 +145,8 @@ public class Player {
      */
     public void dealHand(Card card) {
         hand.add(card);
+        seen.add(card);
+        unseen.remove(card);
     }
 
     public void showHand() {
@@ -182,25 +185,17 @@ public class Player {
         StringBuilder sb = new StringBuilder();
         //Player's name and location
         sb.append(playerName).append(" is currently at ").append(location.toString());
-        if (currentTile instanceof RoomTile) {
-            RoomTile roomTile = (RoomTile)currentTile;
-            sb.append(", in the ").append(roomTile.getRoom().getName());
-            sb.append(".\n");
-            if (roomTile.getRoom().hasShortcut) {
-                sb.append("There is a secret passageway heading to the ").append(roomTile.getRoom().getShortcutDestination().getName()).append(".\n");
-            }
-        }
-
+        if (currentTile instanceof RoomTile)
+            sb.append(", in the ").append(((RoomTile) currentTile).getRoom().getName());
+        sb.append(".\n");
         //Walls around player's location
-        else {
-            if (!currentTile.getWalls().isEmpty()) {
-                HashSet<Direction> walls = currentTile.getWalls();
-                if (walls.size() == 1)
-                    sb.append("There is a wall to the ");
-                else
-                    sb.append("There are walls to the ");
-                sb.append(walls.toString(), 1, walls.toString().length() - 1).append(".\n");
-            }
+        if (!currentTile.getWalls().isEmpty()) {
+            HashSet<Direction> walls = currentTile.getWalls();
+            if (walls.size() == 1)
+                sb.append("There is a wall to the ");
+            else
+                sb.append("There are walls to the ");
+        sb.append(walls.toString(), 1, walls.toString().length()-1).append(".\n");
         }
 
         return sb.toString();
