@@ -179,6 +179,9 @@ public class UI {
                 break;
             case "end":
                 p.endTurn();
+            case "cards":
+                System.out.println(p.unseen);
+                System.out.println(p.seen);
         }
     }
 
@@ -234,28 +237,5 @@ public class UI {
 
     public UI(Board board) {
         this.board = board;
-    }
-
-
-    //https://www.reddit.com/r/learnprogramming/comments/7uou4l/how_to_clear_screen_in_java/
-    public final static void clearConsole()
-    {
-        try
-        {
-            final String os = System.getProperty("os.name");
-
-            if (os.contains("Windows"))
-            {
-                Runtime.getRuntime().exec("cls");
-            }
-            else
-            {
-                Runtime.getRuntime().exec("clear");
-            }
-        }
-        catch (final Exception e)
-        {
-            //  Handle any exceptions.
-        }
     }
 }
