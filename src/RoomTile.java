@@ -16,7 +16,7 @@ public class RoomTile implements Tile {
         this.room = room;
     }
 
-    public void setDoorway() {isDoorway = false; }
+    public void setDoorway() {isDoorway = true; }
 
     /**
      * Getter for the walls each tile has

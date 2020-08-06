@@ -65,7 +65,7 @@ public class Board {
         //Add cellar and corridors
         loadCellar();
         loadCorridor();
-        printBoard();
+        loadDoorways();
         //TODO - East/West walls
         //TODO - corridor walls
     }
@@ -537,6 +537,35 @@ public class Board {
             for(int x = 1; x < board[x].length; x++)
                 if(board[y][x] == null)
                     board[y][x] = new CorridorTile();
+    }
+
+    private void loadDoorways() {
+        //Kitchen
+        ((RoomTile)board[charToInt('G')][5]).setDoorway();
+        //Ballroom
+        ((RoomTile)board[charToInt('F')][9]).setDoorway();
+        ((RoomTile)board[charToInt('H')][10]).setDoorway();
+        ((RoomTile)board[charToInt('H')][15]).setDoorway();
+        ((RoomTile)board[charToInt('F')][16]).setDoorway();
+        //Conservatory
+        ((RoomTile)board[charToInt('E')][19]).setDoorway();
+        //Dining Room
+        ((RoomTile)board[charToInt('M')][8]).setDoorway();
+        ((RoomTile)board[charToInt('P')][7]).setDoorway();
+        //Billiard Room
+        ((RoomTile)board[charToInt('J')][19]).setDoorway();
+        ((RoomTile)board[charToInt('M')][23]).setDoorway();
+        //Library
+        ((RoomTile)board[charToInt('O')][21]).setDoorway();
+        ((RoomTile)board[charToInt('Q')][18]).setDoorway();
+        //Lounge
+        ((RoomTile)board[charToInt('T')][7]).setDoorway();
+        //Hall
+        ((RoomTile)board[charToInt('S')][12]).setDoorway();
+        ((RoomTile)board[charToInt('S')][13]).setDoorway();
+        ((RoomTile)board[charToInt('U')][15]).setDoorway();
+        //Study
+        ((RoomTile)board[charToInt('W')][18]).setDoorway();
     }
 
     /**
