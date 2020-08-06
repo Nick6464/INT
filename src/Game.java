@@ -155,6 +155,7 @@ public class Game {
 
         //Testing move and UI function with Miss Scarlett//
         Player p = players.get(0);
+        gameLoop();
         p.takeTurn();
         p.rollDice();
         p.move(Direction.NORTH, 1);
