@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class UI {
     private static Board board;
 
-    //TODO - initialiseGame(), asks the basic beginning questions, how many players? how is what char?
     //TODO - displayMap()
     //TODO - displayCards() - prints what cards you have in your hand
     //TODO - Questions at the beginning of each turn, where do you want to move?
@@ -101,6 +100,7 @@ public class UI {
 
     /**
      *  prints the map
+     *  //TODO - call at the start of every turn
      */
     public void displayMap() {
         System.out.println(map);
