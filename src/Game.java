@@ -78,6 +78,9 @@ public class Game {
                 new WeaponCard("Rope"),
                 new WeaponCard("Spanner")
         ));
+        for (Player player : players){
+            player.unseen.addAll(weapons);
+        }
         Collections.shuffle(weapons);
         murderWeapon = (WeaponCard) weapons.remove(0);
         board.addWeapons(weapons);
@@ -100,6 +103,9 @@ public class Game {
                 new CharacterCard("Mrs. Peacock"),
                 new CharacterCard("Mrs. White")
         ));
+        for (Player player : players){
+            player.unseen.addAll(characters);
+        }
         Collections.shuffle(characters);
         culprit = (CharacterCard) characters.remove(0);
         return characters;
@@ -123,6 +129,9 @@ public class Game {
                 new RoomCard("Hall"),
                 new RoomCard("Study")
         ));
+        for (Player player : players){
+            player.unseen.addAll(rooms);
+        }
         Collections.shuffle(rooms);
         crimeScene = (RoomCard) rooms.remove(0);
         return rooms;
