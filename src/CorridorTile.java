@@ -26,4 +26,9 @@ public class CorridorTile implements Tile {
      */
     @Override
     public void setWall(Direction dir) { walls.add(dir); }
+
+    @Override
+    public String toString() {
+        return "__";
+    }
 }

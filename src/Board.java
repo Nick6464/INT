@@ -60,6 +60,8 @@ public class Board {
         loadLounge();
         loadHall();
         loadStudy();
+        //Set shortcuts
+        setShortcuts();
         //Add cellar and corridors
         loadCellar();
         loadCorridor();
@@ -76,8 +78,8 @@ public class Board {
      * Loads the Kitchen tiles, and adds Kitchen to the rooms list
      */
     private void loadKitchen() {
-        String room = "Kitchen";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Kitchen", "KI", true);
+        rooms.put(room.getName(), room);
 
         //tiles in the kitchen
         int[] B = {1, 2, 3, 4, 5, 6}; //every tile here will have a north wall
@@ -92,24 +94,24 @@ public class Board {
 
         //creating the kitchen tiles
         for (int i: B) {
-            board[charToInt('B')][i] = new RoomTile(rooms.get(room));
+            board[charToInt('B')][i] = new RoomTile(room);
             //set all the tiles to have a North Wall
             board[charToInt('B')][i].setWall(Direction.NORTH);
         }
         for (int i: C)
-            board[(charToInt('C'))][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('C'))][i] = new RoomTile(room);
         for (int i: D)
-            board[(charToInt('D'))][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('D'))][i] = new RoomTile(room);
         for (int i: E)
-            board[(charToInt('E'))][i] = new RoomTile(rooms.get(room));
+            board[(charToInt('E'))][i] = new RoomTile(room);
         for (int i: F) {
-            board[charToInt('F')][i] = new RoomTile(rooms.get(room));
+            board[charToInt('F')][i] = new RoomTile(room);
             // F1 has a south wall
             if (i == 1)
                 board[charToInt('F')][i].setWall(Direction.SOUTH);
         }
         for (int i: G) {
-            board[charToInt('G')][i] = new RoomTile(rooms.get(room));
+            board[charToInt('G')][i] = new RoomTile(room);
             //set all the tiles to have a South Wall, except 5 because its a door
             if (i == 5)
                 continue;
@@ -127,8 +129,8 @@ public class Board {
      * Loads the Ballroom tiles, and adds Ballroom to the rooms list
      */
     private void loadBallroom() {
-        String room = "Ballroom";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Ballroom", "BA", false);
+        rooms.put(room.getName(),room);
 
         int[] B =        {11, 12, 13, 14}; //all north walls
         int[] C = {9, 10, 11, 12, 13, 14, 15, 16};
@@ -174,8 +176,8 @@ public class Board {
      * Loads the Conservatory tiles, and adds Conservatory to the rooms list
      */
     private void loadConservatory() {
-        String room = "Conservatory";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Conservatory","CO",true);
+        rooms.put(room.getName(),room);
 
         int[] B = {19, 20, 21, 22, 23, 24};
         int[] C = {19, 20, 21, 22, 23, 24};
@@ -213,8 +215,8 @@ public class Board {
      * Loads the Dining Room tiles, and adds Dining Room to the rooms list
      */
     private void loadDiningRoom() {
-        String room = "Dining Room";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Dining Room","DR",false);
+        rooms.put(room.getName(),room);
 
         int[] J = {1, 2, 3, 4, 5};
         int[] K = {1, 2, 3, 4, 5, 6, 7, 8};
@@ -259,8 +261,8 @@ public class Board {
      * Loads the Billiard Room tiles, and adds Billiard Room to the rooms list
      */
     private void loadBilliardRoom() {
-        String room = "Billiard Room";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Billiard Room", "BR",false);
+        rooms.put(room.getName(),room);
 
         int[] I = {19, 20, 21, 22, 23, 24};
         int[] J = {19, 20, 21, 22, 23, 24};
@@ -295,8 +297,8 @@ public class Board {
      * Loads the Library tiles, and adds Library to the rooms list
      */
     private void loadLibrary() {
-        String room = "Library";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Library", "LI",false);
+        rooms.put(room.getName(),room);
 
         int[] O =     {19, 20, 21, 22, 23};
         int[] P = {18, 19, 20, 21, 22, 23, 24};
@@ -339,8 +341,8 @@ public class Board {
      * Loads the Lounge tiles, and adds Lounge to the rooms list
      */
     private void loadLounge() {
-        String room = "Lounge";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Lounge","LO",true);
+        rooms.put(room.getName(),room);
 
         int[] T = {1, 2, 3, 4, 5, 6, 7};
         int[] U = {1, 2, 3, 4, 5, 6, 7};
@@ -382,8 +384,8 @@ public class Board {
      * Loads the Hall tiles, and adds Hall to the rooms list
      */
     private void loadHall() {
-        String room = "Hall";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Hall","HA",false);
+        rooms.put(room.getName(),room);
 
         int[] S = {10, 11, 12, 13, 14, 15};
         int[] T = {10, 11, 12, 13, 14, 15};
@@ -425,8 +427,8 @@ public class Board {
      * Loads the Study tiles, and adds Study to the rooms list
      */
     private void loadStudy() {
-        String room = "Study";
-        rooms.put(room, new Room(room));
+        Room room = new Room("Study","ST",true);
+        rooms.put(room.getName(),room);
 
         int[] V = {18, 19, 20, 21, 22, 23, 24};
         int[] W = {18, 19, 20, 21, 22, 23, 24};
@@ -458,11 +460,24 @@ public class Board {
         }
     }
 
+    private void setShortcuts() {
+        Room KI = rooms.get("Kitchen");
+        Room CO = rooms.get("Conservatory");
+        Room LO = rooms.get("Lounge");
+        Room ST = rooms.get("Study");
+
+        KI.setShortcut(ST);
+        ST.setShortcut(KI);
+
+        CO.setShortcut(LO);
+        LO.setShortcut(CO);
+    }
+
     /**
      * Loads the Cellar tiles, but does not add to rooms list
      */
     private void loadCellar() {
-        Room cellar = new Room("Cellar");
+        Room cellar = new Room("Cellar", "XX", false);
         for(int y = charToInt('K'); y <= charToInt('Q'); y++)
             for(int x = 11; x <= 15; x++)
                 board[y][x] = new RoomTile(cellar);

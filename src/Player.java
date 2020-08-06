@@ -14,6 +14,8 @@ public class Player {
     private ArrayList<Card> hand;
     private Location location;
     private int moves;
+    public ArrayList<Card> seen = new ArrayList<>();
+    public ArrayList<Card> unseen = new ArrayList<>();
 
     //state of the players turn
     private boolean takingTurn = false;
@@ -133,6 +135,8 @@ public class Player {
      */
     public void dealHand(List<Card> cards) {
         hand = new ArrayList<>(cards);
+        seen.addAll(cards);
+        unseen.removeAll(cards);
     }
 
     /**
@@ -142,6 +146,8 @@ public class Player {
      */
     public void dealHand(Card card) {
         hand.add(card);
+        seen.add(card);
+        unseen.remove(card);
     }
 
     public ArrayList<Card> getHand() {
