@@ -8,6 +8,6 @@ public class CharacterCard implements Card {
     }
 
     public String toString() {
-        return "Character: " + characterName;
+        return "[Character: " + characterName + "]";
     }
 }

@@ -10,6 +10,6 @@ public class WeaponCard implements Card {
     public String getWeaponName() { return weaponName; }
 
     public String toString() {
-        return "Weapon: " +weaponName;
+        return "[Weapon: " + weaponName + "]";
     }
 }

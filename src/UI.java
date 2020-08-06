@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UI {
@@ -107,9 +108,14 @@ public class UI {
         System.out.println(map);
     }
 
-    //TODO - display Hand
-    public static void displayHand() {
-        System.out.println(map);
+
+    /**
+     * gets they hand(cards player holds) of the player and prints it
+     * @param p - the player who's hand is getting accessed
+     */
+    public static void displayHand(Player p) {
+        System.out.println("Your hand contains... \n");
+        System.out.println(Arrays.toString(p.getHand().toArray()));
     }
 
 
@@ -168,7 +174,7 @@ public class UI {
                 p.playerMoves();
                 break;
             case "hand":
-                displayHand();
+                displayHand(p);
                 break;
             case "suspect":
                 //TODO - Add UI and interaction for suspect
@@ -236,26 +242,4 @@ public class UI {
         this.board = board;
     }
 
-
-    //https://www.reddit.com/r/learnprogramming/comments/7uou4l/how_to_clear_screen_in_java/
-    public final static void clearConsole()
-    {
-        try
-        {
-            final String os = System.getProperty("os.name");
-
-            if (os.contains("Windows"))
-            {
-                Runtime.getRuntime().exec("cls");
-            }
-            else
-            {
-                Runtime.getRuntime().exec("clear");
-            }
-        }
-        catch (final Exception e)
-        {
-            //  Handle any exceptions.
-        }
-    }
 }

@@ -3,6 +3,7 @@
 import Cards.Card;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -143,8 +144,9 @@ public class Player {
         hand.add(card);
     }
 
-    public void showHand() {
-        //TODO - show the players hand (do we also want to store cards shown to player, or make them remember manually?
+    public ArrayList<Card> getHand() {
+
+        return this.hand;
     }
 
     public Card showCard() {
@@ -154,7 +156,6 @@ public class Player {
 
     /**
      * Creates a new player, and assigns a position based on chosen character
-     *
      * @param name the name of the chosen character
      */
     public Player(String name, Board board) {

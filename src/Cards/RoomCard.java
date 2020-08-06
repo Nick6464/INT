@@ -10,6 +10,6 @@ public class RoomCard implements Card {
     public String getRoomName() { return roomName; }
 
     public String toString() {
-        return "Room: " + roomName;
+        return "[Room: " + roomName + "]";
     }
 }
