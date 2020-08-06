@@ -38,7 +38,6 @@ public class Player {
                     //playerSuspects();
                     break;
                 case "map":
-                    UI.clearConsole();
                     UI.displayMap();
                     break;
                 case "end":
@@ -59,7 +58,6 @@ public class Player {
 //            //TODO - allow player to make a guess
 //            //TODO - Move into UI class
 //        }
-        UI.clearConsole();
     }
 
     public void playerMoves(){
@@ -184,17 +182,25 @@ public class Player {
         StringBuilder sb = new StringBuilder();
         //Player's name and location
         sb.append(playerName).append(" is currently at ").append(location.toString());
-        if (currentTile instanceof RoomTile)
-            sb.append(", in the ").append(((RoomTile) currentTile).getRoom().getName());
-        sb.append(".\n");
+        if (currentTile instanceof RoomTile) {
+            RoomTile roomTile = (RoomTile)currentTile;
+            sb.append(", in the ").append(roomTile.getRoom().getName());
+            sb.append(".\n");
+            if (roomTile.getRoom().hasShortcut) {
+                sb.append("There is a secret passageway heading to the ").append(roomTile.getRoom().getShortcutDestination().getName()).append(".\n");
+            }
+        }
+
         //Walls around player's location
-        if (!currentTile.getWalls().isEmpty()) {
-            HashSet<Direction> walls = currentTile.getWalls();
-            if (walls.size() == 1)
-                sb.append("There is a wall to the ");
-            else
-                sb.append("There are walls to the ");
-        sb.append(walls.toString(), 1, walls.toString().length()-1).append(".\n");
+        else {
+            if (!currentTile.getWalls().isEmpty()) {
+                HashSet<Direction> walls = currentTile.getWalls();
+                if (walls.size() == 1)
+                    sb.append("There is a wall to the ");
+                else
+                    sb.append("There are walls to the ");
+                sb.append(walls.toString(), 1, walls.toString().length() - 1).append(".\n");
+            }
         }
 
         return sb.toString();

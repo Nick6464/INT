@@ -5,8 +5,8 @@ import java.util.HashSet;
  */
 public class RoomTile implements Tile {
     private final Room room;
+    private boolean isDoorway = false;
     private HashSet<Direction> walls = new HashSet<>();
-    private RoomTile shortcutExit = null;
 
     /**
      * Constructor for RoomTile
@@ -15,6 +15,8 @@ public class RoomTile implements Tile {
     public RoomTile(Room room) {
         this.room = room;
     }
+
+    public void setDoorway() {isDoorway = false; }
 
     /**
      * Getter for the walls each tile has
@@ -33,14 +35,6 @@ public class RoomTile implements Tile {
     public void setWall(Direction dir) { walls.add(dir); }
 
     /**
-     * Adds a shortcut to a tile
-     * @param shortcutExit  - the exit tile of the shortcut
-     */
-    public void addShortcut(RoomTile shortcutExit) {
-        this.shortcutExit = shortcutExit;
-    }
-
-    /**
      * Getter for RoomTile
      * @return room the tile belongs to
      */
@@ -48,19 +42,10 @@ public class RoomTile implements Tile {
         return this.room;
     }
 
-    /**
-     * Checks if there is a shortcut on this tile
-     * @return true is a shortcut exists
-     */
-    public boolean secretEntrance() {
-        return !(shortcutExit == null);
-    }
-
-    /**
-     * Returns the shortcut exit tile
-     * @return  shortcutExit
-     */
-    public RoomTile secretExit() {
-        return shortcutExit;
+    @Override
+    public String toString() {
+        if (isDoorway)
+            return "][";
+        return room.getInitials();
     }
 }
