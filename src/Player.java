@@ -7,40 +7,25 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Player {
+
     private final String playerName;
     private Board board;
     private ArrayList<Card> hand;
     private Location location;
     private int moves;
 
+    //state of the players turn
+    private boolean takingTurn = false;
+
     /**
      * Allows player to perform move and guess actions before ending their turn
      */
     public void takeTurn() {
         rollDice();
-        boolean takingTurn = true;
+        startTurn();
         while (takingTurn) {
-            String userMove = UI.userTurn(moves, playerLocation());
-            //TODO - Ask user for direction and distance to move; or could implement key listener (key listener could be initialised in Game, and passed to takeTurn as a parameter
-            //TODO - undo option?
-            switch (userMove) {
-                case "/help":
-                    UI.help();
-                    //TODO - Fix UI
-                    break;
-                case "move":
-                    playerMoves();
-                    break;
-                case "suspect":
-                    //TODO - Add UI and interaction for suspect
-                    //playerSuspects();
-                    break;
-                case "map":
-                    UI.displayMap();
-                    break;
-                case "end":
-                    takingTurn = false;
-            }
+            UI.userTurn(this, moves, playerLocation());
+
             //User Input// -- Temp hardcode to prevent error
             //Direction dir = Direction.NORTH;
 //            int dist = 0;
@@ -56,6 +41,20 @@ public class Player {
 //            //TODO - allow player to make a guess
 //            //TODO - Move into UI class
 //        }
+    }
+
+    /**
+     * Sets player to have started their turn
+     */
+    public void startTurn() {
+        takingTurn = true;
+    }
+
+    /**
+     * Sets player to have ended their turn
+     */
+    public void endTurn() {
+        takingTurn = false;
     }
 
     public void playerMoves(){
