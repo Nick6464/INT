@@ -17,9 +17,9 @@ public class Player {
      * Allows player to perform move and guess actions before ending their turn
      */
     public void takeTurn() {
-
         rollDice();
-        while (moves > 0) {
+        boolean takingTurn = true;
+        while (takingTurn) {
             String userMove = UI.userTurn(moves, playerLocation());
             //TODO - Ask user for direction and distance to move; or could implement key listener (key listener could be initialised in Game, and passed to takeTurn as a parameter
             //TODO - undo option?
@@ -35,6 +35,11 @@ public class Player {
                     //TODO - Add UI and interaction for suspect
                     //playerSuspects();
                     break;
+                case "map":
+                    UI.displayMap();
+                    break;
+                case "end":
+                    takingTurn = false;
             }
             //User Input// -- Temp hardcode to prevent error
             //Direction dir = Direction.NORTH;
@@ -49,6 +54,7 @@ public class Player {
 //        if (location.inRoom()) {
 //            //TODO - allow player to question other player
 //            //TODO - allow player to make a guess
+//            //TODO - Move into UI class
 //        }
     }
 
