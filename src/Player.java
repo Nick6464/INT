@@ -17,7 +17,6 @@ public class Player {
      * Allows player to perform move and guess actions before ending their turn
      */
     public void takeTurn() {
-
         rollDice();
         while (moves > 0) {
             String userMove = UI.userTurn(moves, playerLocation());
