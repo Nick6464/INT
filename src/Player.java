@@ -29,7 +29,7 @@ public class Player {
                     //TODO - Fix UI
                     break;
                 case "move":
-                    playerMoves(moves);
+                    playerMoves();
                     break;
                 case "suspect":
                     //TODO - Add UI and interaction for suspect

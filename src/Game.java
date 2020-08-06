@@ -131,16 +131,13 @@ public class Game {
      */
     private void gameLoop() {
         //Miss Scarlett always starts, so sets her turn first
-        int playerTurn = Math.max(miss_scarlett, 0);
+        int turn = Math.max(miss_scarlett, 0);
         // if she is in the game, otherwise player 1 starts.
         // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
         while (running) { //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
-            Player currentPlayer = players.get(playerTurn);
+            Player currentPlayer = players.get(turn % players.size());
             currentPlayer.takeTurn();
-            playerTurn++;
-            if (playerTurn >= players.size()) { //Resets the turn to player 1 after all have gone
-                playerTurn = 0;
-            }
+            turn++;
         }
     }
 
@@ -164,6 +161,7 @@ public class Game {
         p.move(Direction.WEST, 2);
         p.move(Direction.NORTH, 4);
         p.move(Direction.WEST, 1);
+        p.move(Direction.NORTH, 1);
         //p.takeTurn();
         //                              //
 
