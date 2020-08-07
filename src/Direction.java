@@ -1,4 +1,4 @@
-public enum Direction {
+public enum Direction{
     NORTH("North"),
     SOUTH("South"),
     EAST("East"),

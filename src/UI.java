@@ -13,7 +13,7 @@ public class UI {
 
     //TODO - Questions at the beginning of each turn, where do you want to move?
     //TODO - describeTile(), when you move a tile, describe what is around you
-    //TODO - describeRoom(), when you enter a room, describe room name, what weapons and players are already in the room //PlayerLoction already describes all but other players
+    //TODO - describeRoom(), when you enter a room, describe room name, what weapons and players are already in the room //PlayerLocation already describes all but other players
     //TODO - ask for who you suspect(CONDITION: if player are in a room)
     //TODO - declareAccusation() - the final declaration of who it is with what wep in what room*
 
@@ -192,13 +192,11 @@ public class UI {
     /**
      * method for the players turn
      *
-     * @param p              - the current player
-     * @param moves          - how many moves the player has left
-     * @param playerLocation - the players location on the board
+     * @param p - the current player
      */
-    public static void userTurn(Player p, int moves, String playerLocation) {
-        System.out.println(playerLocation);
-        System.out.println(moves + " moves remaining");
+    public static void userTurn(Player p) {
+        System.out.println(p.playerLocation());
+        System.out.println(p.getMoves() + " moves remaining");
         System.out.println("What actions would you like to perform? (typing 'actions' will display commands)");
         Scanner sc = new Scanner(System.in);
 
@@ -212,7 +210,10 @@ public class UI {
                 help();
                 break;
             case "move":
-                p.playerMoves();
+                if (p.getMoves() > 0)
+                    p.playerMoves();
+                else
+                    System.out.println("You cannot move further this turn");
                 break;
             case "hand":
                 displayHand(p);
@@ -270,7 +271,7 @@ public class UI {
         }
         String selected = userInput(player.playerName + " which card do you wish to show?");
         for (Card card : has) {
-            if (selected.toString().equals(card.toString())) {
+            if (selected.equals(card.toString())) {
                 return card;
             }
         }
@@ -320,7 +321,7 @@ public class UI {
      * @return - the card of the character suggested
      */
     public static Card playerSuspect(boolean suggest) {
-        String characterSuspect = null;
+        String characterSuspect;
         ArrayList<Card> allCharacters = new ArrayList<>(Arrays.asList(
                 new CharacterCard("Miss Scarlett"),
                 new CharacterCard("Rev Green"),
@@ -466,7 +467,7 @@ public class UI {
 
 
     public UI(Board board) {
-        this.board = board;
+        UI.board = board;
     }
 
 }

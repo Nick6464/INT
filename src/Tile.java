@@ -1,11 +1,11 @@
-import java.util.HashSet;
+import java.util.TreeSet;
 
 public interface Tile {
     /**
      * Getter for the walls each tile has
      * @return an ArrayList of Directions, the directions represent where walls are.
      */
-    HashSet<Direction> getWalls();
+    TreeSet<Direction> getWalls();
 
     /**
      * Adds a wall to the tile

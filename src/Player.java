@@ -4,8 +4,8 @@ import Cards.Card;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Player implements Comparable {
 
@@ -29,18 +29,11 @@ public class Player implements Comparable {
         rollDice();
         startTurn();
         while (takingTurn) {
-            UI.userTurn(this, moves, playerLocation());
-
-            //User Input// -- Temp hardcode to prevent error
-            //Direction dir = Direction.NORTH;
-//            int dist = 0;
-//
-//            if (dist > 0)
-//                move(dir, dist);
-//            else
-//                break; //Player has chosen to stop early
+            UI.userTurn(this);
         }
     }
+
+    public int getMoves() { return moves; }
 
     /**
      * Gets the cards the player has seen
@@ -79,6 +72,8 @@ public class Player implements Comparable {
      * How the player wants to move
      */
     public void playerMoves(){
+        //TODO - needs to check distance <= moves
+        //TODO - notify of wall collision
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
@@ -90,13 +85,16 @@ public class Player implements Comparable {
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             };
             String userDistance = UI.userInput("How far do you want to move " + direction.toString() + "?");
-            int distance = Integer.parseInt(userDistance);
+            int distance = Math.min(moves,Integer.parseInt(userDistance));
             while (distance > 0) {
                 if (location.move(direction, board)) {
                     moves--;
                     distance--;
                 }
-                else break;
+                else {
+                    System.out.println("There is a wall in your way.");
+                    break;
+                }
             }
         } catch (Exception e){
             System.out.println("Please enter a valid move");
@@ -250,7 +248,7 @@ public class Player implements Comparable {
         sb.append(".\n");
         //Walls around player's location
         if (!currentTile.getWalls().isEmpty()) {
-            HashSet<Direction> walls = currentTile.getWalls();
+            TreeSet<Direction> walls = currentTile.getWalls();
             if (walls.size() == 1)
                 sb.append("There is a wall to the ");
             else

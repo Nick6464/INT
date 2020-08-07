@@ -66,6 +66,7 @@ public class Board {
         loadDoorways();
         loadCorridor();
         loadCornerDoorWalls();
+        rooms.remove("Cellar");
     }
 
     /**
@@ -395,18 +396,19 @@ public class Board {
     }
 
     /**
-     * Loads the Cellar tiles, but does not add to rooms list
+     * Loads the Cellar tiles
      * Also loads all null tiles as cellar, as they are also unplayable
      */
     private void loadCellar() {
         Room cellar = new Room("Cellar", "XX", false);
+        rooms.put(cellar.getName(), cellar);
         for(int y = charToInt('K'); y <= charToInt('Q'); y++) {
             for (int x = 11; x <= 15; x++)
                 board[y][x] = new RoomTile(cellar);
         }
         //Top row
         for(int i = 1; i < board[1].length; i++) {
-            if (i == 10 || 1 == 15)
+            if (i == 10 || i == 15)
                 continue;
             board[1][i] = new RoomTile(cellar);
         }
@@ -432,35 +434,35 @@ public class Board {
      * Fills in board with Corridor tiles
      */
     private void loadCorridor() {
-        //[B -> X][[2 -> 23]
         for(int y = 1; y < board.length; y++)
-            for(int x = 1; x < board[x].length; x++)
+            for(int x = 1; x < board[y].length; x++)
                 if(board[y][x] == null) {
                     board[y][x] = new CorridorTile();
-                    //North walls
-                    if (y == 1)
-                        board[y][x].setWall(Direction.NORTH);
-                    if (y > 1 && board[y-1][x] instanceof RoomTile)
-                        if (!((RoomTile) board[y-1][x]).isDoorway())
-                            board[y][x].setWall(Direction.NORTH);
+                    //West walls
+                    if(x == 1)
+                        board[y][x].setWall(Direction.WEST);
+                    if(board[y][x-1] instanceof RoomTile)
+                        if(!((RoomTile) board[y][x-1]).isDoorway())
+                            board[y][x].setWall(Direction.WEST);
+                    //East walls
+                    if(x == board[y].length-1)
+                        board[y][x].setWall(Direction.EAST);
+                    else if(board[y][x+1] instanceof RoomTile)
+                        if(!((RoomTile) board[y][x+1]).isDoorway())
+                            board[y][x].setWall(Direction.EAST);
                     //South walls
                     if(y == board.length-1)
                         board[y][x].setWall(Direction.SOUTH);
-                    if (y < board.length-1 && board[y+1][x] instanceof RoomTile)
+                    else if (board[y+1][x] instanceof RoomTile)
                         if(!((RoomTile) board[y+1][x]).isDoorway())
                             board[y][x].setWall(Direction.SOUTH);
-                    //East walls
-                    if(x == 1)
-                        board[y][x].setWall(Direction.EAST);
-                    if(x > 1 && board[y][x-1] instanceof RoomTile)
-                        if(!((RoomTile) board[y][x-1]).isDoorway())
-                            board[y][x].setWall(Direction.EAST);
-                    //West walls
-                    if(x == board[y].length-1)
-                        board[y][x].setWall(Direction.WEST);
-                    if(x < board[y].length-1 && board[y][x+1] instanceof RoomTile)
-                        if(!((RoomTile) board[y][x+1]).isDoorway())
-                            board[y][x].setWall(Direction.WEST);
+                    //North walls
+                    if (y == 1)
+                        board[y][x].setWall(Direction.NORTH);
+                    if (board[y-1][x] instanceof RoomTile)
+                        if (!((RoomTile) board[y-1][x]).isDoorway())
+                            board[y][x].setWall(Direction.NORTH);
+                    //Collections.sort(board[y][x].getWalls());
                 }
     }
 

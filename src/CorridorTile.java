@@ -1,10 +1,10 @@
-import java.util.HashSet;
+import java.util.TreeSet;
 
 /**
  * Class for the Tiles that are in the corridor(Non-room tiles).
  */
 public class CorridorTile implements Tile {
-    private HashSet<Direction> walls = new HashSet<>();
+    private TreeSet<Direction> walls = new TreeSet<>();
     /**
      * Constructor for CorridorTile
      */
@@ -17,7 +17,7 @@ public class CorridorTile implements Tile {
      * @return an ArrayList of Directions, the directions represent where walls are.
      */
     @Override
-    public HashSet<Direction> getWalls() { return walls; }
+    public TreeSet<Direction> getWalls() { return walls; }
 
     /**
      * Adds a wall to the tile

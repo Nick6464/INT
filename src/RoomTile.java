@@ -1,4 +1,4 @@
-import java.util.HashSet;
+import java.util.TreeSet;
 
 /**
  * Class for the Tiles that are in rooms.
@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class RoomTile implements Tile {
     private final Room room;
     private boolean isDoorway = false;
-    private HashSet<Direction> walls = new HashSet<>();
+    private TreeSet<Direction> walls = new TreeSet<>();
 
     /**
      * Constructor for RoomTile
@@ -26,7 +26,7 @@ public class RoomTile implements Tile {
      * @return an ArrayList of Directions, the directions represent where walls are.
      */
     @Override
-    public HashSet<Direction> getWalls() { return walls; }
+    public TreeSet<Direction> getWalls() { return walls; }
 
     /**
      * Adds a wall to the tile
