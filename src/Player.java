@@ -95,6 +95,7 @@ public class Player {
     public int move(Direction direction, int distance) {
         //TODO - I dont think this is initialised fully, may need to be edited in Location as well as here
         //TODO - Add checking to see if a move is valid
+        //TODO - make so cant end turn as another player
         try {
             if (distance > moves) {
                 throw new IllegalStateException("Unexpected value");
@@ -153,7 +154,6 @@ public class Player {
     }
 
     public ArrayList<Card> getHand() {
-
         return this.hand;
     }
 
