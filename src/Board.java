@@ -107,6 +107,17 @@ public class Board {
         int bot = Math.min(board.length-1, y+3);
             top = Math.min(top, bot-7);
 
+        while(top < 1 || bot < 1){
+            top++;
+            bot++;
+        }
+
+        while(left < 1 || right < 1){
+            left++;
+            right++;
+        }
+
+
         StringBuilder sb = new StringBuilder();
         int printX = left;
         while(top <= bot) {

@@ -1,5 +1,7 @@
 import Cards.Card;
 import Cards.CharacterCard;
+import Cards.RoomCard;
+import Cards.WeaponCard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +21,7 @@ public class UI {
      * String used to draw the entire board
      */
     public static String map =
-            "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
+                    "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
                     "\n A |//|//|//|//|//|//|//|//|//|mw|//|//|//|//|mg|//|//|//|//|//|//|//|//|//| A" +
                     "\n B |KI|KI|KI|KI|KI|KI|//|__|__|__|BA|BA|BA|BA|__|__|__|//|CO|CO|CO|CO|CO|CO| B" +
                     "\n C |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|CO|CO|CO|CO|CO|CO| C" +
@@ -197,9 +199,14 @@ public class UI {
                 displayHand(p);
                 break;
             case "suggest":
-                //TODO - Add UI and interaction for suspect
-                Card suspect = playerSuspect(userInput("Who are you suspecting?"));
-                //Card weapon = weaponSuspect(userInput("What weapon did" + suspect.toString() + " use?"));
+                if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof Room) {
+                    Card suspect = playerSuspect(userInput("Who are you suspecting?"));
+                    Card weapon = weaponSuspect(userInput("What weapon did" + suspect.toString() + " use?"));
+                    Card room = roomSuspect(p);
+                    p.suspect(room, suspect,weapon);
+                } else {
+                    System.out.println("You aren't currently in a room.");
+                }
                 break;
             case "map":
                 displayMap();
@@ -213,6 +220,27 @@ public class UI {
             case "end":
                 p.endTurn();
         }
+    }
+
+    public static Card roomSuspect(Player player) {
+        Room currentRoom = (Room) board.getTile(player.getLocation().getYIndex(), player.getLocation().getX());
+        ArrayList<Card> allRooms = new ArrayList<>(Arrays.asList(
+                new RoomCard("Kitchen"),
+                new RoomCard("Ballroom"),
+                new RoomCard("Conservatory"),
+                new RoomCard("Dining Room"),
+                new RoomCard("Billiard Room"),
+                new RoomCard("Library"),
+                new RoomCard("Lounge"),
+                new RoomCard("Hall"),
+                new RoomCard("Study")
+        ));
+        for (Card room : allRooms) {
+            if (currentRoom.toString().equals(room.toString())) {
+                return room;
+            }
+        }
+        return null;
     }
 
     public static Card playerSuspect(String characterSuspect) {
@@ -244,6 +272,38 @@ public class UI {
         } catch (Exception e) {
             System.out.println("Character does not exist.");
             return playerSuspect(userInput("Who are you suspecting?"));
+        }
+    }
+
+    public static Card weaponSuspect(String weaponSuspect) {
+        ArrayList<Card> allWeapons = new ArrayList<>(Arrays.asList(
+                new WeaponCard("Candlestick"),
+                new WeaponCard("Dagger"),
+                new WeaponCard("Lead Pipe"),
+                new WeaponCard("Revolver"),
+                new WeaponCard("Rope"),
+                new WeaponCard("Spanner")
+        ));
+        for (int i = 0; i < allWeapons.size(); i++) {
+            System.out.println((i + 1) + ": " + allWeapons.get(i));
+        }
+        if (allWeapons.contains(new WeaponCard(weaponSuspect))) {
+            for (int j = 0; j < allWeapons.size(); j++) {
+                if (allWeapons.toString().equals(weaponSuspect)) {
+                    return allWeapons.get(j);
+                }
+            }
+        }
+        try {
+            if (Integer.parseInt(weaponSuspect) >= 1 &&
+                    Integer.parseInt(weaponSuspect) <= allWeapons.size()) {
+                return allWeapons.get(Integer.parseInt(weaponSuspect) - 1);
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println("Weapon does not exist.");
+            return playerSuspect(userInput("What weapon was used?"));
         }
     }
 

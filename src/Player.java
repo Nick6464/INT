@@ -116,7 +116,7 @@ public class Player {
     /**
      * Player is being questioned, and must be moved to the room in question
      */
-    public void suspect(Room investigation) {
+    public void suspect(Card room, Card suspect, Card weapon) {
         //TODO - move the player to room where investigation is being held
     }
 
