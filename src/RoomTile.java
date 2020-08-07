@@ -18,6 +18,8 @@ public class RoomTile implements Tile {
 
     public void setDoorway() {isDoorway = true; }
 
+    public boolean isDoorway() {return isDoorway;}
+
     /**
      * Getter for the walls each tile has
      *
