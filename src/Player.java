@@ -157,7 +157,7 @@ public class Player {
         return this.hand;
     }
 
-    public Card showCard() {
+    public Card showCard(Room room, Weapon weapon, Character character) {
         //TODO - show a card to another player
         return null;
     }
