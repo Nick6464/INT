@@ -34,4 +34,6 @@ public class Room {
     public boolean isCrimeScene() { return  isCrimeScene; }
 
     public HashSet<Weapon> getPotentialWeapons() { return potentialWeapons; }
+
+    public HashSet<RoomTile> getTiles() {return tiles; }
 }
