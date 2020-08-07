@@ -100,23 +100,12 @@ public class Board {
         int y = p.getLocation().getYIndex();
         //X Range
         int left = Math.max(1, x-3);
-        int right = Math.min(board[y].length-1, x+3);
+        int right = Math.min(board[0].length-1, left+6);
             left = Math.min(left, right-6);
         //Y Range
         int top = Math.max(1,y-3);
-        int bot = Math.min(board.length-1, y+3);
+        int bot = Math.min(board.length-1, top+6);
             top = Math.min(top, bot-6);
-
-        while(top < 1 || bot < 1){
-            top++;
-            bot++;
-        }
-
-        while(left < 1 || right < 1){
-            left++;
-            right++;
-        }
-
 
         StringBuilder sb = new StringBuilder();
         int printX = left;
