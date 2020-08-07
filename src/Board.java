@@ -100,23 +100,12 @@ public class Board {
         int y = p.getLocation().getYIndex();
         //X Range
         int left = Math.max(1, x-3);
-        int right = Math.min(board[y].length-1, x+3);
-            left = Math.min(left, right-7);
+        int right = Math.min(board[0].length-1, left+6);
+            left = Math.min(left, right-6);
         //Y Range
         int top = Math.max(1,y-3);
-        int bot = Math.min(board.length-1, y+3);
-            top = Math.min(top, bot-7);
-
-        while(top < 1 || bot < 1){
-            top++;
-            bot++;
-        }
-
-        while(left < 1 || right < 1){
-            left++;
-            right++;
-        }
-
+        int bot = Math.min(board.length-1, top+6);
+            top = Math.min(top, bot-6);
 
         StringBuilder sb = new StringBuilder();
         int printX = left;
@@ -608,7 +597,7 @@ public class Board {
         ((RoomTile)board[charToInt('S')][13]).setDoorway();
         ((RoomTile)board[charToInt('U')][15]).setDoorway();
         //Study
-        ((RoomTile)board[charToInt('W')][18]).setDoorway();
+        ((RoomTile)board[charToInt('V')][18]).setDoorway();
     }
 
     /**
