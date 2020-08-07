@@ -15,7 +15,7 @@ public class UI {
      * String used to draw the entire board
      */
     public static String map =
-            "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
+                    "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
                     "\n A |//|//|//|//|//|//|//|//|//|mw|//|//|//|//|mg|//|//|//|//|//|//|//|//|//| A" +
                     "\n B |KI|KI|KI|KI|KI|KI|//|__|__|__|BA|BA|BA|BA|__|__|__|//|CO|CO|CO|CO|CO|CO| B" +
                     "\n C |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|CO|CO|CO|CO|CO|CO| C" +
