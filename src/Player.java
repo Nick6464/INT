@@ -80,6 +80,9 @@ public class Player {
         takingTurn = false;
     }
 
+    /**
+     * How the player wants to move
+     */
     public void playerMoves(){
         try {
             Direction direction;
@@ -104,6 +107,11 @@ public class Player {
             System.out.println("Please enter a valid move");
         }
     }
+
+    /**
+     * Used for testing to force the moves a player gets
+     * @param moves - number of moves the player gets
+     */
     public void setMoves(int moves){
         this.moves = moves;
     }
@@ -146,6 +154,13 @@ public class Player {
         System.out.printf("%s rolled %d and %d\n", playerName, die1, die2);
     }
 
+    /**
+     * Checks if a player has any of the selected cards
+     * @param weapon - card to check
+     * @param suspect - card to check
+     * @param room - card to check
+     * @return - the card they have selected to show
+     */
     public Card hasCard(Card weapon, Card suspect, Card room){
         ArrayList<Card> has = new ArrayList<>();
         for(Card card : hand){
@@ -186,6 +201,10 @@ public class Player {
         unseen.remove(card);
     }
 
+    /**
+     * Gets a players hand
+     * @return - their hand
+     */
     public ArrayList<Card> getHand() {
         return this.hand;
     }
@@ -213,6 +232,10 @@ public class Player {
         }
     }
 
+    /**
+     * Gets a players location
+     * @return - Location
+     */
     public Location getLocation() { return location; }
 
     /**

@@ -253,6 +253,12 @@ public class UI {
         }
     }
 
+    /**
+     * A player has guess a card and another must show a card to them
+     * @param has - List of cards they can show
+     * @param player - The player that must show a card
+     * @return - the Card they've selected
+     */
     public static Card cardSelect(ArrayList<Card> has, Player player){
         for(int i = 0; i < has.size(); i++){
             System.out.println((i + 1) + " : " + has.get(i).toString());
@@ -276,6 +282,11 @@ public class UI {
         }
     }
 
+    /**
+     * Finds the room the player is in to suspect
+     * @param player - the player suspecting
+     * @return - the room the player is in
+     */
     public static Card roomSuspect(Player player) {
         RoomTile current = (RoomTile) board.getTile(player.getLocation().getYIndex(), player.getLocation().getX());
         Room currentRoom = current.getRoom();
@@ -298,6 +309,11 @@ public class UI {
         return null;
     }
 
+    /**
+     * the character the player is suggesting
+     * @param suggest - if its an accusation or suggestion
+     * @return - the card of the character suggested
+     */
     public static Card playerSuspect(boolean suggest) {
         String characterSuspect = null;
         ArrayList<Card> allCharacters = new ArrayList<>(Arrays.asList(
@@ -336,6 +352,11 @@ public class UI {
         }
     }
 
+
+    /**
+     * The weapon suggested
+     * @return - the card of the weapon suggested
+     */
     public static Card weaponSuspect() {
         ArrayList<Card> allWeapons = new ArrayList<>(Arrays.asList(
                 new WeaponCard("Candlestick"),

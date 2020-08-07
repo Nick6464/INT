@@ -41,6 +41,15 @@ public class Game {
         }
     }
 
+
+    /**
+     * Player thinks they know all 3 requirements, tries to win the game
+     * @param suspect - character the player guessed
+     * @param weapon - weapon player suspects
+     * @param room - room player is in
+     * @param player - player making the guess
+     * @return - the status of the game
+     */
     public static boolean accuse(Card suspect, Card weapon, Card room, Player player){
         //TODO - add check for one player eg all other removed default win
         if (murderWeapon.equals(weapon) && culprit.equals(suspect) && crimeScene.equals(room)){
@@ -54,6 +63,13 @@ public class Game {
         }
     }
 
+    /**
+     * Takes a room, character and weapon a player suggests
+     * @param room - room player is in
+     * @param suspect - character player guessed
+     * @param weapon - weapon player suspects
+     * @param player - player making the guess
+     */
     public static void suspect(Card room, Card suspect, Card weapon, Player player) {
         int asked = -1;
         for (int i = 0; i < players.size(); i++) {
