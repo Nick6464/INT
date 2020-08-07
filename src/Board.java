@@ -93,6 +93,36 @@ public class Board {
         return sb.toString();
     }
 
+    public String printArea(Player p) {
+        int x = p.getLocation().getX();
+        int y = p.getLocation().getYIndex();
+        //X Range
+        int left = Math.max(1, x-3);
+        int right = Math.min(board[y].length-1, x+3);
+            left = Math.min(left, right-7);
+        //Y Range
+        int top = Math.max(1,y-3);
+        int bot = Math.min(board.length-1, y+3);
+            top = Math.min(top, bot-7);
+
+        StringBuilder sb = new StringBuilder();
+        int printX = left;
+        while(top <= bot) {
+            sb.append("|");
+            while (printX <= right) {
+                if(top==y && printX==x)
+                    sb.append(p.initials).append("|");
+                else
+                    sb.append(board[top][printX]).append("|");
+                printX++;
+            }
+            sb.append("\n");
+            printX = left;
+            top++;
+        }
+        return sb.toString();
+    }
+
     public Tile getTile(int y, int x) { return board[y][x]; }
 
     public HashMap<String,Room> getRooms() {return rooms; }

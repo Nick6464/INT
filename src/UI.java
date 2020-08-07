@@ -166,7 +166,7 @@ public class UI {
         //TODO - Ask user for direction and distance to move; or could implement key listener (key listener could be initialised in Game, and passed to takeTurn as a parameter
         //TODO - undo option?
 
-        switch (sc.nextLine()) {
+        switch (sc.nextLine().toLowerCase()) {
             case "/help":
                 help();
                 break;
@@ -181,7 +181,10 @@ public class UI {
                 //playerSuspects();
                 break;
             case "map":
-                UI.displayMap();
+                displayMap();
+                break;
+            case "look":
+                playerArea(p);
                 break;
             case "end":
                 p.endTurn();
@@ -194,8 +197,8 @@ public class UI {
         return sc.nextLine();
     }
 
-    public void playerArea(Player p) {
-        //TODO - same as displayBoard(), but instead show a 5x5 ? 7x7 area around current player
+    public static void playerArea(Player p) {
+        System.out.println(board.printArea(p));
     }
 
     public int playerStart() {

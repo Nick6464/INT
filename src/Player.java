@@ -10,6 +10,7 @@ import java.util.List;
 public class Player {
 
     private final String playerName;
+    public String initials;
     private Board board;
     private ArrayList<Card> hand;
     private Location location;
@@ -169,14 +170,22 @@ public class Player {
        this.board = board;
        playerName = name;
         switch (name) {
-            case "Miss Scarlett" -> location = new Location('Y', 8);
-            case "Rev Green" -> location = new Location('A', 15);
-            case "Colonel Mustard" -> location = new Location('R', 1);
-            case "Professor Plum" -> location = new Location('T', 24);
-            case "Mrs. Peacock" -> location = new Location('G', 24);
-            case "Mrs. White" -> location = new Location('A', 10);
+            case "Miss Scarlett"    -> {location = new Location('Y', 8);
+                                        initials = "MS";}
+            case "Rev Green"        -> {location = new Location('A', 15);
+                                        initials = "RG";}
+            case "Colonel Mustard"  -> {location = new Location('R', 1);
+                                        initials = "CM";}
+            case "Professor Plum"   -> {location = new Location('T', 24);
+                                        initials = "PP";}
+            case "Mrs. Peacock"     -> {location = new Location('G', 24);
+                                        initials = "MP";}
+            case "Mrs. White"       -> {location = new Location('A', 10);
+                                        initials = "MW";}
         }
     }
+
+    public Location getLocation() { return location; }
 
     /**
      * Gets the players location and returns if there are walls, and in what direction.
