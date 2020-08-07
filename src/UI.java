@@ -17,6 +17,8 @@ public class UI {
     //TODO - ask for who you suspect(CONDITION: if player are in a room)
     //TODO - declareAccusation() - the final declaration of who it is with what wep in what room*
 
+    //TODO - Characters and weapons don't move to rooms when accused
+
     /**
      * A String for a line that's sole purpose its to make things pretty
      */
@@ -223,7 +225,7 @@ public class UI {
                 break;
             case "suggest":
                 if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile) {
-                    Card suspect = playerSuspect();
+                    Card suspect = playerSuspect(true);
                     Card weapon = weaponSuspect();
                     Card room = roomSuspect(p);
                     Game.suspect(room, suspect,weapon, p);
@@ -242,13 +244,22 @@ public class UI {
                 System.out.println(separator);
                 break;
             case "accuse":
-                //TODO - the accuse action;
+                Card suspect = playerSuspect(false);
+                Card weapon = weaponSuspect();
+                Card room = roomSuspect(p);
+                Game.running = Game.accuse(suspect, weapon, room, p);
                 break;
             case "end":
                 p.endTurn();
         }
     }
 
+    /**
+     * A player has guess a card and another must show a card to them
+     * @param has - List of cards they can show
+     * @param player - The player that must show a card
+     * @return - the Card they've selected
+     */
     public static Card cardSelect(ArrayList<Card> has, Player player){
         for(int i = 0; i < has.size(); i++){
             System.out.println((i + 1) + " : " + has.get(i).toString());
@@ -272,6 +283,11 @@ public class UI {
         }
     }
 
+    /**
+     * Finds the room the player is in to suspect
+     * @param player - the player suspecting
+     * @return - the room the player is in
+     */
     public static Card roomSuspect(Player player) {
         RoomTile current = (RoomTile) board.getTile(player.getLocation().getYIndex(), player.getLocation().getX());
         Room currentRoom = current.getRoom();
@@ -294,7 +310,13 @@ public class UI {
         return null;
     }
 
-    public static Card playerSuspect() {
+    /**
+     * the character the player is suggesting
+     * @param suggest - if its an accusation or suggestion
+     * @return - the card of the character suggested
+     */
+    public static Card playerSuspect(boolean suggest) {
+        String characterSuspect = null;
         ArrayList<Card> allCharacters = new ArrayList<>(Arrays.asList(
                 new CharacterCard("Miss Scarlett"),
                 new CharacterCard("Rev Green"),
@@ -306,7 +328,11 @@ public class UI {
         for (int i = 0; i < allCharacters.size(); i++) {
             System.out.println((i + 1) + ": " + allCharacters.get(i));
         }
-        String characterSuspect = userInput("Who are you suspecting?");
+        if (suggest){
+            characterSuspect = userInput("Who are you suspecting?");
+        } else {
+            characterSuspect = userInput("Who are you accusing?");
+        }
         if (allCharacters.contains(new CharacterCard(characterSuspect))) {
             for (int j = 0; j < allCharacters.size(); j++) {
                 if (allCharacters.toString().equals(characterSuspect)) {
@@ -323,10 +349,15 @@ public class UI {
             }
         } catch (Exception e) {
             System.out.println("Character does not exist.");
-            return playerSuspect();
+            return playerSuspect(suggest);
         }
     }
 
+
+    /**
+     * The weapon suggested
+     * @return - the card of the weapon suggested
+     */
     public static Card weaponSuspect() {
         ArrayList<Card> allWeapons = new ArrayList<>(Arrays.asList(
                 new WeaponCard("Candlestick"),
@@ -356,7 +387,7 @@ public class UI {
             }
         } catch (Exception e) {
             System.out.println("Weapon does not exist.");
-            return playerSuspect();
+            return weaponSuspect();
         }
     }
 

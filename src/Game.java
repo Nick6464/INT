@@ -38,7 +38,6 @@ public class Game {
             players.add(new Player(character, board)); //Adds the character to the board
             i++;
         }
-        Collections.sort(players);
     }
 
     public static void suspect(Card room, Card suspect, Card weapon, Player player) {
@@ -163,8 +162,10 @@ public class Game {
      * Main game loop once all set up is complete
      */
     private void gameLoop() {
-        int turn = 0;
-
+        //Miss Scarlett always starts, so sets her turn first
+        int turn = Math.max(miss_scarlett, 0);
+        // if she is in the game, otherwise player 1 starts.
+        // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
         while (running) { //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
             Player currentPlayer = players.get(turn % players.size());
             currentPlayer.takeTurn();
@@ -194,7 +195,7 @@ public class Game {
         //p.takeTurn();
         //                              //
 
-        //gameLoop();
+        //gameLoop(); currently and infinite loop
     }
 
 

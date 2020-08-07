@@ -40,12 +40,6 @@ public class Player implements Comparable {
 //            else
 //                break; //Player has chosen to stop early
         }
-
-//        if (location.inRoom()) {
-//            //TODO - allow player to question other player
-//            //TODO - allow player to make a guess
-//            //TODO - Move into UI class
-//        }
     }
 
     /**
@@ -81,6 +75,9 @@ public class Player implements Comparable {
         takingTurn = false;
     }
 
+    /**
+     * How the player wants to move
+     */
     public void playerMoves(){
         try {
             Direction direction;
@@ -105,6 +102,11 @@ public class Player implements Comparable {
             System.out.println("Please enter a valid move");
         }
     }
+
+    /**
+     * Used for testing to force the moves a player gets
+     * @param moves - number of moves the player gets
+     */
     public void setMoves(int moves){
         this.moves = moves;
     }
@@ -116,9 +118,6 @@ public class Player implements Comparable {
      * @param distance  how far to move
      */
     public int move(Direction direction, int distance) {
-        //TODO - I dont think this is initialised fully, may need to be edited in Location as well as here
-        //TODO - Add checking to see if a move is valid
-        //TODO - make so cant end turn as another player
         try {
             if (distance > moves) {
                 throw new IllegalStateException("Unexpected value");
@@ -147,6 +146,13 @@ public class Player implements Comparable {
         System.out.printf("%s rolled %d and %d\n", playerName, die1, die2);
     }
 
+    /**
+     * Checks if a player has any of the selected cards
+     * @param weapon - card to check
+     * @param suspect - card to check
+     * @param room - card to check
+     * @return - the card they have selected to show
+     */
     public Card hasCard(Card weapon, Card suspect, Card room){
         ArrayList<Card> has = new ArrayList<>();
         for(Card card : hand){
@@ -187,6 +193,10 @@ public class Player implements Comparable {
         unseen.remove(card);
     }
 
+    /**
+     * Gets a players hand
+     * @return - their hand
+     */
     public ArrayList<Card> getHand() {
         return this.hand;
     }
@@ -220,6 +230,10 @@ public class Player implements Comparable {
         }
     }
 
+    /**
+     * Gets a players location
+     * @return - Location
+     */
     public Location getLocation() { return location; }
 
     /**
