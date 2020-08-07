@@ -92,7 +92,9 @@ public class Board {
         sb.append("\n");
         return sb.toString();
     }
-
+    //TODO - error when trying to use "look" as colonel Must
+    //TODO - Board also not printing properly
+    //Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index -3 out of bounds for length 25
     public String printArea(Player p) {
         int x = p.getLocation().getX();
         int y = p.getLocation().getYIndex();

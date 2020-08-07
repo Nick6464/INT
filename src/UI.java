@@ -51,7 +51,7 @@ public class UI {
             "****************************************************************************";
 
     /**
-     * A string for of the definition of the general Tiles
+     * A string for displaying the help commands
      */
     public static String helpDef =
             "HELP COMMANDS:" +
@@ -83,7 +83,7 @@ public class UI {
                     "\n     cm  - Col. Mustard \n";
 
     /**
-     * A string printing who the
+     * A string printing the room tile definitions
      */
     public static String roomDef =
             "ROOM TILES:" +
@@ -97,6 +97,20 @@ public class UI {
                     "\n     HA  - Hall" +
                     "\n     ST  - Study" +
                     "\n     CC  - Cellar(Inaccessible) \n";
+
+    /**
+     * A string printing who the
+     */
+    public static String actionsDef =
+            "ACTIONS:" +
+                    "\n     /help     - Brings up the help menu." +
+                    "\n     move      - Begins your move action." +
+                    "\n     hand      - Displays the cards in your hand." +
+                    "\n     look      - Displays the area around your character." +
+                    "\n     map       - Displays a map of the entire board." +
+                    "\n     suggest   - Begins the suggestion action (Can only perform this if you are in a room)." +
+                    "\n     accuse    - Begins the accusation action (If you are successful you will win the game, if not you are out!" +
+                    "\n     end       - Ends your turn.\n";
 
     /**
      * prints the map
@@ -159,12 +173,16 @@ public class UI {
      */
     public static void userTurn(Player p, int moves, String playerLocation) {
         System.out.println(playerLocation);
+        System.out.println("What actions would you like to perform? (typing 'actions' will display commands)");
         System.out.println(moves + " moves remaining");
         Scanner sc = new Scanner(System.in);
 
         //TODO - undo option?
 
         switch (sc.nextLine().toLowerCase()) {
+            case "actions":
+                System.out.println(actionsDef);
+                break;
             case "/help":
                 help();
                 break;
@@ -174,7 +192,7 @@ public class UI {
             case "hand":
                 displayHand(p);
                 break;
-            case "suspect":
+            case "suggest":
                 //TODO - Add UI and interaction for suspect
                 //playerSuspects();
                 break;
@@ -183,6 +201,9 @@ public class UI {
                 break;
             case "look":
                 playerArea(p);
+                break;
+            case "accuse":
+                //TODO - the accuse action;
                 break;
             case "end":
                 p.endTurn();
