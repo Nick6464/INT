@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Player {
 
-    private final String playerName;
+    public final String playerName;
     public String initials;
     private Board board;
     private ArrayList<Card> hand;
@@ -85,6 +85,9 @@ public class Player {
             System.out.println("Please enter a valid move");
         }
     }
+    public void setMoves(int moves){
+        this.moves = moves;
+    }
 
     /**
      * Moves player in desired direction on the board if no wall is in the way
@@ -113,12 +116,6 @@ public class Player {
         return 0;
     }
 
-    /**
-     * Player is being questioned, and must be moved to the room in question
-     */
-    public void suspect(Card room, Card suspect, Card weapon) {
-        //TODO - move the player to room where investigation is being held
-    }
 
     /**
      * Rolls dice to determine number of moves this turn
@@ -128,6 +125,23 @@ public class Player {
         int die2 = (int) (Math.random() * 6) + 1;
         moves = die1 + die2;
         System.out.printf("%s rolled %d and %d\n", playerName, die1, die2);
+    }
+
+    public Card hasCard(Card weapon, Card suspect, Card room){
+        ArrayList<Card> has = new ArrayList<>();
+        for(Card card : hand){
+            if (card.toString().equals(weapon.toString()) ||
+                card.toString().equals(suspect.toString()) ||
+                card.toString().equals(room.toString())){
+
+                has.add(card);
+            }
+        }
+        if (has.isEmpty()) {
+            return null;
+        } else {
+            return UI.cardSelect(has, this);
+        }
     }
 
     /**
@@ -155,11 +169,6 @@ public class Player {
 
     public ArrayList<Card> getHand() {
         return this.hand;
-    }
-
-    public Card showCard(Room room, Weapon weapon, Character character) {
-        //TODO - show a card to another player
-        return null;
     }
 
     /**
