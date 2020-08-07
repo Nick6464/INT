@@ -225,9 +225,17 @@ public class Player {
         StringBuilder sb = new StringBuilder();
         //Player's name and location
         sb.append(playerName).append(" is currently at ").append(location.toString());
-        if (currentTile instanceof RoomTile)
-            sb.append(", in the ").append(((RoomTile) currentTile).getRoom().getName());
+        if (currentTile instanceof RoomTile) {
+            RoomTile roomTile = (RoomTile)currentTile;
+            sb.append(", in the ").append(roomTile.getRoom().getName());
+            if(!roomTile.getRoom().getPotentialWeapons().isEmpty()){
+                sb.append("\nThere are potential weapons in this room: ");
+                for(Weapon wep : roomTile.getRoom().getPotentialWeapons())
+                    sb.append(wep.getName()).append("\t");
+            }
+        }
         sb.append(".\n");
+
         //Walls around player's location
         if (!currentTile.getWalls().isEmpty()) {
             HashSet<Direction> walls = currentTile.getWalls();
