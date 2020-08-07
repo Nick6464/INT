@@ -11,7 +11,6 @@ public class Game {
     private static UI UI;
     private static Board board;
     private static ArrayList<Player> players;
-
     private Cards.CharacterCard culprit;
     private Cards.WeaponCard murderWeapon;
     private Cards.RoomCard crimeScene;
@@ -81,6 +80,7 @@ public class Game {
         for (Player player : players){
             player.unseen.addAll(weapons);
         }
+        UI.allWeapons.addAll(weapons);
         Collections.shuffle(weapons);
         murderWeapon = (WeaponCard) weapons.remove(0);
         board.addWeapons(weapons);

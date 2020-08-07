@@ -1,9 +1,13 @@
+import Cards.Card;
+import Cards.CharacterCard;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class UI {
     private static Board board;
+    public ArrayList<Card> allWeapons = new ArrayList<>();
 
     //TODO - Questions at the beginning of each turn, where do you want to move?
     //TODO - describeTile(), when you move a tile, describe what is around you
@@ -15,7 +19,7 @@ public class UI {
      * String used to draw the entire board
      */
     public static String map =
-                    "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
+            "\n   |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|" +
                     "\n A |//|//|//|//|//|//|//|//|//|mw|//|//|//|//|mg|//|//|//|//|//|//|//|//|//| A" +
                     "\n B |KI|KI|KI|KI|KI|KI|//|__|__|__|BA|BA|BA|BA|__|__|__|//|CO|CO|CO|CO|CO|CO| B" +
                     "\n C |KI|KI|KI|KI|KI|KI|__|__|BA|BA|BA|BA|BA|BA|BA|BA|__|__|CO|CO|CO|CO|CO|CO| C" +
@@ -176,7 +180,8 @@ public class UI {
                 break;
             case "suspect":
                 //TODO - Add UI and interaction for suspect
-                //playerSuspects();
+                Card suspect = playerSuspect(userInput("Who are you suspecting?"));
+                //Card weapon = weaponSuspect(userInput("What weapon did" + suspect.toString() + " use?"));
                 break;
             case "map":
                 displayMap();
@@ -186,6 +191,38 @@ public class UI {
                 break;
             case "end":
                 p.endTurn();
+        }
+    }
+
+    public static Card playerSuspect(String characterSuspect) {
+        ArrayList<Card> allCharacters = new ArrayList<>(Arrays.asList(
+                new CharacterCard("Miss Scarlett"),
+                new CharacterCard("Rev Green"),
+                new CharacterCard("Colonel Mustard"),
+                new CharacterCard("Professor Plum"),
+                new CharacterCard("Mrs. Peacock"),
+                new CharacterCard("Mrs. White")
+        ));
+        for (int i = 0; i < allCharacters.size(); i++) {
+            System.out.println((i + 1) + ": " + allCharacters.get(i));
+        }
+        if (allCharacters.contains(new CharacterCard(characterSuspect))) {
+            for (int j = 0; j < allCharacters.size(); j++) {
+                if (allCharacters.toString().equals(characterSuspect)) {
+                    return allCharacters.get(j);
+                }
+            }
+        }
+        try {
+            if (Integer.parseInt(characterSuspect) >= 1 &&
+                    Integer.parseInt(characterSuspect) <= allCharacters.size()) {
+                return allCharacters.get(Integer.parseInt(characterSuspect) - 1);
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println("Character does not exist.");
+            return playerSuspect(userInput("Who are you suspecting?"));
         }
     }
 
@@ -230,7 +267,7 @@ public class UI {
     /**
      * Allows players to chose a character to play
      *
-     * @param player The player whose turn it is
+     * @param player              The player whose turn it is
      * @param remainingCharacters List of unselected characters
      * @return The name of their selected character
      */
