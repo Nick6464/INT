@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Player {
 
-    private final String playerName;
+    public final String playerName;
     public String initials;
     private Board board;
     private ArrayList<Card> hand;
@@ -25,7 +25,6 @@ public class Player {
      * Allows player to perform move and guess actions before ending their turn
      */
     public void takeTurn() {
-        UI.clearScreen();
         rollDice();
         startTurn();
         while (takingTurn) {
@@ -46,6 +45,25 @@ public class Player {
 //            //TODO - allow player to make a guess
 //            //TODO - Move into UI class
 //        }
+    }
+
+    /**
+     * Gets the cards the player has seen
+     * @return - returns an arraylist of cards (player has seen)
+     */
+    public ArrayList<Card> getSeen() {
+        Collections.sort(this.seen);
+        return this.seen;
+    }
+
+
+    /**
+     * Gets the cards the player has not seen
+     * @return - returns an arraylist of cards (player has seen)
+     */
+    public ArrayList<Card> getUnseen() {
+        Collections.sort(this.unseen);
+        return this.unseen;
     }
 
     /**
@@ -86,6 +104,9 @@ public class Player {
             System.out.println("Please enter a valid move");
         }
     }
+    public void setMoves(int moves){
+        this.moves = moves;
+    }
 
     /**
      * Moves player in desired direction on the board if no wall is in the way
@@ -114,12 +135,6 @@ public class Player {
         return 0;
     }
 
-    /**
-     * Player is being questioned, and must be moved to the room in question
-     */
-    public void suspect(Card room, Card suspect, Card weapon) {
-        //TODO - move the player to room where investigation is being held
-    }
 
     /**
      * Rolls dice to determine number of moves this turn
@@ -129,6 +144,23 @@ public class Player {
         int die2 = (int) (Math.random() * 6) + 1;
         moves = die1 + die2;
         System.out.printf("%s rolled %d and %d\n", playerName, die1, die2);
+    }
+
+    public Card hasCard(Card weapon, Card suspect, Card room){
+        ArrayList<Card> has = new ArrayList<>();
+        for(Card card : hand){
+            if (card.toString().equals(weapon.toString()) ||
+                card.toString().equals(suspect.toString()) ||
+                card.toString().equals(room.toString())){
+
+                has.add(card);
+            }
+        }
+        if (has.isEmpty()) {
+            return null;
+        } else {
+            return UI.cardSelect(has, this);
+        }
     }
 
     /**
@@ -150,53 +182,13 @@ public class Player {
      */
     public void dealHand(Card card) {
         hand.add(card);
-        seeCard(card);
-    }
-
-    /**
-     * Adds card from unseen list to seen list
-     * @param card - the card to see
-     */
-    public void seeCard(Card card) {
         seen.add(card);
         unseen.remove(card);
-        Collections.sort(seen);
-        Collections.sort(unseen);
     }
 
-
-    /**
-     * Gets the players hand
-     * @return - returns an arraylist of cards (players hand)
-     */
-    public ArrayList<Card> getHand() { return this.hand; }
-
-    /**
-     * Gets the cards the player has seen
-     * @return - returns an arraylist of cards (player has seen)
-     */
-    public ArrayList<Card> getSeen() {
-        Collections.sort(this.seen);
-        return this.seen;
+    public ArrayList<Card> getHand() {
+        return this.hand;
     }
-
-    /**
-     * Gets the cards the player has not seen
-     * @return - returns an arraylist of cards (player has seen)
-     */
-    public ArrayList<Card> getUnseen() {
-        Collections.sort(this.unseen);
-        return this.unseen;
-    }
-
-
-
-    public Card showCard(Room room, Weapon weapon, Character character) {
-        //TODO - show a card to another player
-        return null;
-    }
-
-
 
     /**
      * Creates a new player, and assigns a position based on chosen character
@@ -232,17 +224,9 @@ public class Player {
         StringBuilder sb = new StringBuilder();
         //Player's name and location
         sb.append(playerName).append(" is currently at ").append(location.toString());
-        if (currentTile instanceof RoomTile) {
-            RoomTile roomTile = (RoomTile)currentTile;
-            sb.append(", in the ").append(roomTile.getRoom().getName());
-            if(!roomTile.getRoom().getPotentialWeapons().isEmpty()){
-                sb.append("\nThere are potential weapons in this room: ");
-                for(Weapon wep : roomTile.getRoom().getPotentialWeapons())
-                    sb.append(wep.getName()).append("\t");
-            }
-        }
+        if (currentTile instanceof RoomTile)
+            sb.append(", in the ").append(((RoomTile) currentTile).getRoom().getName());
         sb.append(".\n");
-
         //Walls around player's location
         if (!currentTile.getWalls().isEmpty()) {
             HashSet<Direction> walls = currentTile.getWalls();

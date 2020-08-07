@@ -41,6 +41,28 @@ public class Game {
         }
     }
 
+    public static void suspect(Card room, Card suspect, Card weapon, Player player) {
+        int asked = -1;
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).equals(player)) {
+                asked = i + 1;
+            }
+        }
+
+        while (players.get(asked % players.size()) != player) {
+            Player playerToAsk = players.get(asked % players.size());
+            Card showCard = playerToAsk.hasCard(weapon, suspect, room);
+            if (showCard != null) {
+                player.seen.add(showCard);
+                player.unseen.remove(showCard);
+                System.out.println(player.playerName + " you were shown " + showCard.toString());
+                break;
+            }
+            asked++;
+        }
+    }
+
+
     /**
      * Creates the relative decks, then combines and shuffles them.
      * Then deals the appropriate number depending on number of players
@@ -77,7 +99,7 @@ public class Game {
                 new WeaponCard("Rope"),
                 new WeaponCard("Spanner")
         ));
-        for (Player player : players){
+        for (Player player : players) {
             player.unseen.addAll(weapons);
         }
         UI.allWeapons.addAll(weapons);
@@ -103,7 +125,7 @@ public class Game {
                 new CharacterCard("Mrs. Peacock"),
                 new CharacterCard("Mrs. White")
         ));
-        for (Player player : players){
+        for (Player player : players) {
             player.unseen.addAll(characters);
         }
         Collections.shuffle(characters);
@@ -129,7 +151,7 @@ public class Game {
                 new RoomCard("Hall"),
                 new RoomCard("Study")
         ));
-        for (Player player : players){
+        for (Player player : players) {
             player.unseen.addAll(rooms);
         }
         Collections.shuffle(rooms);
@@ -165,14 +187,12 @@ public class Game {
 
         //Testing move and UI function with Miss Scarlett//
         Player p = players.get(0);
-        gameLoop();
-        p.takeTurn();
-        p.rollDice();
-        p.move(Direction.NORTH, 1);
-        p.move(Direction.WEST, 2);
-        p.move(Direction.NORTH, 4);
+        p.setMoves(8);
+        p.move(Direction.NORTH, 6);
         p.move(Direction.WEST, 1);
-        p.move(Direction.NORTH, 1);
+        p.move(Direction.SOUTH, 1);
+        p.takeTurn();
+        gameLoop();
         //p.takeTurn();
         //                              //
 
