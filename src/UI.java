@@ -17,6 +17,8 @@ public class UI {
     //TODO - ask for who you suspect(CONDITION: if player are in a room)
     //TODO - declareAccusation() - the final declaration of who it is with what wep in what room*
 
+    //TODO - Characters and weapons don't move to rooms when accused
+
     /**
      * A String for a line that's sole purpose its to make things pretty
      */
@@ -242,7 +244,6 @@ public class UI {
                 System.out.println(separator);
                 break;
             case "accuse":
-                //TODO - the accuse action;
                 Card suspect = playerSuspect(false);
                 Card weapon = weaponSuspect();
                 Card room = roomSuspect(p);

@@ -39,12 +39,6 @@ public class Player {
 //            else
 //                break; //Player has chosen to stop early
         }
-
-//        if (location.inRoom()) {
-//            //TODO - allow player to question other player
-//            //TODO - allow player to make a guess
-//            //TODO - Move into UI class
-//        }
     }
 
     /**
@@ -123,9 +117,6 @@ public class Player {
      * @param distance  how far to move
      */
     public int move(Direction direction, int distance) {
-        //TODO - I dont think this is initialised fully, may need to be edited in Location as well as here
-        //TODO - Add checking to see if a move is valid
-        //TODO - make so cant end turn as another player
         try {
             if (distance > moves) {
                 throw new IllegalStateException("Unexpected value");
