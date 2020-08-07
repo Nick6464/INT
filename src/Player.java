@@ -25,6 +25,7 @@ public class Player {
      * Allows player to perform move and guess actions before ending their turn
      */
     public void takeTurn() {
+        UI.clearScreen();
         rollDice();
         startTurn();
         while (takingTurn) {
@@ -174,13 +175,19 @@ public class Player {
      * Gets the cards the player has seen
      * @return - returns an arraylist of cards (player has seen)
      */
-    public ArrayList<Card> getSeen() { return this.seen; }
+    public ArrayList<Card> getSeen() {
+        Collections.sort(this.seen);
+        return this.seen;
+    }
 
     /**
      * Gets the cards the player has not seen
      * @return - returns an arraylist of cards (player has seen)
      */
-    public ArrayList<Card> getUnseen() { return this.unseen; }
+    public ArrayList<Card> getUnseen() {
+        Collections.sort(this.unseen);
+        return this.unseen;
+    }
 
 
 
