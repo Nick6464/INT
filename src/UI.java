@@ -223,7 +223,7 @@ public class UI {
                 break;
             case "suggest":
                 if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile) {
-                    Card suspect = playerSuspect();
+                    Card suspect = playerSuspect(true);
                     Card weapon = weaponSuspect();
                     Card room = roomSuspect(p);
                     Game.suspect(room, suspect,weapon, p);
@@ -243,6 +243,10 @@ public class UI {
                 break;
             case "accuse":
                 //TODO - the accuse action;
+                Card suspect = playerSuspect(false);
+                Card weapon = weaponSuspect();
+                Card room = roomSuspect(p);
+                Game.running = Game.accuse(suspect, weapon, room, p);
                 break;
             case "end":
                 p.endTurn();
@@ -294,7 +298,8 @@ public class UI {
         return null;
     }
 
-    public static Card playerSuspect() {
+    public static Card playerSuspect(boolean suggest) {
+        String characterSuspect = null;
         ArrayList<Card> allCharacters = new ArrayList<>(Arrays.asList(
                 new CharacterCard("Miss Scarlett"),
                 new CharacterCard("Rev Green"),
@@ -306,7 +311,11 @@ public class UI {
         for (int i = 0; i < allCharacters.size(); i++) {
             System.out.println((i + 1) + ": " + allCharacters.get(i));
         }
-        String characterSuspect = userInput("Who are you suspecting?");
+        if (suggest){
+            characterSuspect = userInput("Who are you suspecting?");
+        } else {
+            characterSuspect = userInput("Who are you accusing?");
+        }
         if (allCharacters.contains(new CharacterCard(characterSuspect))) {
             for (int j = 0; j < allCharacters.size(); j++) {
                 if (allCharacters.toString().equals(characterSuspect)) {
@@ -323,7 +332,7 @@ public class UI {
             }
         } catch (Exception e) {
             System.out.println("Character does not exist.");
-            return playerSuspect();
+            return playerSuspect(suggest);
         }
     }
 
@@ -356,7 +365,7 @@ public class UI {
             }
         } catch (Exception e) {
             System.out.println("Weapon does not exist.");
-            return playerSuspect();
+            return weaponSuspect();
         }
     }
 
