@@ -244,10 +244,14 @@ public class UI {
                 System.out.println(separator);
                 break;
             case "accuse":
-                Card suspect = playerSuspect(false);
-                Card weapon = weaponSuspect();
-                Card room = roomSuspect(p);
-                Game.running = Game.accuse(suspect, weapon, room, p);
+                if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile) {
+                    Card suspect = playerSuspect(false);
+                    Card weapon = weaponSuspect();
+                    Card room = roomSuspect(p);
+                    Game.running = Game.accuse(suspect, weapon, room, p);
+                } else {
+                    System.out.println("You must be in a room to accuse.");
+                }
                 break;
             case "end":
                 p.endTurn();

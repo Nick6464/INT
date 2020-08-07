@@ -11,10 +11,10 @@ public class Game {
     private static UI UI;
     private static Board board;
     private static ArrayList<Player> players;
-    private Cards.CharacterCard culprit;
-    private Cards.WeaponCard murderWeapon;
-    private Cards.RoomCard crimeScene;
-    public Boolean running = true;
+    private static Cards.CharacterCard culprit;
+    private static Cards.WeaponCard murderWeapon;
+    private static Cards.RoomCard crimeScene;
+    public static Boolean running = true;
 
     /**
      * Adds desired number of players to current game
@@ -41,6 +41,13 @@ public class Game {
         Collections.sort(players);
     }
 
+    /**
+     * Takes a room, character and weapon a player suggests
+     * @param room - room player is in
+     * @param suspect - character player guessed
+     * @param weapon - weapon player suspects
+     * @param player - player making the guess
+     */
     public static void suspect(Card room, Card suspect, Card weapon, Player player) {
         int asked = -1;
         for (int i = 0; i < players.size(); i++) {
@@ -59,6 +66,26 @@ public class Game {
                 break;
             }
             asked++;
+        }
+    }
+
+    /**
+     * Player thinks they know all 3 requirements, tries to win the game
+     * @param suspect - character the player guessed
+     * @param weapon - weapon player suspects
+     * @param room - room player is in
+     * @param player - player making the guess
+     * @return - the status of the game
+     */
+    public static boolean accuse(Card suspect, Card weapon, Card room, Player player){
+        if (murderWeapon.equals(weapon) && culprit.equals(suspect) && crimeScene.equals(room)){
+            System.out.println(player.playerName + " guessed correctly.\nGame Over!");
+            return false;
+        } else {
+            System.out.println("You guessed incorrectly and will be removed from the game.");
+            players.remove(player);
+            player.endTurn();
+            return true;
         }
     }
 
