@@ -45,7 +45,7 @@ public class RoomTile implements Tile {
     @Override
     public String toString() {
         if (isDoorway)
-            return "][";
+            return "[]";
         return room.getInitials();
     }
 }

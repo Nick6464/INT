@@ -149,18 +149,35 @@ public class Player {
      */
     public void dealHand(Card card) {
         hand.add(card);
+        seeCard(card);
+    }
+
+
+    public void seeCard(Card card) {
         seen.add(card);
         unseen.remove(card);
+        Collections.sort(seen);
+        Collections.sort(unseen);
     }
+
+
 
     public ArrayList<Card> getHand() {
         return this.hand;
     }
 
+    public ArrayList<Card> getSeen() { return this.seen; }
+
+    public ArrayList<Card> getUnseen() { return this.unseen; }
+
+
+
     public Card showCard(Room room, Weapon weapon, Character character) {
         //TODO - show a card to another player
         return null;
     }
+
+
 
     /**
      * Creates a new player, and assigns a position based on chosen character
