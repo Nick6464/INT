@@ -48,6 +48,25 @@ public class Player {
     }
 
     /**
+     * Gets the cards the player has seen
+     * @return - returns an arraylist of cards (player has seen)
+     */
+    public ArrayList<Card> getSeen() {
+        Collections.sort(this.seen);
+        return this.seen;
+    }
+
+
+    /**
+     * Gets the cards the player has not seen
+     * @return - returns an arraylist of cards (player has seen)
+     */
+    public ArrayList<Card> getUnseen() {
+        Collections.sort(this.unseen);
+        return this.unseen;
+    }
+
+    /**
      * Sets player to have started their turn
      */
     public void startTurn() {
