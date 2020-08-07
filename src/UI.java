@@ -122,7 +122,9 @@ public class UI {
      * prints the map
      */
     public static void displayMap() {
+        System.out.println(separator);
         System.out.println(board.printBoard());
+        System.out.println(separator);
     }
 
 
@@ -132,8 +134,10 @@ public class UI {
      * @param p - the player who's hand is getting accessed
      */
     public static void displayHand(Player p) {
+        System.out.println(separator);
         System.out.println("Your hand contains...");
         displayList(p.getHand());
+        System.out.println(separator);
         //System.out.println(Arrays.toString(p.getHand().toArray()));
     }
 
@@ -142,8 +146,10 @@ public class UI {
      * @param p - player
      */
     public static void displaySeen(Player p) {
+        System.out.println(separator);
         System.out.println("The cards you have seen...");
         displayList(p.getSeen());
+        System.out.println(separator);
     }
 
     /**
@@ -151,8 +157,10 @@ public class UI {
      * @param p - player
      */
     public static void displayUnseen(Player p) {
+        System.out.println(separator);
         System.out.println("Your Unseen cards are...");
         displayList(p.getUnseen());
+        System.out.println(separator);
     }
 
     /**
@@ -199,6 +207,18 @@ public class UI {
         }
     }
 
+    /**
+     * Prints 50 lines of "*" in order to push the old screen out of view.
+     * this will help implement the privacy of you cards.
+     */
+    public static void clearScreen() {
+        System.out.println(separator);
+        for (int i = 0; i < 50; i++) {
+            System.out.println("*");
+        }
+        System.out.println(separator);
+        System.out.println("Screen cleared...\n");
+    }
 
     /**
      * method for the players turn
@@ -209,8 +229,8 @@ public class UI {
      */
     public static void userTurn(Player p, int moves, String playerLocation) {
         System.out.println(playerLocation);
-        System.out.println("What actions would you like to perform? (typing 'actions' will display commands)");
         System.out.println(moves + " moves remaining");
+        System.out.println("What actions would you like to perform? (typing 'actions' will display commands)");
         Scanner sc = new Scanner(System.in);
 
         //TODO - undo option?
@@ -245,10 +265,14 @@ public class UI {
                 }
                 break;
             case "map":
+                System.out.println(separator);
                 displayMap();
+                System.out.println(separator);
                 break;
             case "look":
+                System.out.println(separator);
                 playerArea(p);
+                System.out.println(separator);
                 break;
             case "accuse":
                 //TODO - the accuse action;
