@@ -152,7 +152,10 @@ public class Player {
         seeCard(card);
     }
 
-
+    /**
+     * Adds card from unseen list to seen list
+     * @param card - the card to see
+     */
     public void seeCard(Card card) {
         seen.add(card);
         unseen.remove(card);
@@ -161,13 +164,22 @@ public class Player {
     }
 
 
+    /**
+     * Gets the players hand
+     * @return - returns an arraylist of cards (players hand)
+     */
+    public ArrayList<Card> getHand() { return this.hand; }
 
-    public ArrayList<Card> getHand() {
-        return this.hand;
-    }
-
+    /**
+     * Gets the cards the player has seen
+     * @return - returns an arraylist of cards (player has seen)
+     */
     public ArrayList<Card> getSeen() { return this.seen; }
 
+    /**
+     * Gets the cards the player has not seen
+     * @return - returns an arraylist of cards (player has seen)
+     */
     public ArrayList<Card> getUnseen() { return this.unseen; }
 
 
