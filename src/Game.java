@@ -51,7 +51,6 @@ public class Game {
      * @return - the status of the game
      */
     public static boolean accuse(Card suspect, Card weapon, Card room, Player player){
-        //TODO - add check for one player eg all other removed default win
         if (murderWeapon.equals(weapon) && culprit.equals(suspect) && crimeScene.equals(room)){
             System.out.println(player.playerName + " guessed correctly.\nGame Over!");
             return false;
@@ -198,6 +197,11 @@ public class Game {
         // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
         while (running) { //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
             Player currentPlayer = players.get(turn % players.size());
+            if (players.size() == 0){
+                running = false;
+                System.out.println(players.get(0).playerName + " is the winner by default!");
+                break;
+            }
             currentPlayer.takeTurn();
             turn++;
         }
@@ -215,12 +219,6 @@ public class Game {
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 
         //Testing move and UI function with Miss Scarlett//
-        Player p = players.get(0);
-        p.setMoves(8);
-        p.move(Direction.NORTH, 6);
-        p.move(Direction.WEST, 1);
-        p.move(Direction.SOUTH, 1);
-        p.takeTurn();
         gameLoop();
         //p.takeTurn();
         //                              //
