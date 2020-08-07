@@ -15,7 +15,6 @@ public class Game {
     private Cards.WeaponCard murderWeapon;
     private Cards.RoomCard crimeScene;
     public Boolean running = true;
-    private int miss_scarlett = -1;
 
     /**
      * Adds desired number of players to current game
@@ -164,10 +163,8 @@ public class Game {
      * Main game loop once all set up is complete
      */
     private void gameLoop() {
-        //Miss Scarlett always starts, so sets her turn first
-        int turn = Math.max(miss_scarlett, 0);
-        // if she is in the game, otherwise player 1 starts.
-        // Double check, there may be a set player order. Can make a comparison class to sort players in order of character
+        int turn = 0;
+
         while (running) { //Possibly cleaner to write while(true), with a break when GameOver instead of using variable
             Player currentPlayer = players.get(turn % players.size());
             currentPlayer.takeTurn();
@@ -197,7 +194,7 @@ public class Game {
         //p.takeTurn();
         //                              //
 
-        //gameLoop(); currently and infinite loop
+        //gameLoop();
     }
 
 
