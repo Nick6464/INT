@@ -39,6 +39,7 @@ public class Game {
             players.add(new Player(character, board)); //Adds the character to the board
             i++;
         }
+        Collections.sort(players);
     }
 
     public static void suspect(Card room, Card suspect, Card weapon, Player player) {

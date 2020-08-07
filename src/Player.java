@@ -7,9 +7,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-public class Player {
+public class Player implements Comparable {
 
     public final String playerName;
+    public int playOrder;
     public String initials;
     private Board board;
     private ArrayList<Card> hand;
@@ -199,17 +200,23 @@ public class Player {
        playerName = name;
         switch (name) {
             case "Miss Scarlett"    -> {location = new Location('Y', 8);
-                                        initials = "MS";}
+                                        initials = "MS";
+                                        playOrder = 1;}
             case "Rev Green"        -> {location = new Location('A', 15);
-                                        initials = "RG";}
+                                        initials = "RG";
+                                        playOrder = 4;}
             case "Colonel Mustard"  -> {location = new Location('R', 1);
-                                        initials = "CM";}
+                                        initials = "CM";
+                                        playOrder = 2;}
             case "Professor Plum"   -> {location = new Location('T', 24);
-                                        initials = "PP";}
+                                        initials = "PP";
+                                        playOrder = 6;}
             case "Mrs. Peacock"     -> {location = new Location('G', 24);
-                                        initials = "MP";}
+                                        initials = "MP";
+                                        playOrder = 5;}
             case "Mrs. White"       -> {location = new Location('A', 10);
-                                        initials = "MW";}
+                                        initials = "MW";
+                                        playOrder = 3;}
         }
     }
 
@@ -251,5 +258,12 @@ public class Player {
 //        }
 //        sb.append("You are currently at " + location.toString() + "." + "\n" + wallDirection);
 //        return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (!(o instanceof Player))
+            return -1;
+        return playOrder - ((Player) o).playOrder;
     }
 }
