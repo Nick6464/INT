@@ -57,16 +57,12 @@ public class Player implements Comparable {
     /**
      * Sets player to have started their turn
      */
-    public void startTurn() {
-        takingTurn = true;
-    }
+    public void startTurn() { takingTurn = true; }
 
     /**
      * Sets player to have ended their turn
      */
-    public void endTurn() {
-        takingTurn = false;
-    }
+    public void endTurn() { takingTurn = false; }
 
     /**
      * How the player wants to move
@@ -74,6 +70,7 @@ public class Player implements Comparable {
     public void playerMoves(){
         //TODO - needs to check distance <= moves
         //TODO - notify of wall collision
+        board.getTile(location.getYIndex(),location.getX()).setVacant();
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
@@ -92,13 +89,14 @@ public class Player implements Comparable {
                     distance--;
                 }
                 else {
-                    System.out.println("There is a wall in your way.");
+                    System.out.println("Your path is obstructed.");
                     break;
                 }
             }
         } catch (Exception e){
             System.out.println("Please enter a valid move");
         }
+        board.getTile(location.getYIndex(),location.getX()).setOccupied(this);
     }
 
     /**
@@ -138,10 +136,8 @@ public class Player implements Comparable {
      * Rolls dice to determine number of moves this turn
      */
     public void rollDice() {
-        int die1 = (int) (Math.random() * 6) + 1;
-        int die2 = (int) (Math.random() * 6) + 1;
-        moves = die1 + die2;
-        System.out.printf("%s rolled %d and %d\n", playerName, die1, die2);
+        moves = (int) (Math.random() * 6) + 1;
+        System.out.printf("%s rolled a %d.\n", playerName, moves);
     }
 
     /**
@@ -226,6 +222,7 @@ public class Player implements Comparable {
                                         initials = "MW";
                                         playOrder = 3;}
         }
+        board.getTile(location.getYIndex(), location.getX()).setOccupied(this);
     }
 
     /**

@@ -49,10 +49,18 @@ public class Location {
         if (board.getTile(getYIndex(), x).getWalls().contains(dir))
             return false;
         switch (dir) {
-            case NORTH  -> y -= 1;
-            case SOUTH  -> y += 1;
-            case EAST   -> x += 1;
-            case WEST   -> x -= 1;
+            case NORTH  ->  {if(board.getTile(getYIndex()-1,x).isOccupied())
+                                return false;
+                                y -= 1;}
+            case SOUTH  ->  {if(board.getTile(getYIndex()+1,x).isOccupied())
+                                return false;
+                            y += 1;}
+            case EAST   ->  {if(board.getTile(getYIndex(),x+1).isOccupied())
+                                return false;
+                            x += 1;}
+            case WEST   ->  {if(board.getTile(getYIndex(),x-1).isOccupied())
+                                return false;
+                            x -= 1;}
         }
         return true;
     }

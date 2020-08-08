@@ -5,11 +5,30 @@ import java.util.TreeSet;
  */
 public class CorridorTile implements Tile {
     private TreeSet<Direction> walls = new TreeSet<>();
+    public boolean occupied = false;
+    private Player player;
+
     /**
      * Constructor for CorridorTile
      */
     public CorridorTile() {}
 
+    @Override
+    public boolean isOccupied() {
+        return occupied;
+    }
+
+    @Override
+    public void setOccupied(Player player) {
+        occupied  = true;
+        this.player = player;
+    }
+
+    @Override
+    public void setVacant() {
+        occupied = false;
+        player = null;
+    }
 
     /**
      * Getter for the walls each tile has
@@ -29,6 +48,8 @@ public class CorridorTile implements Tile {
 
     @Override
     public String toString() {
+        if (occupied)
+            return player.initials;
         return "__";
     }
 }

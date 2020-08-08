@@ -12,4 +12,11 @@ public interface Tile {
      * @param dir   The direction in which travel is blocked by a wall
      */
      void setWall(Direction dir);
+
+     boolean isOccupied();
+
+     void setOccupied(Player player);
+
+     void setVacant();
+
 }

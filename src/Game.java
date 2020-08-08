@@ -204,9 +204,9 @@ public class Game {
      */
     public Game() {
         board = new Board();
-        UI = new UI(board);
+        UI = new UI(board); //TODO - place weapons in rooms
         players = new ArrayList<>();
-        addPlayers();
+        addPlayers(); //TODO - add NPCs for sake of accusation
         dealCards();
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 
