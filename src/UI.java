@@ -11,9 +11,7 @@ public class UI {
     private static Board board;
     public ArrayList<Card> allWeapons = new ArrayList<>();
 
-    //TODO - Questions at the beginning of each turn, where do you want to move?
-    //TODO - describeTile(), when you move a tile, describe what is around you
-    //TODO - describeRoom(), when you enter a room, describe room name, what weapons and players are already in the room //PlayerLocation already describes all but other players
+    //TODO - PlayerLocation needs to mention other players, or leave as map visual only?
     //TODO - ask for who you suspect(CONDITION: if player are in a room)
     //TODO - declareAccusation() - the final declaration of who it is with what wep in what room*
 
@@ -200,7 +198,7 @@ public class UI {
         System.out.println("What actions would you like to perform? (typing 'actions' will display commands)");
         Scanner sc = new Scanner(System.in);
 
-        //TODO - undo option?
+        //TODO - undo option? -> Stack of location then use setX/setY in player.location to move them back, then add to moves
 
         switch (sc.nextLine().toLowerCase()) {
             case "actions":

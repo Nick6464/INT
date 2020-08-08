@@ -18,21 +18,39 @@ public class RoomTile implements Tile {
         this.room = room;
     }
 
+    /**
+     * Sets tile to be a doorway into a room
+     */
     public void setDoorway() {isDoorway = true; }
 
+    /**
+     * Returns true if tile is a doorway
+     * @return  - Boolean isDoorway
+     */
     public boolean isDoorway() {return isDoorway;}
 
+    /**
+     * Checks if tile is occupied by a player
+     * @return - Boolean occupied
+     */
     @Override
     public boolean isOccupied() {
         return occupied;
     }
 
+    /**
+     * Sets the tile to be occupied by player
+     * @param player    - The player occupying the tile
+     */
     @Override
     public void setOccupied(Player player) {
         occupied  = true;
         this.player = player;
     }
 
+    /**
+     * Sets the tile to be vacant, and clears player from it
+     */
     @Override
     public void setVacant() {
         occupied = false;
@@ -63,6 +81,10 @@ public class RoomTile implements Tile {
         return this.room;
     }
 
+    /**
+     * Sting used for displaying tiles in map
+     * @return  - 2char String representation of tile
+     */
     @Override
     public String toString() {
         if (isDoorway)

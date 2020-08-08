@@ -68,8 +68,6 @@ public class Player implements Comparable {
      * How the player wants to move
      */
     public void playerMoves(){
-        //TODO - needs to check distance <= moves
-        //TODO - notify of wall collision
         board.getTile(location.getYIndex(),location.getX()).setVacant();
         try {
             Direction direction;

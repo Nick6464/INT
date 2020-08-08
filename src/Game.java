@@ -204,7 +204,7 @@ public class Game {
      */
     public Game() {
         board = new Board();
-        UI = new UI(board); //TODO - place weapons in rooms
+        UI = new UI(board);
         players = new ArrayList<>();
         addPlayers(); //TODO - add NPCs for sake of accusation
         dealCards();

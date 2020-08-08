@@ -70,7 +70,7 @@ public class Board {
     }
 
     /**
-     * Prints out the playing board (without players)
+     * Prints out the playing board
      * @return  A String representation of the board
      */
     public String printBoard() {
@@ -131,8 +131,16 @@ public class Board {
         return sb.toString();
     }
 
+    /**
+     * @param y -Y axis value
+     * @param x -X axis value
+     * @return  The tile at x,y on the board
+     */
     public Tile getTile(int y, int x) { return board[y][x]; }
 
+    /**
+     * @return -A map of the rooms in the game
+     */
     public HashMap<String,Room> getRooms() {return rooms; }
 
     /**
@@ -462,16 +470,21 @@ public class Board {
                     if (board[y-1][x] instanceof RoomTile)
                         if (!((RoomTile) board[y-1][x]).isDoorway())
                             board[y][x].setWall(Direction.NORTH);
-                    //Collections.sort(board[y][x].getWalls());
                 }
     }
 
+    /**
+     * Loads walls not automatically set when corridor is loaded
+     */
     private void loadCornerDoorWalls() {
         board[charToInt('E')][18].setWall(Direction.EAST);
         board[charToInt('T')][8].setWall(Direction.WEST);
         board[charToInt('V')][17].setWall(Direction.EAST);
     }
 
+    /**
+     * Sets door tiles
+     */
     private void loadDoorways() {
         //Kitchen
         ((RoomTile)board[charToInt('G')][5]).setDoorway();
@@ -501,6 +514,10 @@ public class Board {
         ((RoomTile)board[charToInt('V')][18]).setDoorway();
     }
 
+    /**
+     * Creates weapon tokens and places them in their respective rooms
+     * @param weps
+     */
     public void addWeapons(ArrayList<Card> weps) {
         for(Card card : weps) {
             String name = ((WeaponCard) card).getWeaponName();

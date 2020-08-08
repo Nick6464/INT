@@ -65,18 +65,13 @@ public class Location {
         return true;
     }
 
+    /**
+     * Moves player through shortcut to other room
+     * @return  -True is method was successful
+     */
     public boolean takeShortcut() {
         //TODO - use teleport tile; return true if valid action, otherwise return false **May be moved to Room.class**
         return false;
-    }
-
-    /**
-     * returns true if the location is within a room
-     * @return  boolean if location is in a room
-     */
-    public boolean inRoom(Tile[][] board) {
-        //TODO - redundant method, just access from Tile class?
-        return (board[getYIndex()][x] instanceof RoomTile);
     }
 
     public String toString() {

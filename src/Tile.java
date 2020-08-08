@@ -13,10 +13,21 @@ public interface Tile {
      */
      void setWall(Direction dir);
 
+    /**
+     * Checks if tile is occupied by a player
+     * @return - Boolean occupied
+     */
      boolean isOccupied();
 
+    /**
+     * Sets the tile to be occupied by player
+     * @param player    - The player occupying the tile
+     */
      void setOccupied(Player player);
 
-     void setVacant();
+    /**
+     * Sets the tile to be vacant, and clears player from it
+     */
+    void setVacant();
 
 }
