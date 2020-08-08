@@ -506,6 +506,13 @@ public class Board {
             String name = ((WeaponCard) card).getWeaponName();
             weapons.put(name, new Weapon(name));
         }
+        rooms.get("Lounge").getPotentialWeapons().add(weapons.get("Dagger"));
+        rooms.get("Dining Room").getPotentialWeapons().add(weapons.get("Candlestick"));
+        rooms.get("Study").getPotentialWeapons().add(weapons.get("Revolver"));
+        rooms.get("Ballroom").getPotentialWeapons().add(weapons.get("Rope"));
+        rooms.get("Conservatory").getPotentialWeapons().add(weapons.get("Lead Piping"));
+        rooms.get("Kitchen").getPotentialWeapons().add(weapons.get("Spanner"));
+
     }
 
     /**

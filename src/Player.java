@@ -240,11 +240,19 @@ public class Player implements Comparable {
         StringBuilder sb = new StringBuilder();
         //Player's name and location
         sb.append(playerName).append(" is currently at ").append(location.toString());
-        if (currentTile instanceof RoomTile)
-            sb.append(", in the ").append(((RoomTile) currentTile).getRoom().getName());
-        sb.append(".\n");
+        if (currentTile instanceof RoomTile) {
+            RoomTile rt = (RoomTile) currentTile;
+            sb.append(", in the ").append(rt.getRoom().getName());
+            sb.append(".\n");
+            if (!rt.getRoom().getPotentialWeapons().isEmpty()) {
+                sb.append("Looking for potential weapons you see: ");
+                for(Weapon wep : rt.getRoom().getPotentialWeapons())
+                    sb.append(wep.getName()).append(", ");
+                sb.replace(sb.length()-3,sb.length()-1,".\n");
+            }
+        }
         //Walls around player's location
-        if (!currentTile.getWalls().isEmpty()) {
+        else if (!currentTile.getWalls().isEmpty()) {
             TreeSet<Direction> walls = currentTile.getWalls();
             if (walls.size() == 1)
                 sb.append("There is a wall to the ");

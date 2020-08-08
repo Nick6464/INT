@@ -121,7 +121,7 @@ public class Game {
         ArrayList<Card> weapons = new ArrayList<>(Arrays.asList(
                 new WeaponCard("Candlestick"),
                 new WeaponCard("Dagger"),
-                new WeaponCard("Lead Pipe"),
+                new WeaponCard("Lead Piping"),
                 new WeaponCard("Revolver"),
                 new WeaponCard("Rope"),
                 new WeaponCard("Spanner")
