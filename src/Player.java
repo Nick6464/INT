@@ -69,6 +69,7 @@ public class Player implements Comparable {
      */
     public void playerMoves(){
         board.getTile(location.getYIndex(),location.getX()).setVacant();
+        board.getTile(location.getYIndex(),location.getX()).setVacant();
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
@@ -237,42 +238,32 @@ public class Player implements Comparable {
         Tile currentTile = board.getTile(location.getYIndex(), location.getX());
         StringBuilder sb = new StringBuilder();
         //Player's name and location
-        sb.append(playerName).append(" is currently at ").append(location.toString());
+        sb.append(playerName).append(" is currently ");
         if (currentTile instanceof RoomTile) {
             RoomTile rt = (RoomTile) currentTile;
-            sb.append(", in the ").append(rt.getRoom().getName());
-            sb.append(".\n");
+            sb.append("in the ").append(rt.getRoom().getName()).append(".\n");
             if (!rt.getRoom().getPotentialWeapons().isEmpty()) {
-                sb.append("Looking for potential weapons you see: ");
+                sb.append("While looking for potential weapons, you see: ");
                 for(Weapon wep : rt.getRoom().getPotentialWeapons())
                     sb.append(wep.getName()).append(", ");
-                sb.replace(sb.length()-3,sb.length()-1,".\n");
+                sb.replace(sb.length()-2,sb.length()-1,".\n");
             }
         }
         //Walls around player's location
-        else if (!currentTile.getWalls().isEmpty()) {
-            TreeSet<Direction> walls = currentTile.getWalls();
-            if (walls.size() == 1)
-                sb.append("There is a wall to the ");
-            else
-                sb.append("There are walls to the ");
-        sb.append(walls.toString(), 1, walls.toString().length()-1).append(".\n");
+        else {
+            sb.append("at ").append(location.toString()).append(".\n");
+            if (!currentTile.getWalls().isEmpty()) {
+
+                TreeSet<Direction> walls = currentTile.getWalls();
+                if (walls.size() == 1)
+                    sb.append("There is a wall to the ");
+                else
+                    sb.append("There are walls to the ");
+                sb.append(walls.toString(), 1, walls.toString().length() - 1).append(".\n");
+            }
         }
 
         return sb.toString();
-//        String wallDirection = "";
-//
-//
-//        if (!currentTile.getWalls().isEmpty()) {
-//            wallDirection = "There is a wall to your: \n";
-//            String wallList = "";
-//            for (Direction d : currentTile.getWalls()) {
-//                wallList = wallList + "\n -" + d.toString();
-//            }
-//            wallDirection = wallDirection + wallList;
-//        }
-//        sb.append("You are currently at " + location.toString() + "." + "\n" + wallDirection);
-//        return sb.toString();
     }
 
     @Override
