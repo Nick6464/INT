@@ -8,7 +8,7 @@ public class Room {
     private HashSet<RoomTile> tiles;
     public final boolean hasShortcut;
     private Room shortcutDestination;
-    private HashSet<RoomTile> doorways;
+    private HashSet<RoomTile> doorways; //TODO add doorways to rooms
 
     public Room(String name, String initials, boolean hasShortcut) {
         roomName = name;

@@ -57,7 +57,10 @@ public class Player implements Comparable {
     /**
      * Sets player to have started their turn
      */
-    public void startTurn() { takingTurn = true; }
+    public void startTurn() {
+        takingTurn = true;
+        UI.clearScreen();
+    }
 
     /**
      * Sets player to have ended their turn
@@ -108,6 +111,7 @@ public class Player implements Comparable {
 
     /**
      * Moves player in desired direction on the board if no wall is in the way
+     * ~Used in testing~
      *
      * @param direction direction to travel in
      * @param distance  how far to move

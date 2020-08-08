@@ -181,10 +181,9 @@ public class UI {
     public static void clearScreen() {
         System.out.println(separator);
         for (int i = 0; i < 50; i++) {
-            System.out.println("*");
+            System.out.println();
         }
         System.out.println(separator);
-        System.out.println("Screen cleared...\n");
     }
 
     /**
@@ -233,14 +232,10 @@ public class UI {
                 }
                 break;
             case "map":
-                System.out.println(separator);
                 displayMap();
-                System.out.println(separator);
                 break;
             case "look":
-                System.out.println(separator);
                 playerArea(p);
-                System.out.println(separator);
                 break;
             case "accuse":
                 if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile) {
@@ -408,7 +403,9 @@ public class UI {
     }
 
     public static void playerArea(Player p) {
+        System.out.println(separator);
         System.out.println(board.printArea(p));
+        System.out.println(separator);
     }
 
     /**

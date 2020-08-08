@@ -48,7 +48,7 @@ public class Board {
     public Board() {
         board = new Tile[26][25]; //[0][0] Not used to allow for easier indexing - A1 == [1][1]
         rooms = new HashMap<>();
-        weapons = new HashMap<String,Weapon>();
+        weapons = new HashMap<>();
         //Load rooms//
         loadKitchen();
         loadBallroom();
@@ -81,7 +81,7 @@ public class Board {
             sb.append(String.format("%2d|", i));
         sb.append("\n");
         for(int y=1; y < board.length; y++) {
-            sb.append(Y + " |");
+            sb.append(Y).append(" |");
             for(int x=1; x < board[y].length; x++){
                 sb.append(board[y][x]);
                 sb.append("|");
@@ -92,7 +92,6 @@ public class Board {
         sb.append("  |");
         for(int i=1; i < board[0].length; i++)
             sb.append(String.format("%2d|", i));
-        sb.append("\n");
         return sb.toString();
     }
 
@@ -124,9 +123,10 @@ public class Board {
                     sb.append(board[top][printX]).append("|");
                 printX++;
             }
-            sb.append("\n");
             printX = left;
             top++;
+            if (top <= bot)
+                sb.append("\n");
         }
         return sb.toString();
     }
@@ -516,7 +516,7 @@ public class Board {
 
     /**
      * Creates weapon tokens and places them in their respective rooms
-     * @param weps
+     * @param weps -Card representation of the weapons
      */
     public void addWeapons(ArrayList<Card> weps) {
         for(Card card : weps) {
