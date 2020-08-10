@@ -85,6 +85,9 @@ public class Room {
                 tile.setVacant();
                 break;
             }
+        p.getLocation().setX(rt.getLocation().getX());
+        p.getLocation().setY(rt.getLocation().getY());
+
         p.move(doorways.get(rt), 1);
     }
 
