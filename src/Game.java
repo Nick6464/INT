@@ -49,6 +49,10 @@ public class Game {
 
     }
 
+    public ArrayList<Player> getAllCharacters(){
+        return allCharacters;
+    }
+
     /**
      * Takes a room, character and weapon a player suggests
      * @param room - room player is in
@@ -229,7 +233,7 @@ public class Game {
         UI = new UI(board);
         players = new ArrayList<>();
         allCharacters = new ArrayList<>();
-        addPlayers(); //TODO - add NPCs for sake of accusation
+        addPlayers();
         dealCards();
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 

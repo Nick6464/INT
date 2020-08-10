@@ -65,6 +65,8 @@ public class RoomTile implements Tile {
         player = null;
     }
 
+
+    //TODO Get players in a room
     public Player getOccupant() { return player;}
 
     /**

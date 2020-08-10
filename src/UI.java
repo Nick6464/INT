@@ -12,10 +12,6 @@ public class UI {
     public ArrayList<Card> allWeapons = new ArrayList<>();
 
     //TODO - PlayerLocation needs to mention other players, or leave as map visual only?
-    //TODO - ask for who you suspect(CONDITION: if player are in a room)
-    //TODO - declareAccusation() - the final declaration of who it is with what wep in what room*
-
-    //TODO - Characters and weapons don't move to rooms when accused
 
     /**
      * A String for a line that's sole purpose its to make things pretty
