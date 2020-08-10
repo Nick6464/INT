@@ -114,6 +114,12 @@ public class Game {
     }
 
     public static void teleportSuspect(Player suspect, Player player){
+        Tile currentTile = board.getTile(suspect.getLocation().getYIndex(),suspect.getLocation().getX());
+        if (currentTile instanceof CorridorTile)
+            currentTile.setVacant();
+        else {
+            ((RoomTile)currentTile).getRoom().vacateRoom(suspect);
+        }
         suspect.getLocation().setY(player.getLocation().getY());
         suspect.getLocation().setX(player.getLocation().getX());
         RoomTile tile = ((RoomTile) board.getTile(player.getLocation().getYIndex(),player.getLocation().getX())).getRoom().enterRoom();

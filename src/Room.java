@@ -81,15 +81,19 @@ public class Room {
      * @param p     The player leaving the room
      */
     public void leaveRoom(RoomTile rt, Player p) {
+        vacateRoom(p);
+        p.getLocation().setX(rt.getLocation().getX());
+        p.getLocation().setY(rt.getLocation().getY());
+
+        p.move(doorways.get(rt), 1);
+    }
+
+    public void vacateRoom(Player p){
         for (RoomTile tile : tiles)
             if (tile.getOccupant() == p) {
                 tile.setVacant();
                 break;
             }
-        p.getLocation().setX(rt.getLocation().getX());
-        p.getLocation().setY(rt.getLocation().getY());
-
-        p.move(doorways.get(rt), 1);
     }
 
     //TODO Show other players who are in the room
