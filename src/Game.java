@@ -11,7 +11,7 @@ public class Game {
     private static UI UI;
     private static Board board;
     private static ArrayList<Player> players;
-    private static ArrayList<Player> npcs;
+    private static ArrayList<Player> allCharacters;
     private static Cards.CharacterCard culprit;
     private static Cards.WeaponCard murderWeapon;
     private static Cards.RoomCard crimeScene;
@@ -41,9 +41,11 @@ public class Game {
         }
         Collections.sort(players);
 
-        for(String npc : characters){
-            npcs.add(new Player(npc, board));
+        for (String charName : characters){
+            allCharacters.add(new Player(charName, board));
         }
+
+        allCharacters.addAll(players);
 
     }
 
@@ -54,7 +56,14 @@ public class Game {
      * @param weapon - weapon player suspects
      * @param player - player making the guess
      */
-    public static void suspect(Card room, Card suspect, Card weapon, Player player) {
+    public static void suspect(Card room, CharacterCard suspect, Card weapon, Player player) {
+        for(Player moveSus : allCharacters){
+            if(moveSus.playerName.equals(suspect.getCharacterName())){
+                moveSus.getLocation().setY(player.getLocation().getY());
+                moveSus.getLocation().setX(player.getLocation().getX());
+            }
+        }
+
         int asked = -1;
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).equals(player)) {
@@ -83,7 +92,14 @@ public class Game {
      * @param player - player making the guess
      * @return - the status of the game
      */
-    public static boolean accuse(Card suspect, Card weapon, Card room, Player player){
+    public static boolean accuse(CharacterCard suspect, Card weapon, Card room, Player player){
+        for(Player moveSus : allCharacters){
+            if(moveSus.playerName.equals(suspect.getCharacterName())){
+                moveSus.getLocation().setY(player.getLocation().getY());
+                moveSus.getLocation().setX(player.getLocation().getX());
+            }
+        }
+
         if (murderWeapon.equals(weapon) && culprit.equals(suspect) && crimeScene.equals(room)){
             System.out.println(player.playerName + " guessed correctly.\nGame Over!");
             return false;
@@ -212,17 +228,18 @@ public class Game {
         board = new Board();
         UI = new UI(board);
         players = new ArrayList<>();
+        allCharacters = new ArrayList<>();
         addPlayers(); //TODO - add NPCs for sake of accusation
         dealCards();
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 
         //Testing move and UI function with Miss Scarlett//
-//        Player p = players.get(0);
-//        p.setMoves(8);
-//        p.getLocation().setX(8);
-//        p.getLocation().setY(6);
-//        p.takeTurn();
-//        gameLoop();
+        Player p = players.get(0);
+        p.setMoves(8);
+        p.getLocation().setX(8);
+        p.getLocation().setY(6);
+        p.takeTurn();
+        gameLoop();
         //p.takeTurn();
         //                              //
 

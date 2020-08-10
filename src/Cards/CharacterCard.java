@@ -15,4 +15,6 @@ public class CharacterCard implements Card {
     public int compareTo(Object o) {
         return toString().compareTo(o.toString());
     }
+
+    public String getCharacterName(){return this.characterName; }
 }

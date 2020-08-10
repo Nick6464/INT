@@ -228,7 +228,7 @@ public class UI {
                 break;
             case "suggest":
                 if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile) {
-                    Card suspect = playerSuspect(true);
+                    CharacterCard suspect = (CharacterCard) playerSuspect(true);
                     Card weapon = weaponSuspect();
                     Card room = roomSuspect(p);
                     Game.suspect(room, suspect,weapon, p);
@@ -244,7 +244,7 @@ public class UI {
                 break;
             case "accuse":
                 if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile) {
-                    Card suspect = playerSuspect(false);
+                    CharacterCard suspect = (CharacterCard) playerSuspect(false);
                     Card weapon = weaponSuspect();
                     Card room = roomSuspect(p);
                     Game.running = Game.accuse(suspect, weapon, room, p);
@@ -280,11 +280,7 @@ public class UI {
             } catch (Exception e) {
                 System.out.println("Please enter a valid door.");
             }
-
         }
-        //TODO - ask user to select doorway
-        //RoomTile rt = ask user select from room.getDoorways()
-        //room.leaveRoom(rt,p);
     }
 
     /**
