@@ -162,8 +162,8 @@ public class Game {
         }
         UI.allWeapons.addAll(weapons);
         Collections.shuffle(weapons);
-        murderWeapon = (WeaponCard) weapons.remove(0);
         board.addWeapons(weapons);
+        murderWeapon = (WeaponCard) weapons.remove(0);
         return weapons;
     }
 

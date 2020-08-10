@@ -284,10 +284,13 @@ public class Player implements Comparable {
                     sb.append(wep.getName()).append(", ");
                 sb.replace(sb.length() - 2, sb.length() - 1, ".\n");
             }
-            if (!room.getPlayers().isEmpty()) {
+            if (room.getPlayers().size() > 1) {
                 sb.append("Also in the the room is ");
-                for (Player p : room.getPlayers())
+                for (Player p : room.getPlayers()) {
+                    if (p == this)
+                        continue;
                     sb.append(p.playerName).append(", ");
+                }
                 sb.replace(sb.length() - 2, sb.length() - 1, ".\n");
             }
         }
