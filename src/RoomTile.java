@@ -9,6 +9,7 @@ public class RoomTile implements Tile {
     private TreeSet<Direction> walls = new TreeSet<>();
     private boolean occupied = false;
     private Player player;
+    private Location location;
 
     /**
      * Constructor for RoomTile
@@ -21,7 +22,14 @@ public class RoomTile implements Tile {
     /**
      * Sets tile to be a doorway into a room
      */
-    public void setDoorway() {isDoorway = true; }
+    public void setDoorway(Location loc) {
+        isDoorway = true;
+        location = loc;
+        }
+
+    public Location getLocation(){
+        return location;
+    }
 
     /**
      * Returns true if tile is a doorway
@@ -56,6 +64,8 @@ public class RoomTile implements Tile {
         occupied = false;
         player = null;
     }
+
+    public Player getOccupant() { return player;}
 
     /**
      * Getter for the walls each tile has

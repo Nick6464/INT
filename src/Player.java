@@ -72,7 +72,6 @@ public class Player implements Comparable {
      */
     public void playerMoves(){
         board.getTile(location.getYIndex(),location.getX()).setVacant();
-        board.getTile(location.getYIndex(),location.getX()).setVacant();
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
@@ -87,6 +86,13 @@ public class Player implements Comparable {
             int distance = Math.min(moves,Integer.parseInt(userDistance));
             while (distance > 0) {
                 if (location.move(direction, board)) {
+                    if (board.getTile(location.getYIndex(),location.getX()) instanceof RoomTile) {
+                        RoomTile tile = ((RoomTile) board.getTile(location.getYIndex(),location.getX())).getRoom().enterRoom();
+                        //Set to 1 as next lines will reduce them to 0
+                        moves = 0;
+                        tile.setOccupied(this);
+                        return;
+                    }
                     moves--;
                     distance--;
                 }
@@ -97,6 +103,7 @@ public class Player implements Comparable {
             }
         } catch (Exception e){
             System.out.println("Please enter a valid move");
+            System.out.println(e.getMessage());
         }
         board.getTile(location.getYIndex(),location.getX()).setOccupied(this);
     }
@@ -244,11 +251,11 @@ public class Player implements Comparable {
         //Player's name and location
         sb.append(playerName).append(" is currently ");
         if (currentTile instanceof RoomTile) {
-            RoomTile rt = (RoomTile) currentTile;
-            sb.append("in the ").append(rt.getRoom().getName()).append(".\n");
-            if (!rt.getRoom().getPotentialWeapons().isEmpty()) {
+            Room room = ((RoomTile) currentTile).getRoom();
+            sb.append("in the ").append(room.getName()).append(".\n");
+            if (!room.getPotentialWeapons().isEmpty()) {
                 sb.append("While looking for potential weapons, you see: ");
-                for(Weapon wep : rt.getRoom().getPotentialWeapons())
+                for(Weapon wep : room.getPotentialWeapons())
                     sb.append(wep.getName()).append(", ");
                 sb.replace(sb.length()-2,sb.length()-1,".\n");
             }

@@ -198,6 +198,7 @@ public class UI {
         Scanner sc = new Scanner(System.in);
 
         //TODO - undo option? -> Stack of location then use setX/setY in player.location to move them back, then add to moves
+        //TODO - stop moves upon entering a room, move player out of doorway
 
         switch (sc.nextLine().toLowerCase()) {
             case "actions":
@@ -207,8 +208,12 @@ public class UI {
                 help();
                 break;
             case "move":
-                if (p.getMoves() > 0)
+                if (p.getMoves() > 0) {
+                    //TODO
+                    // if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile)
+                    //     leaveRoom(p);
                     p.playerMoves();
+                }
                 else
                     System.out.println("You cannot move further this turn");
                 break;
@@ -250,6 +255,21 @@ public class UI {
             case "end":
                 p.endTurn();
         }
+    }
+
+    public static void leaveRoom(Player p) {
+        RoomTile tile = ((RoomTile) board.getTile(p.getLocation().getYIndex(),p.getLocation().getX()));
+        tile.setVacant();
+        Room room = tile.getRoom();
+        //If only 1 door, don't ask user, simply walk out door
+        if (room.getDoorways().size() == 1) {
+            for (RoomTile rt : room.getDoorways())
+                room.leaveRoom(rt, p);
+            return;
+        }
+        //TODO - ask user to select doorway
+        //RoomTile rt = ask user select from room.getDoorways()
+        //room.leaveRoom(rt,p);
     }
 
     /**

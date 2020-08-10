@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Room {
     private boolean isCrimeScene = false;
@@ -8,14 +10,14 @@ public class Room {
     private HashSet<RoomTile> tiles;
     public final boolean hasShortcut;
     private Room shortcutDestination;
-    private HashSet<RoomTile> doorways; //TODO add doorways to rooms
+    private HashMap<RoomTile, Direction> doorways;
 
     public Room(String name, String initials, boolean hasShortcut) {
         roomName = name;
         this.initials = initials;
         this.hasShortcut = hasShortcut;
         tiles = new HashSet<>();
-        doorways = new HashSet<>();
+        doorways = new HashMap<>();
         potentialWeapons = new HashSet<>();
     }
 
@@ -61,4 +63,45 @@ public class Room {
      * @return  -The tiles that make up the room
      */
     public HashSet<RoomTile> getTiles() {return tiles; }
+
+    public void setTiles(RoomTile rt) { tiles.add(rt); }
+
+    public void setDoorways(RoomTile rt, Direction dir) {
+        doorways.put(rt,dir);
+    }
+
+    public Set<RoomTile> getDoorways() {
+        return doorways.keySet();
+    }
+
+    /**
+     * Walks the player 1 space outside the room via chosen exit
+     * @param rt    Tile corresponding to chosen doorway
+     * @param p     The player leaving the room
+     */
+    public void leaveRoom(RoomTile rt, Player p) {
+        for (RoomTile tile : tiles)
+            if (tile.getOccupant() == p) {
+                tile.setVacant();
+                break;
+            }
+        p.move(doorways.get(rt), 1);
+    }
+
+    /**
+     * @return A vacant tile in the room that does not block a doorway
+     */
+    public RoomTile enterRoom() {
+        for (RoomTile tile : tiles) {
+            if(tile.isDoorway() || tile.isOccupied())
+                continue;
+            return tile;
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return roomName;
+    }
 }

@@ -65,15 +65,6 @@ public class Location {
         return true;
     }
 
-    /**
-     * Moves player through shortcut to other room
-     * @return  -True is method was successful
-     */
-    public boolean takeShortcut() {
-        //TODO - use teleport tile; return true if valid action, otherwise return false **May be moved to Room.class**
-        return false;
-    }
-
     public String toString() {
         return "[" + y + ", " + x + "]";
     }

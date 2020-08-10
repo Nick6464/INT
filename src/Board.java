@@ -67,6 +67,7 @@ public class Board {
         loadCorridor();
         loadCornerDoorWalls();
         rooms.remove("Cellar");
+        loadRooms();
     }
 
     /**
@@ -142,6 +143,19 @@ public class Board {
      * @return -A map of the rooms in the game
      */
     public HashMap<String,Room> getRooms() {return rooms; }
+
+    private void loadRooms() {
+        for(int y=1; y < board.length; y++)
+            for(int x=1; x < board[y].length; x++) {
+                if (board[y][x] instanceof RoomTile) {
+                    RoomTile tile = (RoomTile) board[y][x];
+                    if(tile.getRoom().getName().equals("Cellar"))
+                        continue;;
+                    Room room = rooms.get(tile.getRoom().getName());
+                    room.setTiles(tile);
+                }
+            }
+    }
 
     /**
      * Loads the Kitchen tiles, and adds Kitchen to the rooms list
@@ -483,35 +497,41 @@ public class Board {
     }
 
     /**
-     * Sets door tiles
+     * Sets door tiles, and the direction from which the player will leave
      */
     private void loadDoorways() {
         //Kitchen
-        ((RoomTile)board[charToInt('G')][5]).setDoorway();
+        setDoorway(new Location('G',5), Direction.SOUTH);
         //Ballroom
-        ((RoomTile)board[charToInt('F')][9]).setDoorway();
-        ((RoomTile)board[charToInt('H')][10]).setDoorway();
-        ((RoomTile)board[charToInt('H')][15]).setDoorway();
-        ((RoomTile)board[charToInt('F')][16]).setDoorway();
+        setDoorway(new Location('F',9),Direction.WEST);
+        setDoorway(new Location('H',10),Direction.SOUTH);
+        setDoorway(new Location('H',15),Direction.SOUTH);
+        setDoorway(new Location('F',16),Direction.EAST);
         //Conservatory
-        ((RoomTile)board[charToInt('E')][19]).setDoorway();
+        setDoorway(new Location('E',19),Direction.SOUTH);
         //Dining Room
-        ((RoomTile)board[charToInt('M')][8]).setDoorway();
-        ((RoomTile)board[charToInt('P')][7]).setDoorway();
+        setDoorway(new Location('M',8),Direction.EAST);
+        setDoorway(new Location('P',7),Direction.SOUTH);
         //Billiard Room
-        ((RoomTile)board[charToInt('J')][19]).setDoorway();
-        ((RoomTile)board[charToInt('M')][23]).setDoorway();
+        setDoorway(new Location('J',19),Direction.WEST);
+        setDoorway(new Location('M',23),Direction.SOUTH);
         //Library
-        ((RoomTile)board[charToInt('O')][21]).setDoorway();
-        ((RoomTile)board[charToInt('Q')][18]).setDoorway();
+        setDoorway(new Location('O',21),Direction.NORTH);
+        setDoorway(new Location('Q',18),Direction.WEST);
         //Lounge
-        ((RoomTile)board[charToInt('T')][7]).setDoorway();
+        setDoorway(new Location('T',7),Direction.NORTH);
         //Hall
-        ((RoomTile)board[charToInt('S')][12]).setDoorway();
-        ((RoomTile)board[charToInt('S')][13]).setDoorway();
-        ((RoomTile)board[charToInt('U')][15]).setDoorway();
+        setDoorway(new Location('S',12),Direction.NORTH);
+        setDoorway(new Location('S',13),Direction.NORTH);
+        setDoorway(new Location('U',15),Direction.EAST);
         //Study
-        ((RoomTile)board[charToInt('V')][18]).setDoorway();
+        setDoorway(new Location('V',18),Direction.NORTH);
+    }
+
+    private void setDoorway(Location l, Direction dir) {
+        RoomTile tile = (RoomTile)board[l.getYIndex()][l.getX()];
+        tile.setDoorway(l);
+        tile.getRoom().setDoorways(tile, dir);
     }
 
     /**
