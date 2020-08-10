@@ -33,10 +33,13 @@ public class Player implements Comparable {
         }
     }
 
-    public int getMoves() { return moves; }
+    public int getMoves() {
+        return moves;
+    }
 
     /**
      * Gets the cards the player has seen
+     *
      * @return - returns an arraylist of cards (player has seen)
      */
     public ArrayList<Card> getSeen() {
@@ -47,6 +50,7 @@ public class Player implements Comparable {
 
     /**
      * Gets the cards the player has not seen
+     *
      * @return - returns an arraylist of cards (player has seen)
      */
     public ArrayList<Card> getUnseen() {
@@ -65,13 +69,15 @@ public class Player implements Comparable {
     /**
      * Sets player to have ended their turn
      */
-    public void endTurn() { takingTurn = false; }
+    public void endTurn() {
+        takingTurn = false;
+    }
 
     /**
      * How the player wants to move
      */
-    public void playerMoves(){
-        board.getTile(location.getYIndex(),location.getX()).setVacant();
+    public void playerMoves() {
+        board.getTile(location.getYIndex(), location.getX()).setVacant();
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
@@ -83,11 +89,11 @@ public class Player implements Comparable {
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             };
             String userDistance = UI.userInput("How far do you want to move " + direction.toString() + "?");
-            int distance = Math.min(moves,Integer.parseInt(userDistance));
+            int distance = Math.min(moves, Integer.parseInt(userDistance));
             while (distance > 0) {
                 if (location.move(direction, board)) {
-                    if (board.getTile(location.getYIndex(),location.getX()) instanceof RoomTile) {
-                        RoomTile tile = ((RoomTile) board.getTile(location.getYIndex(),location.getX())).getRoom().enterRoom();
+                    if (board.getTile(location.getYIndex(), location.getX()) instanceof RoomTile) {
+                        RoomTile tile = ((RoomTile) board.getTile(location.getYIndex(), location.getX())).getRoom().enterRoom();
                         //Set to 1 as next lines will reduce them to 0
                         moves = 0;
                         tile.setOccupied(this);
@@ -95,24 +101,24 @@ public class Player implements Comparable {
                     }
                     moves--;
                     distance--;
-                }
-                else {
+                } else {
                     System.out.println("Your path is obstructed.");
                     break;
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Please enter a valid move");
             System.out.println(e.getMessage());
         }
-        board.getTile(location.getYIndex(),location.getX()).setOccupied(this);
+        board.getTile(location.getYIndex(), location.getX()).setOccupied(this);
     }
 
     /**
      * Used for testing to force the moves a player gets
+     *
      * @param moves - number of moves the player gets
      */
-    public void setMoves(int moves){
+    public void setMoves(int moves) {
         this.moves = moves;
     }
 
@@ -152,17 +158,18 @@ public class Player implements Comparable {
 
     /**
      * Checks if a player has any of the selected cards
-     * @param weapon - card to check
+     *
+     * @param weapon  - card to check
      * @param suspect - card to check
-     * @param room - card to check
+     * @param room    - card to check
      * @return - the card they have selected to show
      */
-    public Card hasCard(Card weapon, Card suspect, Card room){
+    public Card hasCard(Card weapon, Card suspect, Card room) {
         ArrayList<Card> has = new ArrayList<>();
-        for(Card card : hand){
+        for (Card card : hand) {
             if (card.toString().equals(weapon.toString()) ||
-                card.toString().equals(suspect.toString()) ||
-                card.toString().equals(room.toString())){
+                    card.toString().equals(suspect.toString()) ||
+                    card.toString().equals(room.toString())) {
 
                 has.add(card);
             }
@@ -199,6 +206,7 @@ public class Player implements Comparable {
 
     /**
      * Gets a players hand
+     *
      * @return - their hand
      */
     public ArrayList<Card> getHand() {
@@ -207,42 +215,59 @@ public class Player implements Comparable {
 
     /**
      * Creates a new player, and assigns a position based on chosen character
+     *
      * @param name the name of the chosen character
      */
     public Player(String name, Board board) {
-       this.board = board;
-       playerName = name;
+        this.board = board;
+        playerName = name;
         switch (name) {
-            case "Miss Scarlett"    -> {location = new Location('Y', 8);
-                                        initials = "MS";
-                                        playOrder = 1;}
-            case "Rev Green"        -> {location = new Location('A', 15);
-                                        initials = "RG";
-                                        playOrder = 4;}
-            case "Colonel Mustard"  -> {location = new Location('R', 1);
-                                        initials = "CM";
-                                        playOrder = 2;}
-            case "Professor Plum"   -> {location = new Location('T', 24);
-                                        initials = "PP";
-                                        playOrder = 6;}
-            case "Mrs. Peacock"     -> {location = new Location('G', 24);
-                                        initials = "MP";
-                                        playOrder = 5;}
-            case "Mrs. White"       -> {location = new Location('A', 10);
-                                        initials = "MW";
-                                        playOrder = 3;}
+            case "Miss Scarlett" -> {
+                location = new Location('Y', 8);
+                initials = "MS";
+                playOrder = 1;
+            }
+            case "Rev Green" -> {
+                location = new Location('A', 15);
+                initials = "RG";
+                playOrder = 4;
+            }
+            case "Colonel Mustard" -> {
+                location = new Location('R', 1);
+                initials = "CM";
+                playOrder = 2;
+            }
+            case "Professor Plum" -> {
+                location = new Location('T', 24);
+                initials = "PP";
+                playOrder = 6;
+            }
+            case "Mrs. Peacock" -> {
+                location = new Location('G', 24);
+                initials = "MP";
+                playOrder = 5;
+            }
+            case "Mrs. White" -> {
+                location = new Location('A', 10);
+                initials = "MW";
+                playOrder = 3;
+            }
         }
         board.getTile(location.getYIndex(), location.getX()).setOccupied(this);
     }
 
     /**
      * Gets a players location
+     *
      * @return - Location
      */
-    public Location getLocation() { return location; }
+    public Location getLocation() {
+        return location;
+    }
 
     /**
      * Gets the players location and returns if there are walls, and in what direction.
+     *
      * @return returns a String describing the players location
      */
     public String playerLocation() {
@@ -255,10 +280,16 @@ public class Player implements Comparable {
             sb.append("in the ").append(room.getName()).append(".\n");
             if (!room.getPotentialWeapons().isEmpty()) {
                 sb.append("While looking for potential weapons, you see: ");
-                for(Weapon wep : room.getPotentialWeapons())
+                for (Weapon wep : room.getPotentialWeapons())
                     sb.append(wep.getName()).append(", ");
-                sb.replace(sb.length()-2,sb.length()-1,".\n");
+                sb.replace(sb.length() - 2, sb.length() - 1, ".\n");
             }
+            if (!room.getPlayers().isEmpty()) {
+                sb.append("Also in the the room is ");
+                for (Player p : room.getPlayers())
+                    sb.append(p.playerName).append(", ");
+            }
+            sb.replace(sb.length() - 2, sb.length() - 1, ".\n");
         }
         //Walls around player's location
         else {

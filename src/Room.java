@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -93,10 +94,13 @@ public class Room {
 
     //TODO Show other players who are in the room
 
-//    public ArrayList<Player> getPlayers(){
-//
-//
-//    }
+    public ArrayList<Player> getPlayers(){
+        ArrayList<Player> players = new ArrayList<>();
+        for (RoomTile tile : tiles)
+            if (tile.isOccupied())
+                players.add(tile.getOccupant());
+        return players;
+    }
 
     /**
      * @return A vacant tile in the room that does not block a doorway

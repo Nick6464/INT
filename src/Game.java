@@ -101,6 +101,7 @@ public class Game {
             if(moveSus.playerName.equals(suspect.getCharacterName())){
                 moveSus.getLocation().setY(player.getLocation().getY());
                 moveSus.getLocation().setX(player.getLocation().getX());
+
             }
         }
 
