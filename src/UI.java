@@ -11,8 +11,6 @@ public class UI {
     private static Board board;
     public ArrayList<Card> allWeapons = new ArrayList<>();
 
-    //TODO - PlayerLocation needs to mention other players, or leave as map visual only?
-
     /**
      * A String for a line that's sole purpose its to make things pretty
      */
@@ -194,7 +192,6 @@ public class UI {
         Scanner sc = new Scanner(System.in);
 
         //TODO - undo option? -> Stack of location then use setX/setY in player.location to move them back, then add to moves
-        //TODO - stop moves upon entering a room, move player out of doorway
 
         switch (sc.nextLine().toLowerCase()) {
             case "actions":

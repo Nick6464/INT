@@ -96,8 +96,6 @@ public class Room {
             }
     }
 
-    //TODO Show other players who are in the room
-
     public ArrayList<Player> getPlayers(){
         ArrayList<Player> players = new ArrayList<>();
         for (RoomTile tile : tiles)
