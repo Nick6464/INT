@@ -258,9 +258,7 @@ public class UI {
     }
 
     public static void leaveRoom(Player p) {
-        RoomTile tile = ((RoomTile) board.getTile(p.getLocation().getYIndex(),p.getLocation().getX()));
-        tile.setVacant();
-        Room room = tile.getRoom();
+        Room room = ((RoomTile) board.getTile(p.getLocation().getYIndex(),p.getLocation().getX())).getRoom();
         //If only 1 door, don't ask user, simply walk out door
         if (room.getDoorways().size() == 1) {
             for (RoomTile rt : room.getDoorways())
