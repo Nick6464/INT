@@ -11,6 +11,7 @@ public class Game {
     private static UI UI;
     private static Board board;
     private static ArrayList<Player> players;
+    private static ArrayList<Player> npcs;
     private static Cards.CharacterCard culprit;
     private static Cards.WeaponCard murderWeapon;
     private static Cards.RoomCard crimeScene;
@@ -39,6 +40,11 @@ public class Game {
             i++;
         }
         Collections.sort(players);
+
+        for(String npc : characters){
+            npcs.add(new Player(npc, board));
+        }
+
     }
 
     /**
@@ -211,12 +217,12 @@ public class Game {
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 
         //Testing move and UI function with Miss Scarlett//
-        Player p = players.get(0);
-        p.setMoves(8);
-        p.getLocation().setX(8);
-        p.getLocation().setY(6);
-        p.takeTurn();
-        gameLoop();
+//        Player p = players.get(0);
+//        p.setMoves(8);
+//        p.getLocation().setX(8);
+//        p.getLocation().setY(6);
+//        p.takeTurn();
+//        gameLoop();
         //p.takeTurn();
         //                              //
 
