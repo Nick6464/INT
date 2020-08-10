@@ -209,10 +209,10 @@ public class UI {
                 break;
             case "move":
                 if (p.getMoves() > 0) {
-                    //TODO
-                    // if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile)
-                    //     leaveRoom(p);
-                    p.playerMoves();
+                    if (board.getTile(p.getLocation().getYIndex(), p.getLocation().getX()) instanceof RoomTile)
+                        leaveRoom(p);
+                    else
+                        p.playerMoves();
                 }
                 else
                     System.out.println("You cannot move further this turn");
@@ -264,6 +264,23 @@ public class UI {
             for (RoomTile rt : room.getDoorways())
                 room.leaveRoom(rt, p);
             return;
+        } else {
+            int i = 0;
+            ArrayList<RoomTile> doors = new ArrayList<>();
+            for (RoomTile door : room.getDoorways()){
+                i++;
+                System.out.println(i + " : " + door.getLocation());
+                doors.add(door);
+            }
+            String selection = userInput("Which door would you like to leave out of?");
+            try {
+                int selectionInt = Integer.parseInt(selection);
+                if (selectionInt >= 1 && selectionInt <= doors.size())
+                    room.leaveRoom(doors.get(selectionInt - 1), p);
+            } catch (Exception e) {
+                System.out.println("Please enter a valid door.");
+            }
+
         }
         //TODO - ask user to select doorway
         //RoomTile rt = ask user select from room.getDoorways()

@@ -211,13 +211,12 @@ public class Game {
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 
         //Testing move and UI function with Miss Scarlett//
-//        Player p = players.get(0);
-//        p.setMoves(8);
-//        p.move(Direction.NORTH, 6);
-//        p.move(Direction.WEST, 1);
-//        p.move(Direction.SOUTH, 1);
-//        p.takeTurn();
-//        gameLoop();
+        Player p = players.get(0);
+        p.setMoves(8);
+        p.getLocation().setX(8);
+        p.getLocation().setY(6);
+        p.takeTurn();
+        gameLoop();
         //p.takeTurn();
         //                              //
 
