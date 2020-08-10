@@ -248,15 +248,15 @@ public class Game {
         dealCards();
         board.getRooms().get(crimeScene.getRoomName()).setCrimeScene();
 
-        //Testing move and UI function with Miss Scarlett//
-        Player p = players.get(0);
-        p.setMoves(8);
-        p.getLocation().setX(8);
-        p.getLocation().setY(6);
-        p.takeTurn();
-        gameLoop();
-        //p.takeTurn();
-        //                              //
+//        //Testing move and UI function with Miss Scarlett//
+//        Player p = players.get(0);
+//        p.setMoves(8);
+//        p.getLocation().setX(8);
+//        p.getLocation().setY(6);
+//        p.takeTurn();
+//        gameLoop();
+//        //p.takeTurn();
+//        //                              //
 
         gameLoop();
     }
