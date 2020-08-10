@@ -63,8 +63,7 @@ public class Game {
     public static void suspect(Card room, CharacterCard suspect, Card weapon, Player player) {
         for(Player moveSus : allCharacters){
             if(moveSus.playerName.equals(suspect.getCharacterName())){
-                moveSus.getLocation().setY(player.getLocation().getY());
-                moveSus.getLocation().setX(player.getLocation().getX());
+                teleportSuspect(moveSus, player);
             }
         }
 
@@ -99,8 +98,7 @@ public class Game {
     public static boolean accuse(CharacterCard suspect, Card weapon, Card room, Player player){
         for(Player moveSus : allCharacters){
             if(moveSus.playerName.equals(suspect.getCharacterName())){
-                moveSus.getLocation().setY(player.getLocation().getY());
-                moveSus.getLocation().setX(player.getLocation().getX());
+                teleportSuspect(moveSus, player);
             }
         }
 
@@ -113,6 +111,13 @@ public class Game {
             player.endTurn();
             return true;
         }
+    }
+
+    public static void teleportSuspect(Player suspect, Player player){
+        suspect.getLocation().setY(player.getLocation().getY());
+        suspect.getLocation().setX(player.getLocation().getX());
+        RoomTile tile = ((RoomTile) board.getTile(player.getLocation().getYIndex(),player.getLocation().getX())).getRoom().enterRoom();
+        tile.setOccupied(suspect);
     }
 
 
