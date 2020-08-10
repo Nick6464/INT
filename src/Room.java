@@ -85,7 +85,7 @@ public class Room {
         p.getLocation().setX(rt.getLocation().getX());
         p.getLocation().setY(rt.getLocation().getY());
 
-        p.move(doorways.get(rt), 1);
+        p.move(doorways.get(rt));
     }
 
     public void vacateRoom(Player p){

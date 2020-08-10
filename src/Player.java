@@ -124,27 +124,13 @@ public class Player implements Comparable {
 
     /**
      * Moves player in desired direction on the board if no wall is in the way
-     * ~Used in testing~
      *
      * @param direction direction to travel in
      * @param distance  how far to move
      */
-    public int move(Direction direction, int distance) {
-        try {
-            if (distance > moves) {
-                throw new IllegalStateException("Unexpected value");
-            }
-            while (distance > 0) {
-                if (!location.move(direction, board)) {
-                    System.out.println("You cannot move further in that direction");
-                    return distance;
-                }
-                distance--;
-            }
-        } catch (IllegalStateException e) {
-            System.out.println("Can only move " + moves + " spaces this turn");
-        }
-        return 0;
+    public void move(Direction direction) {
+        location.move(direction, board);
+        board.getTile(location.getYIndex(),location.getX()).setOccupied(this);
     }
 
 
