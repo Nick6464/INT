@@ -91,6 +91,8 @@ public class Room {
         p.move(doorways.get(rt), 1);
     }
 
+    //TODO Show other players who are in the room
+
     /**
      * @return A vacant tile in the room that does not block a doorway
      */
