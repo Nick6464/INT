@@ -81,13 +81,22 @@ public class Player implements Comparable {
         try {
             Direction direction;
             String input = UI.userInput("What Direction do you want to move?\nNorth, South, East or West");
-            direction = switch (input.toLowerCase()) {
-                case "north" -> Direction.NORTH;
-                case "south" -> Direction.SOUTH;
-                case "east" -> Direction.EAST;
-                case "west" -> Direction.WEST;
-                default -> throw new IllegalStateException("Unexpected value: " + input);
-            };
+            switch (input.toLowerCase()) {
+                case "north":
+                    direction = Direction.NORTH;
+                    break;
+                case "south":
+                    direction = Direction.SOUTH;
+                    break;
+                case "east":
+                    direction = Direction.EAST;
+                    break;
+                case "west":
+                    direction = Direction.WEST;
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + input);
+            }
             String userDistance = UI.userInput("How far do you want to move " + direction.toString() + "?");
             int distance = Math.min(moves, Integer.parseInt(userDistance));
             while (distance > 0) {
@@ -126,7 +135,6 @@ public class Player implements Comparable {
      * Moves player in desired direction on the board if no wall is in the way
      *
      * @param direction direction to travel in
-     * @param distance  how far to move
      */
     public void move(Direction direction) {
         location.move(direction, board);
@@ -208,36 +216,36 @@ public class Player implements Comparable {
         this.board = board;
         playerName = name;
         switch (name) {
-            case "Miss Scarlett" -> {
+            case "Miss Scarlett":
                 location = new Location('Y', 8);
                 initials = "MS";
                 playOrder = 1;
-            }
-            case "Rev Green" -> {
+                break;
+            case "Rev Green":
                 location = new Location('A', 15);
                 initials = "RG";
                 playOrder = 4;
-            }
-            case "Colonel Mustard" -> {
+                break;
+            case "Colonel Mustard":
                 location = new Location('R', 1);
                 initials = "CM";
                 playOrder = 2;
-            }
-            case "Professor Plum" -> {
+                break;
+            case "Professor Plum":
                 location = new Location('T', 24);
                 initials = "PP";
                 playOrder = 6;
-            }
-            case "Mrs. Peacock" -> {
+                break;
+            case "Mrs. Peacock":
                 location = new Location('G', 24);
                 initials = "MP";
                 playOrder = 5;
-            }
-            case "Mrs. White" -> {
+                break;
+            case "Mrs. White":
                 location = new Location('A', 10);
                 initials = "MW";
                 playOrder = 3;
-            }
+                break;
         }
         board.getTile(location.getYIndex(), location.getX()).setOccupied(this);
     }
