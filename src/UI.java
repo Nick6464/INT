@@ -147,24 +147,28 @@ public class UI {
 
         switch (command) {
             //General Tiles
-            case "/gt" -> {
+            case "/gt":
                 System.out.println(separator);
                 System.out.println(generalDef);
-            }
+                break;
             //Spawn Tiles
-            case "/st" -> {
+            case "/st":
                 System.out.println(separator);
                 System.out.println(spawnDef);
-            }
+                break;
             //Room Tiles
-            case "/rt" -> {
+            case "/rt":
                 System.out.println(separator);
                 System.out.println(roomDef);
-            }
+                break;
             //Exit Command
-            case "/exit" -> System.out.println("Exiting help menu...\n");
+            case "/exit":
+                System.out.println("Exiting help menu...\n");
+                break;
             //Invalid input scenario
-            default -> System.out.println("Invalid Command");
+            default:
+                System.out.println("Invalid Command");
+                break;
         }
     }
 
