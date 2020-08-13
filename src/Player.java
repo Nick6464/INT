@@ -133,7 +133,6 @@ public class Player implements Comparable {
      * Moves player in desired direction on the board if no wall is in the way
      *
      * @param direction direction to travel in
-     * @param distance  how far to move
      */
     public void move(Direction direction) {
         location.move(direction, board);
